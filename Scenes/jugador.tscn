@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhrf0y5syfgyj"]
 
 [ext_resource type="Texture2D" uid="uid://d0aex76uu3aa1" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_down.png" id="1_cvhml"]
-[ext_resource type="Script" uid="uid://5g6hdpemcvlq" path="res://jugador.gd" id="1_hcpjn"]
+[ext_resource type="Script" uid="uid://5g6hdpemcvlq" path="res://Scenes/jugador.gd" id="1_hcpjn"]
 [ext_resource type="Texture2D" uid="uid://cqnbugpix5aaf" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_left_down.png" id="2_btb33"]
 [ext_resource type="Texture2D" uid="uid://bn33l04biw6i4" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_left_up.png" id="3_qw2bf"]
 [ext_resource type="Texture2D" uid="uid://bo20h2y6142er" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_right_down.png" id="4_g5h5a"]
@@ -625,21 +625,20 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvhml"]
-radius = 27.0
-height = 104.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oua2g"]
+size = Vector2(64, 70)
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1547580877]
 script = ExtResource("1_hcpjn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1219376306]
 position = Vector2(2.861023e-06, 2)
-scale = Vector2(5, 4.853)
+scale = Vector2(3, 2.912)
 sprite_frames = SubResource("SpriteFrames_lbm5c")
 animation = &"Walk_up"
 frame_progress = 0.83474684
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87059315]
-shape = SubResource("CapsuleShape2D_cvhml")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1940653222]
+position = Vector2(1, 14.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_oua2g")
