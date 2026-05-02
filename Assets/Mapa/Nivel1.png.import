@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg16w0dmgydmk"
-path="res://.godot/imported/mapacelda1.png-cd2e1149fcd771029a4d16197b6c6d81.ctex"
+path="res://.godot/imported/Nivel1.png-3182f0ffdc1154f8eafc061b1d24b642.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Mapa/mapacelda1.png"
-dest_files=["res://.godot/imported/mapacelda1.png-cd2e1149fcd771029a4d16197b6c6d81.ctex"]
+source_file="res://Assets/Mapa/Nivel1.png"
+dest_files=["res://.godot/imported/Nivel1.png-3182f0ffdc1154f8eafc061b1d24b642.ctex"]
 
 [params]
 
