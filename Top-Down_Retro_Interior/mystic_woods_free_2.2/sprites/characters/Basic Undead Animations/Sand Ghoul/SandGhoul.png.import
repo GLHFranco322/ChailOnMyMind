@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsxr2cxjgga1s"
-path="res://.godot/imported/skeleton_swordless.png-d5fe725b7310db078d25a939c83d2100.ctex"
+uid="uid://cu4ygg6cteeji"
+path="res://.godot/imported/SandGhoul.png-e53c812b1da29971b3bd03c8fa774de6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/skeleton_swordless.png"
-dest_files=["res://.godot/imported/skeleton_swordless.png-d5fe725b7310db078d25a939c83d2100.ctex"]
+source_file="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Basic Undead Animations/Sand Ghoul/SandGhoul.png"
+dest_files=["res://.godot/imported/SandGhoul.png-e53c812b1da29971b3bd03c8fa774de6.ctex"]
 
 [params]
 

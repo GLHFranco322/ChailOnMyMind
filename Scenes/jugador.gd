@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
-@export var speed = 200
-
-var stamina: float = 0.0
-var stamina_max: float = 50.0
-
-var is_attacking = false
-var last_direction = "down"
+@export var speed: int = 200
+@export var vidaJugador: int = 100
+@export var stamina_max: float = 50.0
 
 @onready var bar = $ProgressBar
+
+var stamina: float = 0.0
+var is_attacking: bool = false
+var last_direction = "down"
 
 func _physics_process(delta):
 
@@ -42,11 +42,11 @@ func _physics_process(delta):
 	# Run
 	var is_running = false
 	if Input.is_action_pressed("Run") and is_moving and stamina < stamina_max:
-		current_speed = speed * 2
 		is_running = true
-	else:
+		current_speed = speed * 2
+	if stamina == stamina_max and is_running == true:
 		current_speed = speed
-
+	
 	velocity = input_vector * current_speed
 	move_and_slide()
 
@@ -108,3 +108,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation.begins_with("atack"):
 		is_attacking = false
 		$AnimatedSprite2D.play("Idle")
+
+func recibir_dano():
+	pass

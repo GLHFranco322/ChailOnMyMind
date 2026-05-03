@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gcclw8q3wgf6"
-path="res://.godot/imported/skeleton.png-7658cedea33f952f82f174e443760a98.ctex"
+uid="uid://dlaspcyr65t2f"
+path="res://.godot/imported/RoyalScarab.png-69479c55c2088dd1795543afa1f75a94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/skeleton.png"
-dest_files=["res://.godot/imported/skeleton.png-7658cedea33f952f82f174e443760a98.ctex"]
+source_file="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Basic Undead Animations/Royal Scarab/RoyalScarab.png"
+dest_files=["res://.godot/imported/RoyalScarab.png-69479c55c2088dd1795543afa1f75a94.ctex"]
 
 [params]
 

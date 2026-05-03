@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bw4san1llkkyf"]
+
+[ext_resource type="Script" uid="uid://c1putle68dmce" path="res://Scenes/enemigo.gd" id="1_mwaop"]
+[ext_resource type="Texture2D" uid="uid://dm8giuxwixskw" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Basic Undead Animations/Decrepit Bones/DecrepitBones.png" id="2_t4vig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hm1l"]
+atlas = ExtResource("2_t4vig")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y42jf"]
+atlas = ExtResource("2_t4vig")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kvw7"]
+atlas = ExtResource("2_t4vig")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ushq4"]
+atlas = ExtResource("2_t4vig")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ye8yw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hm1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y42jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kvw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ushq4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l51y"]
+size = Vector2(22, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75jbx"]
+size = Vector2(72, 71)
+
+[node name="Enemigo" type="CharacterBody2D" unique_id=1085170091]
+script = ExtResource("1_mwaop")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=686201560]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ye8yw")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=905361751]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_8l51y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1189129650]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=723847250]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_75jbx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

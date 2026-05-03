@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dkwcrs3xnwg7o"]
 
+[ext_resource type="Script" uid="uid://cawjvrj1yuqtn" path="res://Scenes/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bhrf0y5syfgyj" path="res://Scenes/jugador.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dt5vl0vkc73gb" path="res://mapa.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bw4san1llkkyf" path="res://Scenes/enemigo.tscn" id="4_jjvhh"]
 
 [node name="Main" type="Node2D" unique_id=39525502]
+script = ExtResource("1_8gbba")
 
 [node name="Mapa" parent="." unique_id=1682887945 instance=ExtResource("2_bo1nx")]
 
@@ -11,3 +14,22 @@
 z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=598315049]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1617667590]
+layer = 0
+offset = Vector2(40, 10)
+transform = Transform2D(1, 0, 0, 1, 40, 10)
+
+[node name="BarraVida" type="ProgressBar" parent="CanvasLayer" unique_id=855287019]
+offset_left = -26.0
+offset_top = 3.0
+offset_right = 74.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Enemigo" parent="." unique_id=1085170091 instance=ExtResource("4_jjvhh")]
+position = Vector2(-150, 168)
+
+[node name="Enemigo2" parent="." unique_id=1075457206 instance=ExtResource("4_jjvhh")]
+position = Vector2(335, 154)
