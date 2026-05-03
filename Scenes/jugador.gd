@@ -2,103 +2,109 @@ extends CharacterBody2D
 
 @export var speed = 200
 
-var is_jumping = false
-var last_direction = "right"
-var jump_velocity = Vector2.ZERO
+var stamina: float = 0.0
+var stamina_max: float = 50.0
 
+var is_attacking = false
+var last_direction = "down"
+
+@onready var bar = $ProgressBar
 
 func _physics_process(delta):
-	var input_vector = Vector2.ZERO
 
-	# Movimiento normal
-	if not is_jumping:
-		if Input.is_action_pressed("Walk_right"):
-			input_vector.x += 1
-		if Input.is_action_pressed("Walk_left"):
-			input_vector.x -= 1
-		if Input.is_action_pressed("Walk_down"):
-			input_vector.y += 1
-		if Input.is_action_pressed("Walk_up"):
-			input_vector.y -= 1
-
-		input_vector = input_vector.normalized()
-
-		# Guardar última dirección horizontal
-		if input_vector.x > 0:
-			last_direction = "right"
-		elif input_vector.x < 0:
-			last_direction = "left"
-
-		velocity = input_vector * speed
-	else:
-		# Durante salto mantiene dirección inicial
-		velocity = jump_velocity
-
-	# Salto
-	if Input.is_action_just_pressed("Jump") and not is_jumping:
-		start_jump()
-
-	move_and_slide()
-
-	if not is_jumping:
-		update_animation(input_vector)
-
-
-func start_jump():
-	is_jumping = true
+	# 🚫 BLOQUEO DURANTE ATAQUE
+	if is_attacking:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
 
 	var input_vector = Vector2.ZERO
+	var current_speed = speed
+	var is_moving = false
 
+	# Movimiento
 	if Input.is_action_pressed("Walk_right"):
+		$AnimatedSprite2D.flip_h = false
 		input_vector.x += 1
 	if Input.is_action_pressed("Walk_left"):
+		$AnimatedSprite2D.flip_h = true
 		input_vector.x -= 1
-	if Input.is_action_pressed("Walk_up"):
-		input_vector.y -= 1
 	if Input.is_action_pressed("Walk_down"):
 		input_vector.y += 1
+	if Input.is_action_pressed("Walk_up"):
+		input_vector.y -= 1
 
 	input_vector = input_vector.normalized()
 
-	# 🎯 Animación correcta
-	if input_vector == Vector2.ZERO:
-		# Idle → salto en el lugar
-		$AnimatedSprite2D.play("Jump_down")
-	else:
-		if abs(input_vector.x) > abs(input_vector.y):
-			if input_vector.x > 0:
-				$AnimatedSprite2D.play("Jump_right")
-				last_direction = "right"
-			else:
-				$AnimatedSprite2D.play("Jump_left")
-				last_direction = "left"
-		else:
-			if input_vector.y < 0:
-				$AnimatedSprite2D.play("Jump_up")
-			elif input_vector.y > 0:
-				$AnimatedSprite2D.play("Jump_down")
-
-	# 💥 Movimiento del salto
 	if input_vector != Vector2.ZERO:
-		jump_velocity = input_vector * speed * 0.8
+		is_moving = true
+
+	# Run
+	var is_running = false
+	if Input.is_action_pressed("Run") and is_moving and stamina < stamina_max:
+		current_speed = speed * 2
+		is_running = true
 	else:
-		jump_velocity = Vector2.ZERO
+		current_speed = speed
 
-	await get_tree().create_timer(0.8).timeout
+	velocity = input_vector * current_speed
+	move_and_slide()
 
-	is_jumping = false
-	jump_velocity = Vector2.ZERO
+	update_animation(input_vector)
+
+	# Stamina
+	if is_running:
+		stamina += 40 * delta
+	elif is_moving:
+		stamina -= 15 * delta
+	else:
+		stamina -= 30 * delta
+
+	stamina = clamp(stamina, 0.0, stamina_max)
+	bar.value = stamina
+
+	# ⚔️ ATAQUE
+	if Input.is_action_just_pressed("Atack"):
+		start_attack()
+
+
+func start_attack():
+	is_attacking = true
+	velocity = Vector2.ZERO
+
+	match last_direction:
+		"right":
+			$AnimatedSprite2D.play("atack_right")
+		"left":
+			$AnimatedSprite2D.play("atack_left")
+		"up":
+			$AnimatedSprite2D.play("atack_up")
+		"down":
+			$AnimatedSprite2D.play("atack_down")
+
+
 
 func update_animation(direction: Vector2):
 	if direction == Vector2.ZERO:
 		$AnimatedSprite2D.play("Idle")
 	elif abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
+			last_direction = "right"
 			$AnimatedSprite2D.play("Walk_right")
 		else:
+			last_direction = "left"
 			$AnimatedSprite2D.play("Walk_left")
 	else:
 		if direction.y > 0:
+			last_direction = "down"
 			$AnimatedSprite2D.play("Walk_down")
 		else:
+			last_direction = "up"
 			$AnimatedSprite2D.play("Walk_up")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	print("FIN ANIM:", $AnimatedSprite2D.animation)
+	if $AnimatedSprite2D.animation.begins_with("atack"):
+		is_attacking = false
+		$AnimatedSprite2D.play("Idle")
