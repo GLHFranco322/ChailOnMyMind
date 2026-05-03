@@ -684,7 +684,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oua2g"]
-size = Vector2(81, 106)
+size = Vector2(81, 112)
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1547580877]
 scale = Vector2(0.5, 0.5)
@@ -695,10 +695,10 @@ speed = 100
 position = Vector2(2.861023e-06, 2)
 scale = Vector2(3, 2.912)
 sprite_frames = SubResource("SpriteFrames_lbm5c")
-animation = &"atack_up"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87059315]
-position = Vector2(1.75, 26.5)
+position = Vector2(1.75, 28)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_oua2g")
 
