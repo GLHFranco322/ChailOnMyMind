@@ -2,12 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://bhrf0y5syfgyj" path="res://Scenes/jugador.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dt5vl0vkc73gb" path="res://mapa.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bbvredbapf7md" path="res://spawner.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=39525502]
 
 [node name="Mapa" parent="." unique_id=1682887945 instance=ExtResource("2_bo1nx")]
 
-[node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_jjgbg")]
-z_index = 1
+[node name="Jugador" parent="." unique_id=1547580877 groups=["player"] instance=ExtResource("1_jjgbg")]
+z_index = 10
 
 [node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=598315049]
+
+[node name="Spawner" parent="." unique_id=1061929064 instance=ExtResource("3_8gbba")]
+visible = false
+z_index = 3

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://db6m7a0lspmyf"]
+
+[ext_resource type="Script" uid="uid://caqjmeqyb6l53" path="res://enemy.gd" id="1_7k104"]
+[ext_resource type="Texture2D" uid="uid://cdsmtp1f1p6ht" path="res://Assets/inmortal/inmortal.png" id="2_4gyqm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi2p4"]
+radius = 20.0
+height = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
+size = Vector2(40, 42)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1518848790]
+script = ExtResource("1_7k104")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2061160884]
+position = Vector2(187, 176)
+scale = Vector2(0.087890625, 0.09374999)
+texture = ExtResource("2_4gyqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2070496836]
+position = Vector2(187, 184.99997)
+shape = SubResource("CapsuleShape2D_qi2p4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=110768249]
+position = Vector2(181, 181)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=672479813]
+position = Vector2(6, 4)
+shape = SubResource("RectangleShape2D_iifgy")
