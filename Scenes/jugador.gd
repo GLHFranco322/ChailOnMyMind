@@ -5,11 +5,15 @@ extends CharacterBody2D
 @export var stamina_max: float = 50.0
 
 @onready var bar = $ProgressBar
+@onready var attack_area = $AttackArea
 
 var stamina: float = 0.0
 var is_attacking: bool = false
 var last_direction = "down"
 
+func _ready() -> void:
+	attack_area.monitoring = false
+	
 func _physics_process(delta):
 
 	# 🚫 BLOQUEO DURANTE ATAQUE
@@ -71,6 +75,8 @@ func _physics_process(delta):
 func start_attack():
 	is_attacking = true
 	velocity = Vector2.ZERO
+	
+	attack_area.monitoring = true   # 👈 activa hitbox
 
 	match last_direction:
 		"right":
@@ -106,8 +112,15 @@ func update_animation(direction: Vector2):
 func _on_animated_sprite_2d_animation_finished() -> void:
 	print("FIN ANIM:", $AnimatedSprite2D.animation)
 	if $AnimatedSprite2D.animation.begins_with("atack"):
+		attack_area.monitoring = false
 		is_attacking = false
 		$AnimatedSprite2D.play("Idle")
 
 func recibir_dano():
 	pass
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	print("GOLPE A:", body.name)
+	if body.has_method("recibir_dano"):
+		body.recibir_dano(10)

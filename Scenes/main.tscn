@@ -32,4 +32,10 @@ size_flags_vertical = 4
 position = Vector2(-150, 168)
 
 [node name="Enemigo2" parent="." unique_id=1075457206 instance=ExtResource("4_jjvhh")]
-position = Vector2(335, 154)
+position = Vector2(-117, 396)
+
+[node name="Enemigo3" parent="." unique_id=1927076447 instance=ExtResource("4_jjvhh")]
+position = Vector2(313, 158)
+
+[node name="Enemigo4" parent="." unique_id=251776351 instance=ExtResource("4_jjvhh")]
+position = Vector2(303, -237)

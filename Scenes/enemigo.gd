@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: int = 80
 @export var vida: int = 50
 
+
 var player = null
 var chasing = false
 

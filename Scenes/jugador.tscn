@@ -352,6 +352,18 @@ region = Rect2(96, 384, 48, 48)
 atlas = ExtResource("2_yy7ku")
 region = Rect2(144, 384, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8s2"]
+atlas = ExtResource("2_yy7ku")
+region = Rect2(0, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gs4x"]
+atlas = ExtResource("2_yy7ku")
+region = Rect2(48, 432, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1csxk"]
+atlas = ExtResource("2_yy7ku")
+region = Rect2(96, 432, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_lbm5c"]
 animations = [{
 "frames": [{
@@ -681,6 +693,20 @@ animations = [{
 "loop": false,
 "name": &"atack_up",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw8s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gs4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1csxk")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oua2g"]
@@ -695,7 +721,7 @@ speed = 100
 position = Vector2(2.861023e-06, 2)
 scale = Vector2(3, 2.912)
 sprite_frames = SubResource("SpriteFrames_lbm5c")
-animation = &"Idle"
+animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87059315]
 position = Vector2(1.75, 28)
@@ -709,4 +735,9 @@ offset_bottom = 27.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1122721258]
 
+[node name="AttackArea" type="Area2D" parent="." unique_id=1292636160]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1196495039]
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
