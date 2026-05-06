@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bhrf0y5syfgyj" path="res://Scenes/jugador.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dt5vl0vkc73gb" path="res://mapa.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bw4san1llkkyf" path="res://Scenes/enemigo.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://ylh52h7g70w1" path="res://Scenes/Inmortal.tscn" id="5_kry3j"]
 
 [node name="Main" type="Node2D" unique_id=39525502]
 script = ExtResource("1_8gbba")
@@ -33,3 +34,6 @@ position = Vector2(-150, 168)
 
 [node name="Enemigo2" parent="." unique_id=1075457206 instance=ExtResource("4_jjvhh")]
 position = Vector2(335, 154)
+
+[node name="Inmortal" parent="." unique_id=511109610 groups=["Enemy"] instance=ExtResource("5_kry3j")]
+position = Vector2(514, 540)

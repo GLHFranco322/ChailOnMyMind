@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var vida_max: int = 100
 @export var stamina_max: float = 50.0
 @export var invulnerable_time: float = 0.5
+@export var damage: int = 20 # 🔥 NUEVO
 
 @onready var bar = $ProgressBar
 @onready var anim = $AnimatedSprite2D
@@ -88,14 +89,14 @@ func _physics_process(delta):
 
 
 func start_attack():
-	print("ATACANDO") # debug
+	print("ATACANDO")
 
 	is_attacking = true
 	already_hit = false
 	velocity = Vector2.ZERO
 	
 	update_hitbox_direction()
-	enable_hitbox() # 👈 🔥 ESTO FALTABA
+	enable_hitbox()
 	
 	match last_direction:
 		"right":
@@ -110,13 +111,12 @@ func start_attack():
 			anim.play("attack_down")
 
 
-# 🔥 NUEVO: mover hitbox según dirección (CORTO ALCANCE)
 func update_hitbox_direction():
 	match last_direction:
 		"down":
 			hitbox.position = Vector2(0, 40)
 		"up":
-			hitbox.position = Vector2(0, 0)
+			hitbox.position = Vector2(0, -30) # 🔥 ajustado
 		"right":
 			hitbox.position = Vector2(40, 20)
 		"left":
@@ -147,12 +147,10 @@ func update_animation(direction: Vector2):
 				anim.play("Walk_up")
 
 
-
-
 func _on_animation_finished():
 	if anim.animation.begins_with("attack"):
 		is_attacking = false
-		disable_hitbox() # seguridad extra
+		disable_hitbox()
 		anim.play("Idle")
 
 	elif anim.animation == "death":
@@ -184,12 +182,16 @@ func morir() -> void:
 	anim.play("death")
 
 
+# 🔥 CAMBIO CLAVE ACÁ
 func _on_hitbox_body_entered(body):
 	print("COLISION CON:", body.name)
 
 	if body.is_in_group("enemy") and not already_hit:
 		print("LE PEGO")
-		body.recibir_dano(20)
+		
+		var dir = (body.global_position - hitbox.global_position).normalized()
+		
+		body.recibir_dano(damage, dir)
 		already_hit = true
 
 
@@ -197,6 +199,7 @@ func enable_hitbox():
 	print("HITBOX ON")
 	hitbox.monitoring = true
 	hitbox.visible = true
+
 
 func disable_hitbox():
 	print("HITBOX OFF")
