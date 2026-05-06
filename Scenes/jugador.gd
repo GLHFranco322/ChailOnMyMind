@@ -1,18 +1,40 @@
 extends CharacterBody2D
 
 @export var speed: int = 200
-@export var vidaJugador: int = 100
+@export var vida_max: int = 100
 @export var stamina_max: float = 50.0
+@export var invulnerable_time: float = 0.5
 
 @onready var bar = $ProgressBar
+@onready var anim = $AnimatedSprite2D
+@onready var hitbox = $Hitbox
+@onready var hitbox_sprite = $Hitbox/Sprite2D
 
+var vidaJugador: int
 var stamina: float = 0.0
 var is_attacking: bool = false
 var last_direction = "down"
+var invulnerable: bool = false
+var is_dead: bool = false
+
+var already_hit: bool = false
+
+
+func _ready() -> void:
+	vidaJugador = vida_max
+	add_to_group("player")
+	
+	anim.animation_finished.connect(_on_animation_finished)
+	
+	hitbox.monitoring = false
+	hitbox.visible = false
+
 
 func _physics_process(delta):
-
-	# 🚫 BLOQUEO DURANTE ATAQUE
+	if is_dead:
+		$CollisionShape2D.disabled = true
+		return
+	
 	if is_attacking:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -22,12 +44,11 @@ func _physics_process(delta):
 	var current_speed = speed
 	var is_moving = false
 
-	# Movimiento
 	if Input.is_action_pressed("Walk_right"):
-		$AnimatedSprite2D.flip_h = false
+		anim.flip_h = false
 		input_vector.x += 1
 	if Input.is_action_pressed("Walk_left"):
-		$AnimatedSprite2D.flip_h = true
+		anim.flip_h = true
 		input_vector.x -= 1
 	if Input.is_action_pressed("Walk_down"):
 		input_vector.y += 1
@@ -39,12 +60,12 @@ func _physics_process(delta):
 	if input_vector != Vector2.ZERO:
 		is_moving = true
 
-	# Run
 	var is_running = false
 	if Input.is_action_pressed("Run") and is_moving and stamina < stamina_max:
 		is_running = true
 		current_speed = speed * 2
-	if stamina == stamina_max and is_running == true:
+	
+	if stamina == stamina_max and is_running:
 		current_speed = speed
 	
 	velocity = input_vector * current_speed
@@ -52,7 +73,6 @@ func _physics_process(delta):
 
 	update_animation(input_vector)
 
-	# Stamina
 	if is_running:
 		stamina += 40 * delta
 	elif is_moving:
@@ -63,51 +83,122 @@ func _physics_process(delta):
 	stamina = clamp(stamina, 0.0, stamina_max)
 	bar.value = stamina
 
-	# ⚔️ ATAQUE
-	if Input.is_action_just_pressed("Atack"):
+	if Input.is_action_just_pressed("Attack") and not is_attacking:
 		start_attack()
 
 
 func start_attack():
-	is_attacking = true
-	velocity = Vector2.ZERO
+	print("ATACANDO") # debug
 
+	is_attacking = true
+	already_hit = false
+	velocity = Vector2.ZERO
+	
+	update_hitbox_direction()
+	enable_hitbox() # 👈 🔥 ESTO FALTABA
+	
 	match last_direction:
 		"right":
-			$AnimatedSprite2D.play("atack_right")
+			anim.flip_h = false
+			anim.play("attack_right")
 		"left":
-			$AnimatedSprite2D.play("atack_left")
+			anim.flip_h = true
+			anim.play("attack_right")
 		"up":
-			$AnimatedSprite2D.play("atack_up")
+			anim.play("attack_up")
 		"down":
-			$AnimatedSprite2D.play("atack_down")
+			anim.play("attack_down")
 
+
+# 🔥 NUEVO: mover hitbox según dirección (CORTO ALCANCE)
+func update_hitbox_direction():
+	match last_direction:
+		"down":
+			hitbox.position = Vector2(0, 40)
+		"up":
+			hitbox.position = Vector2(0, 0)
+		"right":
+			hitbox.position = Vector2(40, 20)
+		"left":
+			hitbox.position = Vector2(-40, 20)
 
 
 func update_animation(direction: Vector2):
 	if direction == Vector2.ZERO:
-		$AnimatedSprite2D.play("Idle")
+		if not is_attacking:
+			anim.play("Idle")
 	elif abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			last_direction = "right"
-			$AnimatedSprite2D.play("Walk_right")
+			if not is_attacking:
+				anim.play("Walk_right")
 		else:
 			last_direction = "left"
-			$AnimatedSprite2D.play("Walk_left")
+			if not is_attacking:
+				anim.play("Walk_left")
 	else:
 		if direction.y > 0:
 			last_direction = "down"
-			$AnimatedSprite2D.play("Walk_down")
+			if not is_attacking:
+				anim.play("Walk_down")
 		else:
 			last_direction = "up"
-			$AnimatedSprite2D.play("Walk_up")
+			if not is_attacking:
+				anim.play("Walk_up")
 
 
-func _on_animated_sprite_2d_animation_finished() -> void:
-	print("FIN ANIM:", $AnimatedSprite2D.animation)
-	if $AnimatedSprite2D.animation.begins_with("atack"):
+
+
+func _on_animation_finished():
+	if anim.animation.begins_with("attack"):
 		is_attacking = false
-		$AnimatedSprite2D.play("Idle")
+		disable_hitbox() # seguridad extra
+		anim.play("Idle")
 
-func recibir_dano():
-	pass
+	elif anim.animation == "death":
+		queue_free()
+
+
+func recibir_dano(cantidad: int = 10) -> void:
+	if invulnerable:
+		return
+
+	invulnerable = true
+	vidaJugador -= cantidad
+	print("Vida restante:", vidaJugador)
+
+	if vidaJugador <= 0:
+		morir()
+		return
+
+	await get_tree().create_timer(invulnerable_time).timeout
+	invulnerable = false
+
+
+func morir() -> void:
+	if is_dead:
+		return
+	
+	is_dead = true
+	velocity = Vector2.ZERO
+	anim.play("death")
+
+
+func _on_hitbox_body_entered(body):
+	print("COLISION CON:", body.name)
+
+	if body.is_in_group("enemy") and not already_hit:
+		print("LE PEGO")
+		body.recibir_dano(20)
+		already_hit = true
+
+
+func enable_hitbox():
+	print("HITBOX ON")
+	hitbox.monitoring = true
+	hitbox.visible = true
+
+func disable_hitbox():
+	print("HITBOX OFF")
+	hitbox.monitoring = false
+	hitbox.visible = false

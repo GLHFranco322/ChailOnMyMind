@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://ylh52h7g70w1"]
+
+[ext_resource type="Texture2D" uid="uid://c0kxqimp6s72g" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Basic Undead Animations/Vampire Bat/VampireBat.png" id="1_bcbr7"]
+
+[sub_resource type="GDScript" id="GDScript_n7tue"]
+script/source = "extends CharacterBody2D
+
+var speed = 140
+var chase_speed = 180 
+var vida = 1000
+
+@onready var anim = $AnimatedSprite2D
+@onready var player = get_node(\"/root/Main/Jugador\")
+
+@onready var ray_vision = $RayCast2D
+@onready var ray_up = $RayUp
+@onready var ray_down = $RayDown
+@onready var ray_left = $RayLeft
+@onready var ray_right = $RayRight
+
+@onready var attack_area = $Area2D
+
+var state = \"idle\"
+var direction = Vector2.ZERO
+var change_dir_time = 0
+
+func _ready():
+	anim.play(\"default\")
+	randomize()
+	set_random_direction()
+	attack_area.monitoring = false
+
+func _physics_process(delta: float) -> void:
+	match state:
+		\"idle\":
+			idle_behavior(delta)
+		\"chase\":
+			chase_behavior()
+
+	move_and_slide()
+	try_attack()
+
+# -------------------------
+# 🟢 PATRULLA
+# -------------------------
+func idle_behavior(delta):
+	change_dir_time -= delta
+	
+	if change_dir_time <= 0:
+		set_random_direction()
+	
+	velocity = direction * speed
+	
+	if can_see_player():
+		state = \"chase\"
+
+func set_random_direction():
+	direction = Vector2(
+		randf_range(-1, 1),
+		randf_range(-1, 1)
+	).normalized()
+	
+	change_dir_time = randf_range(1, 3)
+
+# -------------------------
+# 🔴 PERSECUCIÓN
+# -------------------------
+func chase_behavior():
+	if not can_see_player():
+		state = \"idle\"
+		return
+	
+	var distance = global_position.distance_to(player.global_position)
+	
+	if distance > 40:
+		var dir_to_player = (player.global_position - global_position).normalized()
+		velocity = dir_to_player * chase_speed
+	else:
+		velocity = Vector2.ZERO
+
+# -------------------------
+# 👁 VISIÓN SIN PAREDES
+# -------------------------
+func can_see_player():
+	var direction = player.global_position - global_position
+	ray_vision.target_position = direction
+	
+	ray_vision.force_raycast_update()
+	
+	if ray_vision.is_colliding():
+		if ray_vision.get_collider().is_in_group(\"player\"):
+			return true
+	
+	return false
+
+# -------------------------
+# 🧭 SOLO 4 DIRECCIONES
+# -------------------------
+func is_player_in_front():
+	var dir = player.global_position - global_position
+	
+	if abs(dir.x) > abs(dir.y):
+		if dir.x > 0:
+			return ray_right.is_colliding() and ray_right.get_collider().is_in_group(\"player\")
+		else:
+			return ray_left.is_colliding() and ray_left.get_collider().is_in_group(\"player\")
+	else:
+		if dir.y > 0:
+			return ray_down.is_colliding() and ray_down.get_collider().is_in_group(\"player\")
+		else:
+			return ray_up.is_colliding() and ray_up.get_collider().is_in_group(\"player\")
+
+# -------------------------
+# ⚔ ATAQUE
+# -------------------------
+func try_attack():
+	if global_position.distance_to(player.global_position) < 50:
+		if can_see_player() and is_player_in_front():
+			attack()
+
+func attack():
+	attack_area.monitoring = true
+	await get_tree().create_timer(0.2).timeout
+	attack_area.monitoring = false
+
+# -------------------------
+# 💥 DAÑO AL JUGADOR
+# -------------------------
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		body.recibir_dano(10)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3fa4"]
+atlas = ExtResource("1_bcbr7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok2qp"]
+atlas = ExtResource("1_bcbr7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_121tc"]
+atlas = ExtResource("1_bcbr7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0ws5"]
+atlas = ExtResource("1_bcbr7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ke60v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3fa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok2qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_121tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0ws5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hagk"]
+size = Vector2(46, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcbr7"]
+size = Vector2(46, 29)
+
+[node name="Inmortal" type="CharacterBody2D" unique_id=511109610]
+script = SubResource("GDScript_n7tue")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606554116]
+scale = Vector2(3.25, 3.25)
+sprite_frames = SubResource("SpriteFrames_ke60v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=584165859]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_2hagk")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=880595670]
+
+[node name="RayUp" type="RayCast2D" parent="." unique_id=68701342]
+target_position = Vector2(-1, -641)
+
+[node name="RayDown" type="RayCast2D" parent="." unique_id=1203748746]
+target_position = Vector2(-1, 583)
+
+[node name="RayLeft" type="RayCast2D" parent="." unique_id=1828900081]
+target_position = Vector2(-1757, -19)
+
+[node name="RayRight" type="RayCast2D" parent="." unique_id=1045988569]
+target_position = Vector2(2395, 6)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=475936457]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=210736088]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_bcbr7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

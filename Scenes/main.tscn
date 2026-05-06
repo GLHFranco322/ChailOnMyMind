@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dkwcrs3xnwg7o"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_8gbba"]
+[ext_resource type="Script" uid="uid://cawjvrj1yuqtn" path="res://Scenes/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bhrf0y5syfgyj" path="res://Scenes/jugador.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dt5vl0vkc73gb" path="res://mapa.tscn" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://du0gfdjxm6hik" path="res://Scenes/enemigo.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bw4san1llkkyf" path="res://Scenes/enemigo.tscn" id="4_jjvhh"]
 
 [node name="Main" type="Node2D" unique_id=39525502]
 script = ExtResource("1_8gbba")

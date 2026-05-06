@@ -45,7 +45,9 @@ size = Vector2(22, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75jbx"]
 size = Vector2(72, 71)
 
-[node name="Enemigo" type="CharacterBody2D" unique_id=1085170091]
+[node name="Enemigo" type="CharacterBody2D" unique_id=1085170091 groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_mwaop")
 metadata/_edit_group_ = true
 
