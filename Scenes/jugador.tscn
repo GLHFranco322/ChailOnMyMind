@@ -720,8 +720,8 @@ shape = SubResource("CircleShape2D_5nsjc")
 [node name="Sprite2D" type="Sprite2D" parent="Hitbox" unique_id=1031205437]
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1715380615]
-position = Vector2(6.0796738e-06, 26.000006)
-scale = Vector2(2.8125002, 2.625)
+position = Vector2(3.8146973e-06, 19.999998)
+scale = Vector2(7.228, 6.688)
 texture = ExtResource("8_6vc6x")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

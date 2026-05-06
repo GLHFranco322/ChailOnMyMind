@@ -2129,6 +2129,7 @@ sources/1 = SubResource("TileSetAtlasSource_70f7c")
 [node name="Mapa" type="Node2D" unique_id=1682887945]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904334795]
+visible = false
 position = Vector2(239.5, 135)
 scale = Vector2(15.03125, 8.375)
 texture = ExtResource("1_70f7c")
@@ -2138,4 +2139,4 @@ tile_map_data = PackedByteArray("AADu/+7/AQAAAAAAAADu/+//AQAAAAEAAADu//D/AQAAAAI
 tile_set = SubResource("TileSet_q8ihy")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=308185206]
-color = Color(0, 0, 0, 1)
+color = Color(0.13725491, 0.13725491, 0.13725491, 1)

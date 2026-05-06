@@ -11,7 +11,6 @@ script = ExtResource("1_8gbba")
 [node name="Mapa" parent="." unique_id=1682887945 instance=ExtResource("2_bo1nx")]
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_jjgbg")]
-z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=598315049]
 
