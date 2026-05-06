@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bo20h2y6142er" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_right_down.png" id="4_g5h5a"]
 [ext_resource type="Texture2D" uid="uid://cmdalll6lrih8" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_right_up.png" id="5_o2m60"]
 [ext_resource type="Texture2D" uid="uid://o337ua7vj1gk" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_up.png" id="6_hcpjn"]
+[ext_resource type="Texture2D" uid="uid://c1ko6nmufrop3" path="res://Assets/Jugador/FREE Textures Of Light/64x64/64x64 textures (99).png" id="8_6vc6x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dblgq"]
 atlas = ExtResource("2_yy7ku")
@@ -717,5 +718,10 @@ position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_5nsjc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hitbox" unique_id=1031205437]
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1715380615]
+position = Vector2(6.0796738e-06, 26.000006)
+scale = Vector2(2.8125002, 2.625)
+texture = ExtResource("8_6vc6x")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
