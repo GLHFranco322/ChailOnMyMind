@@ -45,10 +45,14 @@ size = Vector2(22, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75jbx"]
 size = Vector2(72, 71)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4vig"]
+radius = 27.073973
+
 [node name="Enemigo" type="CharacterBody2D" unique_id=1085170091 groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_mwaop")
+vida = 50
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=686201560]
@@ -60,11 +64,31 @@ animation = &"idle"
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_8l51y")
 
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=274420630]
+
+[node name="RayUp" type="RayCast2D" parent="." unique_id=557967404]
+target_position = Vector2(0, -36)
+
+[node name="RayDown" type="RayCast2D" parent="." unique_id=1551797137]
+target_position = Vector2(0, 36)
+
+[node name="RayRight" type="RayCast2D" parent="." unique_id=25420566]
+target_position = Vector2(36, 0)
+
+[node name="RayLeft" type="RayCast2D" parent="." unique_id=1314325110]
+target_position = Vector2(-36, 0)
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1189129650]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=723847250]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_75jbx")
 
+[node name="AttackArea" type="Area2D" parent="." unique_id=1876832721]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=81004476]
+shape = SubResource("CircleShape2D_t4vig")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_atack_area_body_entered"]

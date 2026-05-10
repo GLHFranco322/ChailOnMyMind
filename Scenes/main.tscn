@@ -11,6 +11,8 @@ script = ExtResource("1_8gbba")
 [node name="Mapa" parent="." unique_id=1682887945 instance=ExtResource("2_bo1nx")]
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_jjgbg")]
+collision_mask = 1
+speed = 80
 
 [node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=598315049]
 
@@ -28,7 +30,97 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 
 [node name="Enemigo" parent="." unique_id=1085170091 instance=ExtResource("4_jjvhh")]
-position = Vector2(-150, 168)
+position = Vector2(-147, 148)
+vida = 30
+
+[node name="Enemigo4" parent="." unique_id=1562582260 instance=ExtResource("4_jjvhh")]
+position = Vector2(207, -405)
+vida = 30
+
+[node name="Enemigo5" parent="." unique_id=1037623552 instance=ExtResource("4_jjvhh")]
+position = Vector2(-24, -355)
+vida = 30
+
+[node name="Enemigo6" parent="." unique_id=658219541 instance=ExtResource("4_jjvhh")]
+position = Vector2(129, -127)
+vida = 30
+
+[node name="Enemigo7" parent="." unique_id=1942832477 instance=ExtResource("4_jjvhh")]
+position = Vector2(-307, -5)
+vida = 30
+
+[node name="Enemigo8" parent="." unique_id=257361751 instance=ExtResource("4_jjvhh")]
+position = Vector2(97, 125)
+vida = 30
+
+[node name="Enemigo9" parent="." unique_id=1731172314 instance=ExtResource("4_jjvhh")]
+position = Vector2(200, 501)
+vida = 30
+
+[node name="Enemigo10" parent="." unique_id=1762318207 instance=ExtResource("4_jjvhh")]
+position = Vector2(410, 518)
+vida = 30
+
+[node name="Enemigo11" parent="." unique_id=1820407679 instance=ExtResource("4_jjvhh")]
+position = Vector2(-256, 468)
+vida = 30
+
+[node name="Enemigo12" parent="." unique_id=1357878508 instance=ExtResource("4_jjvhh")]
+position = Vector2(398, 339)
+vida = 30
+
+[node name="Enemigo13" parent="." unique_id=943129826 instance=ExtResource("4_jjvhh")]
+position = Vector2(85, 484)
+vida = 30
+
+[node name="Enemigo14" parent="." unique_id=762941736 instance=ExtResource("4_jjvhh")]
+position = Vector2(-71, 483)
+vida = 30
+
+[node name="Enemigo15" parent="." unique_id=1174896504 instance=ExtResource("4_jjvhh")]
+position = Vector2(-30, -192)
+vida = 30
+
+[node name="Enemigo16" parent="." unique_id=524664929 instance=ExtResource("4_jjvhh")]
+position = Vector2(186, -312)
+vida = 30
+
+[node name="Enemigo17" parent="." unique_id=1295567202 instance=ExtResource("4_jjvhh")]
+position = Vector2(488, -111)
+vida = 30
+
+[node name="Enemigo18" parent="." unique_id=451923215 instance=ExtResource("4_jjvhh")]
+position = Vector2(464, 93)
+vida = 30
+
+[node name="Enemigo19" parent="." unique_id=604337901 instance=ExtResource("4_jjvhh")]
+position = Vector2(97, 277)
+vida = 30
+
+[node name="Enemigo20" parent="." unique_id=1593506118 instance=ExtResource("4_jjvhh")]
+position = Vector2(-286, 209)
+vida = 30
+
+[node name="Enemigo21" parent="." unique_id=855384777 instance=ExtResource("4_jjvhh")]
+position = Vector2(-278, -151)
+vida = 30
+
+[node name="Enemigo22" parent="." unique_id=1966480863 instance=ExtResource("4_jjvhh")]
+position = Vector2(-285, -392)
+vida = 30
+
+[node name="Enemigo23" parent="." unique_id=2076391349 instance=ExtResource("4_jjvhh")]
+position = Vector2(510, -321)
+vida = 30
+
+[node name="Enemigo24" parent="." unique_id=1768383878 instance=ExtResource("4_jjvhh")]
+position = Vector2(338, -269)
+vida = 30
 
 [node name="Enemigo2" parent="." unique_id=1075457206 instance=ExtResource("4_jjvhh")]
 position = Vector2(335, 154)
+vida = 40
+
+[node name="Enemigo3" parent="." unique_id=1172945796 instance=ExtResource("4_jjvhh")]
+position = Vector2(-395, 97)
+vida = 10
