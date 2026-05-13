@@ -724,4 +724,6 @@ position = Vector2(3.8146973e-06, 19.999998)
 scale = Vector2(7.228, 6.688)
 texture = ExtResource("8_6vc6x")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1464459218]
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

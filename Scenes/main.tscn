@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dkwcrs3xnwg7o"]
 
-[ext_resource type="Script" uid="uid://cawjvrj1yuqtn" path="res://Scenes/main.gd" id="1_8gbba"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bhrf0y5syfgyj" path="res://Scenes/jugador.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dt5vl0vkc73gb" path="res://mapa.tscn" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://bw4san1llkkyf" path="res://Scenes/enemigo.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" path="res://Scenes/enemigo.tscn" id="4_jjvhh"]
 
 [node name="Main" type="Node2D" unique_id=39525502]
 script = ExtResource("1_8gbba")
@@ -13,8 +13,6 @@ script = ExtResource("1_8gbba")
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_jjgbg")]
 collision_mask = 1
 speed = 80
-
-[node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=598315049]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1617667590]
 layer = 0
@@ -32,6 +30,7 @@ size_flags_vertical = 4
 [node name="Enemigo" parent="." unique_id=1085170091 instance=ExtResource("4_jjvhh")]
 position = Vector2(-147, 148)
 vida = 30
+damage = 20
 
 [node name="Enemigo4" parent="." unique_id=1562582260 instance=ExtResource("4_jjvhh")]
 position = Vector2(207, -405)
