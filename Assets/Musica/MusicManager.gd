@@ -9,8 +9,11 @@ func _ready():
 	music_player.volume_db = -15
 
 func play_menu_music(music):
+
 	if music_player.stream != music:
 		music_player.stream = music
+
+	if !music_player.playing:
 		music_player.play()
 
 func stop_music():

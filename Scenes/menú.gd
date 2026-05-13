@@ -17,13 +17,32 @@ func _process(delta):
 
 func _on_play_pressed():
 	MusicManager.stop_music()
+	SoundManager.play_click()
+	await get_tree().create_timer(0.1).timeout
+
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/laberinto.tscn")
 
 func _on_options_pressed():
+	SoundManager.play_click()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Options.tscn")
 
 func _on_quit_pressed():
+	SoundManager.play_click()
+	await get_tree().create_timer(0.1).timeout
 	get_tree().paused = false
 	get_tree().quit()
+
+
+func _on_play_mouse_entered():
+	SoundManager.play_hover()
+
+
+func _on_options_mouse_entered():
+	SoundManager.play_hover()
+
+
+func _on_quit_mouse_entered():
+	SoundManager.play_hover()

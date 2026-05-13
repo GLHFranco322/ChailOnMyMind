@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dje7el3h87mqw" path="res://Image-Menús/Logo-Celda601.png" id="3_ugc46"]
 [ext_resource type="Texture2D" uid="uid://bb8qjpahtldgw" path="res://Image-Menús/flashlight_reverse.png" id="3_wholm"]
 [ext_resource type="FontFile" uid="uid://d1pyf23c33jhy" path="res://Fuentes de Texto/Inky Thin Pixels.woff" id="4_wholm"]
+[ext_resource type="AudioStream" uid="uid://p0oalgrr4hj4" path="res://Assets/Sonidos/Click.mp3" id="5_wholm"]
 
 [node name="Menú" type="Control" unique_id=209647423]
 layout_mode = 3
@@ -54,6 +55,10 @@ energy = 1.3
 texture = ExtResource("3_wholm")
 texture_scale = 4.0
 
+[node name="ButtonSound" type="AudioStreamPlayer" parent="." unique_id=733886838]
+stream = ExtResource("5_wholm")
+parameters/looping = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1517835037]
 layout_mode = 1
 anchors_preset = 2
@@ -81,6 +86,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_wholm")
 text = "SALIR"
 
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
