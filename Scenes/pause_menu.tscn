@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://ddnfhrfkrbdqh"]
+
+[ext_resource type="Script" uid="uid://dgrf1hjiw1mwq" path="res://Scenes/pause_menu.gd" id="1_kp87t"]
+[ext_resource type="FontFile" uid="uid://d1pyf23c33jhy" path="res://Fuentes de Texto/Inky Thin Pixels.woff" id="3_5o7im"]
+
+[node name="PauseMenu" type="Control" unique_id=209647423]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kp87t")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1435385595]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7490196)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1517835037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -51.5
+offset_right = 48.5
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Control" type="Button" parent="VBoxContainer" unique_id=560171913]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5o7im")
+text = "Controles"
+
+[node name="Volume" type="Button" parent="VBoxContainer" unique_id=2072444983]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5o7im")
+text = "Volumen"
+
+[node name="Exit Game" type="Button" parent="VBoxContainer" unique_id=890464871]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5o7im")
+text = "Salir del juego"
+
+[connection signal="pressed" from="VBoxContainer/Control" to="." method="_on_control_pressed"]
+[connection signal="pressed" from="VBoxContainer/Control" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Volume" to="." method="_on_volume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Volume" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit Game" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit Game" to="." method="_on_exit_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit Game" to="." method="_on_back_pressed"]
