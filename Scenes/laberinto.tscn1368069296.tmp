@@ -1168,6 +1168,7 @@ collision_mask = 1
 vida_max = 100
 stamina_max = 50.0
 invulnerable_time = 0.5
+attack_damage = 20
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=733759487]
 layer = 0
