@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cq5vtk3wafw1m" path="res://Scenes/laberinto.gd" id="1_whk3v"]
 [ext_resource type="Texture2D" uid="uid://c1xso6to2a6bb" path="res://Assets/Infernus_Tiles/Infernus_Altar1_4.png" id="2_30dhd"]
 [ext_resource type="Texture2D" uid="uid://brqdcvfiejhfx" path="res://Assets/Infernus_Tiles/Infernus_Altar1_3.png" id="3_wrbap"]
-[ext_resource type="PackedScene" path="res://Scenes/enemigo.tscn" id="7_3lnre"]
+[ext_resource type="PackedScene" uid="uid://1bxynqq1uf2h" path="res://Scenes/enemigo.tscn" id="7_3lnre"]
 [ext_resource type="PackedScene" uid="uid://bhrf0y5syfgyj" path="res://Scenes/jugador.tscn" id="9_nlf4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrbap"]
