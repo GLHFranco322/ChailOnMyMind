@@ -193,6 +193,9 @@ func morir() -> void:
 	velocity = Vector2.ZERO
 	anim.play("death")
 
+	await anim.animation_finished
+
+	get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 
 func _on_hitbox_body_entered(body):
 	print("COLISION CON:", body.name)
