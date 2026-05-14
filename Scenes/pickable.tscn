@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ct3qs0w47enub"]
+
+[ext_resource type="Script" uid="uid://4nbh2mbi7agi" path="res://pickable.gd" id="1_tjycp"]
+[ext_resource type="Texture2D" uid="uid://olpblert05ka" path="res://Assets/Infernus_Tiles/Infernus_Club_1.png" id="2_q5xca"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dufq7"]
+atlas = ExtResource("2_q5xca")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uphi6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dufq7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxnuo"]
+
+[node name="Pickable" type="CharacterBody2D" unique_id=2085160309]
+script = ExtResource("1_tjycp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1120418267]
+scale = Vector2(0.3125, 0.34375)
+sprite_frames = SubResource("SpriteFrames_uphi6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=918282274]
+shape = SubResource("RectangleShape2D_yxnuo")

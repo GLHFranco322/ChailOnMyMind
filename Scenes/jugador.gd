@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var hitbox = $Hitbox
 @onready var hitbox_sprite = $Hitbox/Sprite2D
+#@onready var hurtBox = 
 
 var vidaJugador: int
 var stamina: float = 0.0
@@ -16,6 +17,9 @@ var is_attacking: bool = false
 var last_direction = "down"
 var invulnerable: bool = false
 var is_dead: bool = false
+var is_in_range: bool = false
+var target_object: Node2D
+@onready var hand_position: Marker2D = $HandPosition
 
 var already_hit: bool = false
 
@@ -41,6 +45,8 @@ func _ready() -> void:
  
 
 func _physics_process(delta):
+	pickup_object()
+	
 	if is_dead:
 		$CollisionShape2D.disabled = true
 		return
@@ -98,6 +104,9 @@ func _physics_process(delta):
 
 
 func start_attack():
+	if !Pickable:
+		return
+	
 	print("ATACANDO") # debug
 
 	is_attacking = true
@@ -212,3 +221,21 @@ func disable_hitbox():
 	print("HITBOX OFF")
 	hitbox.monitoring = false
 	hitbox.visible = false
+
+
+func pickup_object() -> void:
+	if is_in_range:
+		if Input.is_action_just_pressed("Pickup"):
+			target_object.reparent(hand_position)
+			target_object.position = hand_position.position
+
+func _on_range_body_entered(body: Node2D) -> void:
+	if body is Pickable:
+		is_in_range = true
+		target_object = body
+
+
+func _on_range_body_exited(body: Node2D) -> void:
+	if body is Pickable:
+		is_in_range = false
+		target_object = null

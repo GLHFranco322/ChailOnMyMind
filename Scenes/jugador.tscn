@@ -683,15 +683,14 @@ size = Vector2(97, 68)
 [sub_resource type="CircleShape2D" id="CircleShape2D_5nsjc"]
 radius = 34.058773
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vc6x"]
+radius = 64.03124
+
 [node name="Jugador" type="CharacterBody2D" unique_id=1547580877 groups=["player"]]
 scale = Vector2(0.5, 0.5)
 collision_mask = 0
 script = ExtResource("1_hcpjn")
 speed = 100
-vida_max = null
-stamina_max = null
-invulnerable_time = null
-attack_damage = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1219376306 groups=["player"]]
 position = Vector2(2.861023e-06, 2)
@@ -730,4 +729,15 @@ texture = ExtResource("8_6vc6x")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1464459218]
 
+[node name="Range" type="Area2D" parent="." unique_id=293071173]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=1155721189]
+position = Vector2(0, 22)
+shape = SubResource("CircleShape2D_6vc6x")
+
+[node name="HandPosition" type="Marker2D" parent="." unique_id=732299938]
+position = Vector2(2, -20)
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
