@@ -19,6 +19,16 @@ var is_dead: bool = false
 
 var already_hit: bool = false
 
+var paused = false
+
+func _input(event):
+	if event.is_action_pressed("Paused"):
+		paused = !paused
+		
+		get_tree().paused = paused
+		
+		var pausa = get_tree().current_scene.get_node("Pausa")
+		pausa.visible = paused
 
 func _ready() -> void:
 	vidaJugador = vida_max

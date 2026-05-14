@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://d1tb4nniva5ru"]
+
+[ext_resource type="Script" uid="uid://bnrlctqsxdnh3" path="res://Scenes/controls.gd" id="1_r5lgv"]
+[ext_resource type="Texture2D" uid="uid://bhhkfxjvdjgmn" path="res://Image-Menús/menú.png" id="2_3hunn"]
+[ext_resource type="FontFile" uid="uid://d1pyf23c33jhy" path="res://Fuentes de Texto/Inky Thin Pixels.woff" id="3_cf10x"]
+
+[node name="Controls" type="Control" unique_id=209647423]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r5lgv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1435385595]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8509804)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1468963047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3hunn")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1205214431]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1517835037]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -33.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="Back2" type="Button" parent="VBoxContainer" unique_id=890464871]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_cf10x")
+text = "Volver"
+
+[connection signal="mouse_entered" from="VBoxContainer/Back2" to="." method="_on_back_2_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Back2" to="." method="_on_back_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back2" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back2" to="." method="_on_back_pressed"]
