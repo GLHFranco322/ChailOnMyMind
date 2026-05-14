@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://bwmqqgkd7eaf2"]
+
+[ext_resource type="Texture2D" uid="uid://bhhkfxjvdjgmn" path="res://Image-Menús/menú.png" id="1_20v25"]
+[ext_resource type="Script" uid="uid://cvp50t0rtb0pj" path="res://Scenes/menú.gd" id="1_mwjd8"]
+[ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="3_m37fn"]
+[ext_resource type="Texture2D" uid="uid://dje7el3h87mqw" path="res://Image-Menús/Logo-Celda601.png" id="3_ugc46"]
+[ext_resource type="Texture2D" uid="uid://bb8qjpahtldgw" path="res://Image-Menús/flashlight_reverse.png" id="3_wholm"]
+[ext_resource type="FontFile" uid="uid://d1pyf23c33jhy" path="res://Fuentes de Texto/Inky Thin Pixels.woff" id="4_wholm"]
+[ext_resource type="AudioStream" uid="uid://p0oalgrr4hj4" path="res://Assets/Sonidos/Click.mp3" id="5_wholm"]
+[ext_resource type="Texture2D" uid="uid://bk5lpmbneljkv" path="res://Image-Menús/FondoNegro.jpg" id="8_v75p8"]
+
+[sub_resource type="Animation" id="Animation_tyjei"]
+resource_name = "Fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qn0x8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c55xd"]
+_data = {
+&"Fade_out": SubResource("Animation_tyjei"),
+&"RESET": SubResource("Animation_qn0x8")
+}
+
+[node name="Menú" type="Control" unique_id=209647423]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mwjd8")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1435385595]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7647059)
+
+[node name="Fondo Celda 601" type="TextureRect" parent="." unique_id=1468963047]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_20v25")
+expand_mode = 1
+
+[node name="Logo" type="TextureRect" parent="." unique_id=91399851]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 129.0
+offset_bottom = 129.0
+texture = ExtResource("3_ugc46")
+expand_mode = 1
+
+[node name="Fondo Oscuro" type="CanvasModulate" parent="." unique_id=2127286084]
+color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1877329843]
+position = Vector2(233, -61)
+energy = 1.3
+texture = ExtResource("3_wholm")
+texture_scale = 4.0
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="." unique_id=733886838]
+stream = ExtResource("5_wholm")
+parameters/looping = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1517835037]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -138.0
+offset_right = 114.0
+offset_bottom = -35.0
+grow_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=560171913]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_m37fn")
+text = "JUGAR"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=2072444983]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_wholm")
+text = "OPCIONES"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=890464871]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_wholm")
+text = "SALIR"
+
+[node name="Control" type="Control" parent="." unique_id=232251358]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1658729966]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1728462123]
+position = Vector2(239.33331, 135.25)
+scale = Vector2(0.249537, 0.24953704)
+texture = ExtResource("8_v75p8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Sprite2D" unique_id=253022213]
+libraries/ = SubResource("AnimationLibrary_c55xd")
+autoplay = &"Fade_out"
+
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
