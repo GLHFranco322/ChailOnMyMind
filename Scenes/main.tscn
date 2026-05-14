@@ -13,6 +13,7 @@ script = ExtResource("1_8gbba")
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_jjgbg")]
 collision_mask = 1
 speed = 80
+vida_max = 50
 
 [node name="Camera2D" type="Camera2D" parent="Jugador" unique_id=598315049]
 
