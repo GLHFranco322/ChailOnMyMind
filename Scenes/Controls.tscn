@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bnrlctqsxdnh3" path="res://Scenes/controls.gd" id="1_r5lgv"]
 [ext_resource type="Texture2D" uid="uid://bhhkfxjvdjgmn" path="res://Image-Menús/menú.png" id="2_3hunn"]
 [ext_resource type="FontFile" uid="uid://d1pyf23c33jhy" path="res://Fuentes de Texto/Inky Thin Pixels.woff" id="3_cf10x"]
+[ext_resource type="Texture2D" uid="uid://c38phknbngqku" path="res://Image-Menús/Controles.png" id="4_cf10x"]
+[ext_resource type="Texture2D" uid="uid://bgxmygeckj6ep" path="res://Image-Menús/Teclas.png" id="5_ece4t"]
 
 [node name="Controls" type="Control" unique_id=209647423]
 layout_mode = 3
@@ -60,6 +62,54 @@ theme_override_constants/separation = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_cf10x")
 text = "Volver"
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=219091752]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.714294
+offset_right = 85.714294
+offset_bottom = 75.0
+grow_horizontal = 2
+texture = ExtResource("4_cf10x")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=802159102]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 59.0
+offset_right = 365.0
+offset_bottom = 270.0
+texture = ExtResource("5_ece4t")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=196763507]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 152.0
+offset_right = 174.0
+offset_bottom = 171.0
+theme_override_fonts/font = ExtResource("3_cf10x")
+text = "Movimiento"
+
+[node name="Label2" type="Label" parent="." unique_id=32242643]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 188.0
+offset_right = 174.0
+offset_bottom = 207.0
+theme_override_fonts/font = ExtResource("3_cf10x")
+text = "Ataque"
+
+[node name="Label3" type="Label" parent="." unique_id=155519895]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 228.0
+offset_right = 175.0
+offset_bottom = 247.0
+theme_override_fonts/font = ExtResource("3_cf10x")
+text = "Correr"
 
 [connection signal="mouse_entered" from="VBoxContainer/Back2" to="." method="_on_back_2_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Back2" to="." method="_on_back_2_pressed"]
