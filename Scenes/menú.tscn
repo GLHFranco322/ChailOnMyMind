@@ -7,6 +7,43 @@
 [ext_resource type="Texture2D" uid="uid://bb8qjpahtldgw" path="res://Image-Menús/flashlight_reverse.png" id="3_wholm"]
 [ext_resource type="FontFile" uid="uid://d1pyf23c33jhy" path="res://Fuentes de Texto/Inky Thin Pixels.woff" id="4_wholm"]
 [ext_resource type="AudioStream" uid="uid://p0oalgrr4hj4" path="res://Assets/Sonidos/Click.mp3" id="5_wholm"]
+[ext_resource type="Texture2D" uid="uid://bk5lpmbneljkv" path="res://Image-Menús/FondoNegro.jpg" id="8_v75p8"]
+
+[sub_resource type="Animation" id="Animation_tyjei"]
+resource_name = "Fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qn0x8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c55xd"]
+_data = {
+&"Fade_out": SubResource("Animation_tyjei"),
+&"RESET": SubResource("Animation_qn0x8")
+}
 
 [node name="Menú" type="Control" unique_id=209647423]
 layout_mode = 3
@@ -85,6 +122,25 @@ text = "OPCIONES"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_wholm")
 text = "SALIR"
+
+[node name="Control" type="Control" parent="." unique_id=232251358]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1658729966]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1728462123]
+position = Vector2(239.33331, 135.25)
+scale = Vector2(0.249537, 0.24953704)
+texture = ExtResource("8_v75p8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Sprite2D" unique_id=253022213]
+libraries/ = SubResource("AnimationLibrary_c55xd")
+autoplay = &"Fade_out"
 
 [connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
