@@ -678,25 +678,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oua2g"]
-size = Vector2(97, 68)
+size = Vector2(97, 51)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5nsjc"]
-radius = 34.058773
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vc6x"]
+size = Vector2(48, 62)
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1547580877 groups=["player"]]
-scale = Vector2(0.5, 0.5)
 collision_mask = 0
 script = ExtResource("1_hcpjn")
 speed = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1219376306 groups=["player"]]
-position = Vector2(2.861023e-06, 2)
 scale = Vector2(3, 2.912)
 sprite_frames = SubResource("SpriteFrames_lbm5c")
 animation = &"Walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87059315]
-position = Vector2(0, 43)
+position = Vector2(0, 36.75)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_oua2g")
 
@@ -712,16 +710,18 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1429914879]
-position = Vector2(0, 10)
-shape = SubResource("CircleShape2D_5nsjc")
+visible = false
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_6vc6x")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hitbox" unique_id=1031205437]
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1715380615]
 position = Vector2(3.8146973e-06, 19.999998)
-scale = Vector2(7.228, 6.688)
+scale = Vector2(4, 3.7)
 texture = ExtResource("8_6vc6x")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1464459218]
+zoom = Vector2(0.7, 0.7)
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

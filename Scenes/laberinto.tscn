@@ -1143,6 +1143,8 @@ physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_whk3v")
 sources/1 = SubResource("TileSetAtlasSource_it4lr")
 
+[sub_resource type="Theme" id="Theme_3lnre"]
+
 [node name="Laberinto" type="Node2D" unique_id=184164843]
 script = ExtResource("1_whk3v")
 
@@ -1172,12 +1174,13 @@ offset = Vector2(40, 10)
 transform = Transform2D(1, 0, 0, 1, 40, 10)
 
 [node name="BarraVida" type="ProgressBar" parent="CanvasLayer" unique_id=1360485309]
-offset_left = -26.0
-offset_top = 3.0
-offset_right = 74.0
-offset_bottom = 30.0
+offset_left = -20.0
+offset_right = 50.0
+offset_bottom = 27.0
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 0
 size_flags_vertical = 4
+theme = SubResource("Theme_3lnre")
 
 [node name="Enemigo" parent="." unique_id=1085170091 instance=ExtResource("7_3lnre")]
 position = Vector2(-174, 1143)
