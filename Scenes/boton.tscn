@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://4yliwq17qhsv"]
+
+[ext_resource type="Script" uid="uid://ct6pussnb3m8n" path="res://boton.gd" id="1_mt4we"]
+[ext_resource type="Texture2D" uid="uid://d33qphfxhbd7u" path="res://Assets/Infernus_Tiles/Infernus_Chalice.png" id="2_i7qh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfayi"]
+size = Vector2(10, 9)
+
+[node name="Boton" type="Area2D" unique_id=1809947209]
+script = ExtResource("1_mt4we")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592847090]
+rotation = 1.5707964
+scale = Vector2(1, 0.45673463)
+texture = ExtResource("2_i7qh8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=953653296]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_bfayi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

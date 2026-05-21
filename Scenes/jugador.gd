@@ -215,3 +215,6 @@ func disable_hitbox():
 	print("HITBOX OFF")
 	hitbox.monitoring = false
 	hitbox.visible = false
+
+func bloquear_movimiento(valor: bool):
+	set_physics_process(not valor)
