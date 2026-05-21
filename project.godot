@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Chail On My Mind"
-run/main_scene="uid://bhrf0y5syfgyj"
+run/main_scene="uid://dwvvh5cvji5jp"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -31618,5 +31618,4 @@ scale = Vector2(15.03125, 8.375)
 texture = ExtResource("3_8vlbd")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=56991422]
-visible = false
 color = Color(0.13725491, 0.13725491, 0.13725491, 1)
