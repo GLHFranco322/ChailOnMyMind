@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://djl1hwbcppygn"]
+
+[ext_resource type="Script" uid="uid://cmnv700pap2k2" path="res://Scenes/toxic_dog.gd" id="1_0enes"]
+[ext_resource type="Texture2D" uid="uid://cirg66bxhgiva" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Basic Undead Animations/Toxic Hound/ToxicHound.png" id="1_nr7oe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0enes"]
+atlas = ExtResource("1_nr7oe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apop0"]
+atlas = ExtResource("1_nr7oe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lncxr"]
+atlas = ExtResource("1_nr7oe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mah5"]
+atlas = ExtResource("1_nr7oe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2dc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0enes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apop0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lncxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mah5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdwlu"]
+size = Vector2(15, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nr7oe"]
+radius = 6.0
+
+[node name="ToxicDog" type="CharacterBody2D" unique_id=595966434]
+script = ExtResource("1_0enes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=26705776]
+sprite_frames = SubResource("SpriteFrames_w2dc2")
+frame_progress = 0.24432366
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=890035208]
+physics_interpolation_mode = 1
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_cdwlu")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2114998547]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1208195431]
+light_mask = 0
+position = Vector2(15, 2)
+shape = SubResource("CircleShape2D_nr7oe")

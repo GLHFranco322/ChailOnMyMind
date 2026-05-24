@@ -22,13 +22,13 @@ func _process(delta):
 		if player == null:
 			return
 
-		var camera = player.get_node("Camera2D")
+		var camera = $"../Jugador/Camera2D2"
 
 		# 🔥 bloquear movimiento jugador
 		player.set_physics_process(false)
 
 		# 🔥 desactivar seguimiento automático
-		camera.enabled = false
+		#camera.enabled = false
 
 		# ==================================================
 		# 🎥 MOVER CÁMARA A LA PUERTA

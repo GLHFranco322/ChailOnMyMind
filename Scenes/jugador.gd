@@ -64,12 +64,12 @@ func _physics_process(delta):
 		input_vector.y += 1
 	if Input.is_action_pressed("Walk_up"):
 		input_vector.y -= 1
-
+	
 	input_vector = input_vector.normalized()
-
+	
 	if input_vector != Vector2.ZERO:
 		is_moving = true
-
+	
 	var is_running = false
 	if Input.is_action_pressed("Run") and is_moving and stamina < stamina_max:
 		is_running = true
@@ -80,26 +80,26 @@ func _physics_process(delta):
 	
 	velocity = input_vector * current_speed
 	move_and_slide()
-
+	
 	update_animation(input_vector)
-
+	
 	if is_running:
 		stamina += 40 * delta
 	elif is_moving:
 		stamina -= 15 * delta
 	else:
 		stamina -= 30 * delta
-
+	
 	stamina = clamp(stamina, 0.0, stamina_max)
 	bar.value = stamina
-
+	
 	if Input.is_action_just_pressed("Attack") and not is_attacking:
 		start_attack()
 
 
 func start_attack():
 	print("ATACANDO") # debug
-
+	
 	is_attacking = true
 	already_hit = false
 	velocity = Vector2.ZERO
@@ -164,7 +164,7 @@ func _on_animation_finished():
 		is_attacking = false
 		disable_hitbox() # seguridad extra
 		anim.play("Idle")
-
+	
 	elif anim.animation == "death":
 		queue_free()
 
@@ -172,11 +172,11 @@ func _on_animation_finished():
 func recibir_dano(cantidad: int = 10) -> void:
 	if invulnerable:
 		return
-
+	
 	invulnerable = true
 	vidaJugador -= cantidad
 	print("Vida restante:", vidaJugador)
-
+	
 	if vidaJugador <= 0:
 		morir()
 		return
