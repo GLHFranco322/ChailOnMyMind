@@ -42,9 +42,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdwlu"]
 size = Vector2(15, 12)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nr7oe"]
-radius = 6.0
-
 [node name="ToxicDog" type="CharacterBody2D" unique_id=595966434]
 script = ExtResource("1_0enes")
 
@@ -57,9 +54,7 @@ physics_interpolation_mode = 1
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_cdwlu")
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=2114998547]
+[node name="Timer" type="Timer" parent="." unique_id=424911518]
+wait_time = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1208195431]
-light_mask = 0
-position = Vector2(15, 2)
-shape = SubResource("CircleShape2D_nr7oe")
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

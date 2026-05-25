@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://4yliwq17qhsv" path="res://Scenes/boton.tscn" id="6_m4gxj"]
 [ext_resource type="PackedScene" uid="uid://7my0pl2pfavf" path="res://Scenes/puerta.tscn" id="7_b41rw"]
 [ext_resource type="PackedScene" uid="uid://djl1hwbcppygn" path="res://Scenes/toxic_dog.tscn" id="8_b41rw"]
+[ext_resource type="PackedScene" uid="uid://bsykiava0wcn8" path="res://Scenes/zombie.tscn" id="9_0hofl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b41rw"]
 texture = ExtResource("1_5qi14")
@@ -31822,7 +31823,7 @@ scale = Vector2(0.5, 0.5)
 collision_mask = 1
 
 [node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=1414688960]
-zoom = Vector2(0.7, 0.7)
+zoom = Vector2(0.3, 0.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1659356166]
 visible = false
@@ -31833,4 +31834,21 @@ texture = ExtResource("3_8vlbd")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=56991422]
 color = Color(0.13725491, 0.13725491, 0.13725491, 1)
 
-[node name="ToxicDog" parent="." unique_id=595966434 instance=ExtResource("8_b41rw")]
+[node name="ToxicDog" parent="." unique_id=595966434 node_paths=PackedStringArray("waypoints") instance=ExtResource("8_b41rw")]
+position = Vector2(119, -299)
+waypoints = [NodePath("../Waypoints/Waypoint"), NodePath("../Waypoints/Waypoint2"), NodePath("../Waypoints/Waypoint3")]
+speed = 100.0
+
+[node name="Waypoints" type="Node2D" parent="." unique_id=229837703]
+
+[node name="Waypoint" type="Marker2D" parent="Waypoints" unique_id=1595471660]
+position = Vector2(-263, -299)
+
+[node name="Waypoint2" type="Marker2D" parent="Waypoints" unique_id=1240742943]
+position = Vector2(117, -301)
+
+[node name="Waypoint3" type="Marker2D" parent="Waypoints" unique_id=219910355]
+position = Vector2(-255, -467)
+
+[node name="Zombie" parent="." unique_id=304745947 instance=ExtResource("9_0hofl")]
+position = Vector2(51, 8)
