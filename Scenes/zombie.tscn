@@ -19,6 +19,54 @@ region = Rect2(32, 0, 16, 40)
 atlas = ExtResource("1_h3kin")
 region = Rect2(48, 0, 16, 40)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4slyf"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ia6i"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx3wb"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0wq0"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hslf5"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2tw5"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj6an"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmcj1"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8xw"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0eft"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(16, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3vja"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(32, 96, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaj8p"]
+atlas = ExtResource("1_h3kin")
+region = Rect2(48, 96, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4slyf"]
 animations = [{
 "frames": [{
@@ -37,19 +85,95 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4slyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ia6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx3wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0wq0")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hslf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2tw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj6an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmcj1")
+}],
+"loop": false,
+"name": &"attackDown",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw8xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0eft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3vja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaj8p")
+}],
+"loop": false,
+"name": &"attackUp",
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ia6i"]
-size = Vector2(12, 24)
+size = Vector2(12, 25)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n70j1"]
+radius = 26.0
+height = 62.0
 
 [node name="Zombie" type="CharacterBody2D" unique_id=304745947 groups=["Enemigos"]]
+collision_layer = 2
 script = ExtResource("1_n70j1")
-speed = 100.0
+speed = 60.0
+distancia_minima = 20.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1359343111]
 sprite_frames = SubResource("SpriteFrames_4slyf")
-animation = &"Idle"
-frame_progress = 0.55971056
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972292059]
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_5ia6i")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1729469784]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=883230131]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_n70j1")
+
+[node name="Timer" type="Timer" parent="." unique_id=1890317236]
+wait_time = 0.3
+
+[node name="WanderTimer" type="Timer" parent="." unique_id=1556494217]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]

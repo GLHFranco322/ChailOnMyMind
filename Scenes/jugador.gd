@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var vida_max: int = 100
 @export var stamina_max: float = 50.0
 @export var invulnerable_time: float = 0.5
+@export var dano_ataque : float
 
 @onready var bar = $ProgressBar
 @onready var anim = $AnimatedSprite2D
@@ -16,6 +17,7 @@ var is_attacking: bool = false
 var last_direction = "down"
 var invulnerable: bool = false
 var is_dead: bool = false
+var cansado = false
 
 var already_hit: bool = false
 
@@ -71,24 +73,49 @@ func _physics_process(delta):
 		is_moving = true
 	
 	var is_running = false
-	if Input.is_action_pressed("Run") and is_moving and stamina < stamina_max:
+
+# Si está cansado se mueve lento
+	if cansado:
+
+		current_speed = 100
+
+# Puede correr solo si NO está cansado
+	elif Input.is_action_pressed("Run") and is_moving and stamina > 0:
+
 		is_running = true
 		current_speed = speed * 2
-	
-	if stamina == current_speed and is_running:
-		current_speed = 150
 	
 	velocity = input_vector * current_speed
 	move_and_slide()
 	
 	update_animation(input_vector)
 	
+	# CORRIENDO = GASTA stamina
+	# CORRIENDO = GASTA stamina
 	if is_running:
-		stamina += 40 * delta
-	elif is_moving:
-		stamina -= 15 * delta
-	else:
-		stamina -= 30 * delta
+
+		stamina -= 40 * delta
+
+# QUIETO = RECUPERA stamina
+	elif not is_moving and not cansado:
+
+		stamina += 30 * delta
+
+# CAMINANDO = recupera lento
+	elif not cansado:
+
+		stamina += 10 * delta
+
+
+# Llega a 0 → cansancio
+	if stamina <= 0 and not cansado:
+
+		stamina = 0
+		cansado = true
+
+		await get_tree().create_timer(3.0).timeout
+
+		cansado = false
 	
 	stamina = clamp(stamina, 0.0, stamina_max)
 	bar.value = stamina
@@ -105,7 +132,7 @@ func start_attack():
 	velocity = Vector2.ZERO
 	
 	update_hitbox_direction()
-	enable_hitbox() # 👈 🔥 ESTO FALTABA
+	enable_hitbox() # ESTO FALTABA
 	
 	match last_direction:
 		"right":
@@ -169,19 +196,32 @@ func _on_animation_finished():
 		queue_free()
 
 
-func recibir_dano(cantidad: int = 10) -> void:
-	if invulnerable:
+
+func recibir_dano(cantidad) -> void:
+
+	if invulnerable or is_dead:
 		return
-	
+
 	invulnerable = true
+
 	vidaJugador -= cantidad
+
 	print("Vida restante:", vidaJugador)
-	
+
+	# FLASH ROJO
+	anim.modulate = Color(1, 0, 0)
+
+	await get_tree().create_timer(0.1).timeout
+
+	anim.modulate = Color(1, 1, 1)
+
 	if vidaJugador <= 0:
+
 		morir()
 		return
 
 	await get_tree().create_timer(invulnerable_time).timeout
+
 	invulnerable = false
 
 
@@ -200,9 +240,9 @@ func morir() -> void:
 func _on_hitbox_body_entered(body):
 	print("COLISION CON:", body.name)
 
-	if body.is_in_group("enemy") and not already_hit:
+	if (body.is_in_group("enemy") or body.is_in_group("Enemigos")) and not already_hit:
 		print("LE PEGO")
-		body.recibir_dano(20)
+		body.recibir_dano(dano_ataque)
 		already_hit = true
 
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhrf0y5syfgyj" path="res://Scenes/jugador.tscn" id="1_3hss1"]
 [ext_resource type="Texture2D" uid="uid://b5y527wnpttdj" path="res://Images/5_by_20_orthogonal_maze.png" id="1_5qi14"]
+[ext_resource type="Script" uid="uid://yamk1uavys4n" path="res://Scenes/comisaria.gd" id="1_e8ytk"]
 [ext_resource type="Texture2D" uid="uid://ciokkc6gedbkn" path="res://Assets/Mapa/Comisaria.png" id="1_wkbpl"]
 [ext_resource type="Texture2D" uid="uid://25eofrp4k0a1" path="res://Assets/Jugador/background.png" id="3_8vlbd"]
 [ext_resource type="Texture2D" uid="uid://cnqh7gjiphbn5" path="res://Assets/Mapa/comisaria 2.png" id="3_xydu2"]
@@ -31794,7 +31795,16 @@ physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_wkbpl")
 sources/1 = SubResource("TileSetAtlasSource_5qi14")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
+bg_color = Color(0.7882353, 0.07058824, 0.2901961, 0.5137255)
+skew = Vector2(1, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
 [node name="Comisaria" type="Node2D" unique_id=1683358964]
+script = ExtResource("1_e8ytk")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=510345561]
 position = Vector2(0, -70)
@@ -31821,9 +31831,9 @@ scale = Vector2(4, 4)
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_3hss1")]
 scale = Vector2(0.5, 0.5)
 collision_mask = 1
+dano_ataque = 15.0
 
 [node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=1414688960]
-zoom = Vector2(0.3, 0.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1659356166]
 visible = false
@@ -31851,4 +31861,25 @@ position = Vector2(117, -301)
 position = Vector2(-255, -467)
 
 [node name="Zombie" parent="." unique_id=304745947 instance=ExtResource("9_0hofl")]
-position = Vector2(51, 8)
+position = Vector2(216, 20)
+vida = 30
+
+[node name="Zombie2" parent="." unique_id=1102460713 instance=ExtResource("9_0hofl")]
+position = Vector2(-205, 83)
+vida = 30
+
+[node name="Zombie3" parent="." unique_id=603498886 instance=ExtResource("9_0hofl")]
+position = Vector2(-176, -97)
+vida = 30
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=65998297]
+
+[node name="VidaBar" type="ProgressBar" parent="UI" unique_id=646227932]
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 117.0
+offset_bottom = 29.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_e8ytk")
+show_percentage = false
