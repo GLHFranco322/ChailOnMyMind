@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d0okiva75l8rl"]
+
+[ext_resource type="Script" uid="uid://6irqdunutrcb" path="res://Scenes/boton_final.gd" id="1_7y85l"]
+[ext_resource type="Texture2D" uid="uid://b4n27k5k1ycc6" path="res://Assets/Infernus_Tiles/Infernus_WallShield_3.png" id="2_nb2p5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb2p5"]
+size = Vector2(41, 36)
+
+[node name="BotonFinal" type="Area2D" unique_id=1207797317]
+script = ExtResource("1_7y85l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1966794489]
+texture = ExtResource("2_nb2p5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=674469431]
+position = Vector2(-2.5, 8)
+shape = SubResource("RectangleShape2D_nb2p5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
