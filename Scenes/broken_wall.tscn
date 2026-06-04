@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bwop0poy72t5b"]
+
+[ext_resource type="Script" uid="uid://d33aythtlhfm2" path="res://Scenes/broken_wall.gd" id="1_brnok"]
+[ext_resource type="Texture2D" uid="uid://bducbfivcll5c" path="res://Assets/Mapa/BrokenWall.png" id="1_g230g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brnok"]
+atlas = ExtResource("1_g230g")
+region = Rect2(0, 0, 37, 367)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_owd88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brnok")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl0mk"]
+size = Vector2(37, 365)
+
+[node name="BrokenWall" type="StaticBody2D" unique_id=820960029]
+script = ExtResource("1_brnok")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1102525913]
+sprite_frames = SubResource("SpriteFrames_owd88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=204612590]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_xl0mk")
