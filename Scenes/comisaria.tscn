@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bd7v6rrsvgxll" path="res://Scenes/puerta_final.tscn" id="14_y5c7o"]
 [ext_resource type="PackedScene" uid="uid://d0okiva75l8rl" path="res://Scenes/boton_final.tscn" id="15_0r1u1"]
 [ext_resource type="PackedScene" uid="uid://rtuq0km4ar15" path="res://Scenes/Inmortal.tscn" id="15_aq5e2"]
+[ext_resource type="PackedScene" uid="uid://ddnfhrfkrbdqh" path="res://Scenes/pause_menu.tscn" id="19_1shi5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vlbd"]
 texture = ExtResource("1_wkbpl")
@@ -82357,3 +82358,8 @@ broken_wall_path = NodePath("../BrokenWall")
 [node name="Inmortal" parent="." unique_id=511109610 instance=ExtResource("15_aq5e2")]
 position = Vector2(-351, -1645)
 detection_distance = 400.0
+
+[node name="Pausa" type="CanvasLayer" parent="." unique_id=7428]
+process_mode = 3
+
+[node name="PauseMenu" parent="Pausa" unique_id=209647423 instance=ExtResource("19_1shi5")]

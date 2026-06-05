@@ -7,15 +7,15 @@ extends Node2D
 
 
 func _ready() -> void:
-
 	# Empieza sin colisión
 	line_black_collision.disabled = true
 
 
 func _process(delta: float) -> void:
-
+	
 	vida_bar.value = jugador.vidaJugador
 
 	# Activar la colisión una sola vez cuando se use el botón
 	if botonFinal.usado and line_black_collision.disabled:
 		line_black_collision.disabled = false
+		
