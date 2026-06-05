@@ -16,3 +16,4 @@ func _on_prisionero_celda_601_frame_changed():
 
 		if frame == 1 or frame == 4:
 			$AudioCaminar.play()
+			
