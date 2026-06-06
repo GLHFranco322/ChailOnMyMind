@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bgxmygeckj6ep" path="res://Image-Menús/Teclas.png" id="5_ece4t"]
 
 [node name="Controls" type="Control" unique_id=209647423]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,41 +78,41 @@ expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=802159102]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 59.0
-offset_right = 365.0
-offset_bottom = 270.0
+offset_left = -6.0
+offset_top = 9.0
+offset_right = 261.39337
+offset_bottom = 164.0
 texture = ExtResource("5_ece4t")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="." unique_id=196763507]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 152.0
-offset_right = 174.0
-offset_bottom = 171.0
+offset_left = 66.0
+offset_top = 65.0
+offset_right = 144.0
+offset_bottom = 84.0
 theme_override_fonts/font = ExtResource("3_cf10x")
 text = "Movimiento"
 
 [node name="Label2" type="Label" parent="." unique_id=32242643]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 188.0
-offset_right = 174.0
-offset_bottom = 207.0
+offset_left = 66.0
+offset_top = 101.0
+offset_right = 144.0
+offset_bottom = 120.0
 theme_override_fonts/font = ExtResource("3_cf10x")
 text = "Ataque"
 
 [node name="Label3" type="Label" parent="." unique_id=155519895]
 layout_mode = 0
-offset_left = 97.0
-offset_top = 228.0
-offset_right = 175.0
-offset_bottom = 247.0
+offset_left = 67.0
+offset_top = 141.0
+offset_right = 145.0
+offset_bottom = 160.0
 theme_override_fonts/font = ExtResource("3_cf10x")
 text = "Correr"
 
 [connection signal="mouse_entered" from="VBoxContainer/Back2" to="." method="_on_back_2_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/Back2" to="." method="_on_back_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back2" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back2" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back2" to="." method="_on_back_2_pressed"]

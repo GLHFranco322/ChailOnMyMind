@@ -2,13 +2,20 @@ extends Node2D
 
 @onready var vida_bar = $UI/VidaBar
 @onready var jugador = $Jugador
-# Called when the node enters the scene tree for the first time.
+@onready var botonFinal = $BotonFinal
+@onready var line_black_collision = $LineBlack/CollisionShape2D
+
+
 func _ready() -> void:
+	# Empieza sin colisión
+	line_black_collision.disabled = true
 
-	print(vida_bar)
-	print(jugador)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	vida_bar.value = jugador.vidaJugador
+
+	# Activar la colisión una sola vez cuando se use el botón
+	if botonFinal.usado and line_black_collision.disabled:
+		line_black_collision.disabled = false
+		

@@ -1,0 +1,269 @@
+[gd_scene format=3 uid="uid://br7ylv6jt3whg"]
+
+[ext_resource type="Script" uid="uid://dee6r2svtbupj" path="res://Scenes/Cinematicas/Intro/cinematica_intro.gd" id="1_0fo11"]
+[ext_resource type="Texture2D" uid="uid://m15nav5imkde" path="res://Top-Down_Retro_Interior/TopDownHouse_FurnitureState1-Sheet-reloj.png" id="2_v6ust"]
+[ext_resource type="AudioStream" uid="uid://cg8kvxpqerqna" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/ticking_clock.wav" id="3_pltx8"]
+[ext_resource type="AudioStream" uid="uid://kbva2dyfxdcb" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/Reverse-Time-Loop-isaiah658.wav" id="4_h31qw"]
+[ext_resource type="AudioStream" uid="uid://bcev73lue8vsx" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/time_stop.mp3" id="5_lgwfo"]
+
+[sub_resource type="Animation" id="Animation_dquwu"]
+resource_name = "Acto 1"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Reloj:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 122.00001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reloj:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"Idle", &"Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Reloj:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(11.065, 11.065)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect2:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(8.5, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.03333333, 0.1, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_reloj"
+}, {
+"args": [],
+"method": &"play_ambiente"
+}, {
+"args": [],
+"method": &"play_tiempo"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jelyh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Reloj:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Reloj:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 97.99999)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Reloj:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect2:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jelyh"]
+_data = {
+&"Acto 1": SubResource("Animation_dquwu"),
+&"RESET": SubResource("Animation_jelyh")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jelyh"]
+atlas = ExtResource("2_v6ust")
+region = Rect2(0, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jae06"]
+atlas = ExtResource("2_v6ust")
+region = Rect2(208, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46h6q"]
+atlas = ExtResource("2_v6ust")
+region = Rect2(416, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x03jn"]
+atlas = ExtResource("2_v6ust")
+region = Rect2(624, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxk5x"]
+atlas = ExtResource("2_v6ust")
+region = Rect2(832, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkk7l"]
+atlas = ExtResource("2_v6ust")
+region = Rect2(1040, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxgkj"]
+atlas = ExtResource("2_v6ust")
+region = Rect2(1248, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lrfh"]
+atlas = ExtResource("2_v6ust")
+region = Rect2(1456, 0, 208, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8n1qj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jelyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jae06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46h6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x03jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxk5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkk7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxgkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lrfh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="CinematicaIntro" type="Node2D" unique_id=57024073]
+script = ExtResource("1_0fo11")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=602835039]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(8, 4.4800005)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="." unique_id=1981118450]
+libraries/ = SubResource("AnimationLibrary_jelyh")
+autoplay = &"Acto 1"
+
+[node name="Reloj" type="AnimatedSprite2D" parent="." unique_id=1031339559]
+position = Vector2(160, 97.99999)
+scale = Vector2(0.998, 0.998)
+sprite_frames = SubResource("SpriteFrames_8n1qj")
+animation = &"Idle"
+autoplay = "Idle"
+frame = 3
+frame_progress = 0.688101
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=833681302]
+position = Vector2(160, 90)
+
+[node name="AudioReloj" type="AudioStreamPlayer2D" parent="." unique_id=2090124679]
+stream = ExtResource("3_pltx8")
+
+[node name="AudioAmbiente" type="AudioStreamPlayer2D" parent="." unique_id=1558179955]
+stream = ExtResource("4_h31qw")
+volume_db = -5.0
+
+[node name="AudioTiempo" type="AudioStreamPlayer2D" parent="." unique_id=1444014674]
+stream = ExtResource("5_lgwfo")
+volume_db = 2.0
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2075391520]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(8, 4.5200005)
+color = Color(1, 1, 1, 0)
+
+[connection signal="animation_finished" from="AnimationPlayer1" to="." method="_on_animation_player_1_animation_finished"]
+[connection signal="finished" from="AudioReloj" to="." method="_on_audio_reloj_finished"]

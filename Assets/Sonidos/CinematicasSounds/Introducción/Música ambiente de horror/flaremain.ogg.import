@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kbfgk2e34g3j"
+path="res://.godot/imported/flaremain.ogg-8b422fcdb6e5661e15d295d9e6bf5687.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sonidos/CinematicasSounds/Introducción/Música ambiente de horror/flaremain.ogg"
+dest_files=["res://.godot/imported/flaremain.ogg-8b422fcdb6e5661e15d295d9e6bf5687.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
