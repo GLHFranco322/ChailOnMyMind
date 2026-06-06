@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://br7ylv6jt3whg"]
 
-[ext_resource type="Texture2D" uid="uid://m15nav5imkde" path="res://Top-Down_Retro_Interior/TopDownHouse_FurnitureState1-Sheet-reloj.png" id="1_dquwu"]
-[ext_resource type="Script" uid="uid://dee6r2svtbupj" path="res://Scenes/Cinematicas/Intro/cinematica_intro.gd" id="1_jae06"]
-[ext_resource type="AudioStream" uid="uid://cg8kvxpqerqna" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/ticking_clock.wav" id="3_46h6q"]
-[ext_resource type="AudioStream" uid="uid://kbva2dyfxdcb" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/Reverse-Time-Loop-isaiah658.wav" id="4_x03jn"]
-[ext_resource type="AudioStream" uid="uid://bcev73lue8vsx" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/time_stop.mp3" id="5_vxk5x"]
+[ext_resource type="Script" uid="uid://dee6r2svtbupj" path="res://Scenes/Cinematicas/Intro/cinematica_intro.gd" id="1_0fo11"]
+[ext_resource type="Texture2D" uid="uid://m15nav5imkde" path="res://Top-Down_Retro_Interior/TopDownHouse_FurnitureState1-Sheet-reloj.png" id="2_v6ust"]
+[ext_resource type="AudioStream" uid="uid://cg8kvxpqerqna" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/ticking_clock.wav" id="3_pltx8"]
+[ext_resource type="AudioStream" uid="uid://kbva2dyfxdcb" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/Reverse-Time-Loop-isaiah658.wav" id="4_h31qw"]
+[ext_resource type="AudioStream" uid="uid://bcev73lue8vsx" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/time_stop.mp3" id="5_lgwfo"]
 
 [sub_resource type="Animation" id="Animation_dquwu"]
 resource_name = "Acto 1"
@@ -160,35 +160,35 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jelyh"]
-atlas = ExtResource("1_dquwu")
+atlas = ExtResource("2_v6ust")
 region = Rect2(0, 0, 208, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jae06"]
-atlas = ExtResource("1_dquwu")
+atlas = ExtResource("2_v6ust")
 region = Rect2(208, 0, 208, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_46h6q"]
-atlas = ExtResource("1_dquwu")
+atlas = ExtResource("2_v6ust")
 region = Rect2(416, 0, 208, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x03jn"]
-atlas = ExtResource("1_dquwu")
+atlas = ExtResource("2_v6ust")
 region = Rect2(624, 0, 208, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxk5x"]
-atlas = ExtResource("1_dquwu")
+atlas = ExtResource("2_v6ust")
 region = Rect2(832, 0, 208, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkk7l"]
-atlas = ExtResource("1_dquwu")
+atlas = ExtResource("2_v6ust")
 region = Rect2(1040, 0, 208, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxgkj"]
-atlas = ExtResource("1_dquwu")
+atlas = ExtResource("2_v6ust")
 region = Rect2(1248, 0, 208, 288)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3lrfh"]
-atlas = ExtResource("1_dquwu")
+atlas = ExtResource("2_v6ust")
 region = Rect2(1456, 0, 208, 288)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8n1qj"]
@@ -224,7 +224,7 @@ animations = [{
 }]
 
 [node name="CinematicaIntro" type="Node2D" unique_id=57024073]
-script = ExtResource("1_jae06")
+script = ExtResource("1_0fo11")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=602835039]
 offset_right = 40.0
@@ -232,7 +232,7 @@ offset_bottom = 40.0
 scale = Vector2(8, 4.4800005)
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1981118450]
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="." unique_id=1981118450]
 libraries/ = SubResource("AnimationLibrary_jelyh")
 autoplay = &"Acto 1"
 
@@ -249,14 +249,14 @@ frame_progress = 0.688101
 position = Vector2(160, 90)
 
 [node name="AudioReloj" type="AudioStreamPlayer2D" parent="." unique_id=2090124679]
-stream = ExtResource("3_46h6q")
+stream = ExtResource("3_pltx8")
 
 [node name="AudioAmbiente" type="AudioStreamPlayer2D" parent="." unique_id=1558179955]
-stream = ExtResource("4_x03jn")
+stream = ExtResource("4_h31qw")
 volume_db = -5.0
 
 [node name="AudioTiempo" type="AudioStreamPlayer2D" parent="." unique_id=1444014674]
-stream = ExtResource("5_vxk5x")
+stream = ExtResource("5_lgwfo")
 volume_db = 2.0
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=2075391520]
@@ -265,4 +265,5 @@ offset_bottom = 40.0
 scale = Vector2(8, 4.5200005)
 color = Color(1, 1, 1, 0)
 
+[connection signal="animation_finished" from="AnimationPlayer1" to="." method="_on_animation_player_1_animation_finished"]
 [connection signal="finished" from="AudioReloj" to="." method="_on_audio_reloj_finished"]
