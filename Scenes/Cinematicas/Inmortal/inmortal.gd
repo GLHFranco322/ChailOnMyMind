@@ -6,7 +6,6 @@ func play_idle():
 func play_death():
 	play("Death")
 	
-	
 func play_walk():
 	play("Walk")
 

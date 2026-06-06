@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://br7ylv6jt3whg"]
 
 [ext_resource type="Texture2D" uid="uid://m15nav5imkde" path="res://Top-Down_Retro_Interior/TopDownHouse_FurnitureState1-Sheet-reloj.png" id="1_dquwu"]
-[ext_resource type="Script" uid="uid://dee6r2svtbupj" path="res://Scenes/Cinematicas/cinematica_intro.gd" id="1_jae06"]
+[ext_resource type="Script" uid="uid://dee6r2svtbupj" path="res://Scenes/Cinematicas/Intro/cinematica_intro.gd" id="1_jae06"]
 [ext_resource type="AudioStream" uid="uid://cg8kvxpqerqna" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/ticking_clock.wav" id="3_46h6q"]
 [ext_resource type="AudioStream" uid="uid://kbva2dyfxdcb" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/Reverse-Time-Loop-isaiah658.wav" id="4_x03jn"]
 [ext_resource type="AudioStream" uid="uid://bcev73lue8vsx" path="res://Assets/Sonidos/CinematicasSounds/Introducción/Sonido del Tiempo/time_stop.mp3" id="5_vxk5x"]
