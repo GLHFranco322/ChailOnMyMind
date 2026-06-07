@@ -197,31 +197,30 @@ func _on_animation_finished():
 
 
 
-func recibir_dano(cantidad) -> void:
-
+func recibir_dano(cantidad, origen: Vector2 = Vector2.ZERO) -> void:
 	if invulnerable or is_dead:
 		return
 
 	invulnerable = true
-
 	vidaJugador -= cantidad
-
 	print("Vida restante:", vidaJugador)
 
-	# FLASH ROJO
+	# Flash rojo
 	anim.modulate = Color(1, 0, 0)
-
 	await get_tree().create_timer(0.1).timeout
-
 	anim.modulate = Color(1, 1, 1)
 
 	if vidaJugador <= 0:
-
 		morir()
 		return
 
-	await get_tree().create_timer(invulnerable_time).timeout
+	# Knockback del jugador
+	if origen != Vector2.ZERO:
+		var dir = (global_position - origen).normalized()
+		velocity = dir * 200.0
+		move_and_slide()
 
+	await get_tree().create_timer(invulnerable_time).timeout
 	invulnerable = false
 
 
@@ -238,11 +237,8 @@ func morir() -> void:
 	get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 
 func _on_hitbox_body_entered(body):
-	print("COLISION CON:", body.name)
-
 	if (body.is_in_group("enemy") or body.is_in_group("Enemigos")) and not already_hit:
-		print("LE PEGO")
-		body.recibir_dano(dano_ataque)
+		body.recibir_dano(dano_ataque, global_position)  # ← pasás tu posición como origen
 		already_hit = true
 
 
