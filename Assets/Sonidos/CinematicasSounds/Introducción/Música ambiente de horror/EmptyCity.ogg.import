@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cx71u6r2mit25"
+path="res://.godot/imported/EmptyCity.ogg-e9827c8beab93405425755e7c88087da.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sonidos/CinematicasSounds/Introducción/Música ambiente de horror/EmptyCity.ogg"
+dest_files=["res://.godot/imported/EmptyCity.ogg-e9827c8beab93405425755e7c88087da.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

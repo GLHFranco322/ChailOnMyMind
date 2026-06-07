@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh7uk3lcqllye"
+path="res://.godot/imported/Ghostmonster sounds.mp3-8c9c00a3e6e32be6f74d655610be248e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sonidos/CinematicasSounds/Inmortal/Ghostmonster sounds.mp3"
+dest_files=["res://.godot/imported/Ghostmonster sounds.mp3-8c9c00a3e6e32be6f74d655610be248e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

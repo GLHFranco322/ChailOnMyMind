@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://vqc7qntmviuc"
+path="res://.godot/imported/dialogo_celda601.dialogue-e4e70f3faab8c9e710486670b304984a.tres"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Celda 601/dialogo_celda601.dialogue"
+dest_files=["res://.godot/imported/dialogo_celda601.dialogue-e4e70f3faab8c9e710486670b304984a.tres"]
+
+[params]
+
+defaults=true

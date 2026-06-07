@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b7pm7qmy1702o"
+path="res://.godot/imported/Dark_Rainy_Night(ambience).ogg-80217990c66857f23720090b25d75be7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sonidos/CinematicasSounds/Introducción/Música ambiente de horror/Dark_Rainy_Night(ambience).ogg"
+dest_files=["res://.godot/imported/Dark_Rainy_Night(ambience).ogg-80217990c66857f23720090b25d75be7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
