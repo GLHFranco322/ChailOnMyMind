@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c7mxa47ha0slp"]
+
+[ext_resource type="PackedScene" uid="uid://csoxsk17lot56" path="res://Scenes/0.1/mapa.tscn" id="1_ar7td"]
+[ext_resource type="PackedScene" uid="uid://bhrf0y5syfgyj" path="res://Scenes/jugador.tscn" id="2_o22k6"]
+[ext_resource type="PackedScene" uid="uid://bsykiava0wcn8" path="res://Scenes/zombie.tscn" id="3_o22k6"]
+[ext_resource type="PackedScene" uid="uid://4yliwq17qhsv" path="res://Scenes/boton.tscn" id="4_5o3be"]
+[ext_resource type="PackedScene" uid="uid://7my0pl2pfavf" path="res://Scenes/puerta.tscn" id="5_j4evn"]
+
+[node name="Nivel1" type="Node2D" unique_id=1173929449]
+
+[node name="Mapa" parent="." unique_id=1958495002 instance=ExtResource("1_ar7td")]
+
+[node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("2_o22k6")]
+position = Vector2(408, -2527)
+scale = Vector2(0.5, 0.5)
+collision_mask = 1
+dano_ataque = 15.0
+
+[node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=544119209]
+
+[node name="Zombie2" parent="." unique_id=304745947 instance=ExtResource("3_o22k6")]
+position = Vector2(401, -2175)
+scale = Vector2(1.5, 1.5)
+vida = 30
+
+[node name="Boton" parent="." unique_id=1809947209 instance=ExtResource("4_5o3be")]
+position = Vector2(372, -2133)
+puerta_path = NodePath("../Puerta")
+
+[node name="Puerta" parent="." unique_id=224426143 instance=ExtResource("5_j4evn")]
+position = Vector2(393.99997, -2049)
+rotation = -1.5707964
+scale = Vector2(1.5, 2.5)
