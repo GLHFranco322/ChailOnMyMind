@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fhblr0p15yxh"
-path="res://.godot/imported/policia tirado.png-e6a12569d74e633ec9265cdd7a4c8adf.ctex"
+uid="uid://dony8140o08us"
+path="res://.godot/imported/5-Disassemble_alt.png-341717c21dd90eb2086370018d0294d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/policia tirado.png"
-dest_files=["res://.godot/imported/policia tirado.png-e6a12569d74e633ec9265cdd7a4c8adf.ctex"]
+source_file="res://Assets/ObjetosdeInventario/5-Disassemble_alt.png"
+dest_files=["res://.godot/imported/5-Disassemble_alt.png-341717c21dd90eb2086370018d0294d9.ctex"]
 
 [params]
 

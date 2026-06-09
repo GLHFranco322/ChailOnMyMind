@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwix7wphisqyc"]
+
+[ext_resource type="Script" uid="uid://dgk4fp1jticn3" path="res://Assets/Guardia/tarjeta_de_seguridad.gd" id="1_kd0cg"]
+[ext_resource type="Texture2D" uid="uid://rsfhwrbixcos" path="res://Assets/ObjetosdeInventario/1-Machine_alt.png" id="1_wlbcb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kd0cg"]
+size = Vector2(6, 6)
+
+[node name="Tarjeta de Seguridad" type="Node2D" unique_id=2102793677]
+script = ExtResource("1_kd0cg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1783557230]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1734562392]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_wlbcb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=415759664]
+shape = SubResource("RectangleShape2D_kd0cg")

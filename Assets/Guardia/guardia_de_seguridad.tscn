@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://gjcoa8bj07bd"]
+
+[ext_resource type="Texture2D" uid="uid://d3f0ri34u5fsd" path="res://Assets/Guardia/policia tirado.png" id="1_1wys3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wys3"]
+size = Vector2(51, 30)
+
+[node name="Guardia de Seguridad" type="Node2D" unique_id=1118828390]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=344842328]
+position = Vector2(79, -299)
+scale = Vector2(1.382, 2)
+texture = ExtResource("1_1wys3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1292162412]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1795994762]
+position = Vector2(58.5, 161)
+shape = SubResource("RectangleShape2D_1wys3")

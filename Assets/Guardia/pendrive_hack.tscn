@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cewvo55i8odge"]
+
+[ext_resource type="Script" uid="uid://c2ucrsq30ecgd" path="res://Assets/Guardia/pendrive_hack.gd" id="1_g8ls4"]
+[ext_resource type="Texture2D" uid="uid://dx0p3kr10rdb" path="res://Assets/ObjetosdeInventario/3-Hacker_alt.png" id="1_jjr2m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g8ls4"]
+radius = 3.0
+height = 6.0
+
+[node name="PendriveHack" type="Node2D" unique_id=1159094312]
+script = ExtResource("1_g8ls4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1711632382]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=301534252]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_jjr2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=270837562]
+shape = SubResource("CapsuleShape2D_g8ls4")

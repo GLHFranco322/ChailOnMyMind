@@ -31,7 +31,7 @@ func mostrar_dialogo():
 	fin_cinematica()
 
 func fin_cinematica():
-	get_tree().change_scene_to_file("res://Scenes/comisaria.tscn")
+	get_tree().change_scene_to_file("res://Scenes/0.1/nivel_1.tscn")
 
 func _on_animation_player_2_animation_finished(anim_name: StringName):
 	if anim_name == "Celda601":
