@@ -3,7 +3,8 @@ extends Node2D
 @onready var vida_bar = $UI/VidaBar
 @onready var jugador = $Jugador
 @onready var botonFinal = $BotonFinal
-@onready var line_black_collision = $Mapa/LineBlack/CollisionShape2D
+@onready var line_black_collision = $LineBlack/CollisionShape2D
+
 
 func _ready() -> void:
 	# Empieza sin colisión

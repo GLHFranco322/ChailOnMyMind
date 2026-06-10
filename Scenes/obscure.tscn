@@ -2344,7 +2344,7 @@ physics_layer_0/collision_layer = 255
 physics_layer_0/collision_mask = 255
 sources/1 = SubResource("TileSetAtlasSource_70f7c")
 
-[node name="Mapa" type="Node2D" unique_id=1682887945]
+[node name="Obscure" type="Node2D" unique_id=1682887945]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904334795]
 visible = false
