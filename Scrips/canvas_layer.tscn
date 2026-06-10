@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://duhx6107n61no"]
+
+[ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="1_5a0kw"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1988996643]
+
+[node name="TextoInteraccion" type="Label" parent="." unique_id=730623482 groups=["ui_interaccion"]]
+visible = false
+offset_top = 54.0
+offset_right = 321.0
+offset_bottom = 233.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_5a0kw")
+theme_override_font_sizes/font_size = 10
+text = "Presiona [ E ] para interactuar"
+horizontal_alignment = 1
+vertical_alignment = 1

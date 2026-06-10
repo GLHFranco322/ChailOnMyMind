@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://5g6hdpemcvlq" path="res://Scenes/jugador.gd" id="1_hcpjn"]
 [ext_resource type="Texture2D" uid="uid://0vwmv3228u02" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/playerprisioner-Sheet-prueba.png" id="2_3cdix"]
 [ext_resource type="Texture2D" uid="uid://cqnbugpix5aaf" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_left_down.png" id="2_btb33"]
-[ext_resource type="Resource" uid="uid://j0ge2vv6rbfr" path="res://Inventory/playerinv.tres" id="2_x1a6r"]
 [ext_resource type="Texture2D" uid="uid://cc8iwiqy43tew" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/playerprisioner.png" id="3_3cdix"]
 [ext_resource type="Texture2D" uid="uid://bn33l04biw6i4" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_left_up.png" id="3_qw2bf"]
 [ext_resource type="Texture2D" uid="uid://bo20h2y6142er" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_right_down.png" id="4_g5h5a"]
 [ext_resource type="Texture2D" uid="uid://cmdalll6lrih8" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_right_up.png" id="5_o2m60"]
 [ext_resource type="Texture2D" uid="uid://o337ua7vj1gk" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_up.png" id="6_hcpjn"]
 [ext_resource type="Texture2D" uid="uid://c1ko6nmufrop3" path="res://Assets/Jugador/FREE Textures Of Light/64x64/64x64 textures (99).png" id="8_6vc6x"]
+[ext_resource type="AudioStream" uid="uid://dnqlaegx321nb" path="res://Assets/Sonidos/CinematicasSounds/Celda 601/step_cloth3.ogg" id="10_x1a6r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1a6r"]
 atlas = ExtResource("2_3cdix")
@@ -683,7 +683,6 @@ collision_mask = 2
 script = ExtResource("1_hcpjn")
 speed = 100
 dano_ataque = 30.0
-inv = ExtResource("2_x1a6r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1219376306 groups=["player"]]
 scale = Vector2(3, 2.912)
@@ -722,5 +721,8 @@ shape = SubResource("RectangleShape2D_6vc6x")
 position = Vector2(3.8146973e-06, 19.999998)
 scale = Vector2(4, 3.7)
 texture = ExtResource("8_6vc6x")
+
+[node name="Pisadas" type="AudioStreamPlayer2D" parent="." unique_id=104078680]
+stream = ExtResource("10_x1a6r")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

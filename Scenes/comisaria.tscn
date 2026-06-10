@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ktsn3snrnvaf" path="res://Assets/Mapa/Carcel 3 sin fondo.png" id="7_tol53"]
 [ext_resource type="PackedScene" uid="uid://djl1hwbcppygn" path="res://Scenes/toxic_dog.tscn" id="8_b41rw"]
 [ext_resource type="PackedScene" uid="uid://bsykiava0wcn8" path="res://Scenes/zombie.tscn" id="9_0hofl"]
+[ext_resource type="PackedScene" uid="uid://dnxhgf3swqogy" path="res://Assets/Guardia/NPCGuardia.tscn" id="9_gyqgi"]
 [ext_resource type="PackedScene" uid="uid://bpcibjj1lxe74" path="res://Scenes/obscure.tscn" id="14_0r1u1"]
 [ext_resource type="PackedScene" uid="uid://bd7v6rrsvgxll" path="res://Scenes/puerta_final.tscn" id="14_y5c7o"]
 [ext_resource type="PackedScene" uid="uid://d0okiva75l8rl" path="res://Scenes/boton_final.tscn" id="15_0r1u1"]
@@ -20,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ddnfhrfkrbdqh" path="res://Scenes/pause_menu.tscn" id="19_1shi5"]
 [ext_resource type="Script" uid="uid://cl24b30yo0h8q" path="res://Scenes/point_light_2d.gd" id="19_brn72"]
 [ext_resource type="PackedScene" uid="uid://dq45tfisya3ov" path="res://Scrips/area_interaccion.tscn" id="20_brn72"]
-[ext_resource type="PackedScene" uid="uid://28ev11bxsne7" path="res://Scrips/mensaje_interaccion.tscn" id="20_sh1t7"]
+[ext_resource type="PackedScene" uid="uid://duhx6107n61no" path="res://Scrips/canvas_layer.tscn" id="21_sh1t7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
 bg_color = Color(0.7882353, 0.07058824, 0.2901961, 0.5137255)
@@ -20457,6 +20458,10 @@ color = Color(1, 0, 0, 1)
 texture = ExtResource("18_1shi5")
 script = ExtResource("19_brn72")
 
+[node name="NPCGuardia" parent="." unique_id=1367410193 instance=ExtResource("9_gyqgi")]
+position = Vector2(416.99997, -1484.0001)
+scale = Vector2(2, 2)
+
 [node name="ToxicDog" parent="." unique_id=595966434 node_paths=PackedStringArray("waypoints") instance=ExtResource("8_b41rw")]
 position = Vector2(119, -299)
 waypoints = [NodePath("../Waypoints/Waypoint"), NodePath("../Waypoints/Waypoint2"), NodePath("../Waypoints/Waypoint3"), NodePath("../Waypoints/Waypoint4")]
@@ -20526,12 +20531,11 @@ dano_ataque = 15.0
 [node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=1414688960]
 zoom = Vector2(0.8, 0.8)
 
-[node name="MensajeInteraccion" parent="Jugador" unique_id=1974672649 instance=ExtResource("20_sh1t7")]
+[node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("20_brn72")]
+position = Vector2(-86, -98)
+scale = Vector2(1.335, 1.335)
 
-[node name="AreaInteraccion" parent="." unique_id=570906423 instance=ExtResource("20_brn72")]
-position = Vector2(366, -2120)
-accion = "salir de la celda"
+[node name="AreaInteraccion2" parent="." unique_id=426107889 instance=ExtResource("20_brn72")]
+position = Vector2(372, -2120)
 
-[node name="AreaInteraccion2" parent="." unique_id=674652352 instance=ExtResource("20_brn72")]
-position = Vector2(-86, -100)
-accion = "desactivar la seguridad"
+[node name="CanvasLayer" parent="." unique_id=1988996643 instance=ExtResource("21_sh1t7")]

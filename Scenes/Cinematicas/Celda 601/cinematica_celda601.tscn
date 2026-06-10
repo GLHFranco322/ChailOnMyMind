@@ -5368,7 +5368,7 @@ stream = ExtResource("16_dnx05")
 
 [node name="AudioExtraño" type="AudioStreamPlayer2D" parent="." unique_id=1491333259]
 stream = ExtResource("18_0oghy")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1040910013]
 offset_right = 40.0

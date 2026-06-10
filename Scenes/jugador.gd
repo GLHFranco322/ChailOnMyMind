@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var hitbox = $Hitbox
 @onready var hitbox_sprite = $Hitbox/Sprite2D
 
+
 var vidaJugador: int
 var stamina: float = 0.0
 var is_attacking: bool = false
@@ -60,7 +61,7 @@ func _physics_process(delta):
 	
 	if input_vector != Vector2.ZERO:
 		is_moving = true
-	
+		
 	var is_running = false
 
 # Si está cansado se mueve lento
