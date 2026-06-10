@@ -16,6 +16,8 @@
 [ext_resource type="AudioStream" uid="uid://dnqlaegx321nb" path="res://Assets/Sonidos/CinematicasSounds/Celda 601/step_cloth3.ogg" id="13_2eh5g"]
 [ext_resource type="AudioStream" uid="uid://da3nuepfyj1ko" path="res://Assets/Sonidos/CinematicasSounds/Celda 601/hurt_01.mp3" id="14_aa13s"]
 [ext_resource type="Script" uid="uid://dpb7nkhkflru7" path="res://Scenes/Cinematicas/Celda 601/camera_plano_cara.gd" id="15_3l8bg"]
+[ext_resource type="AudioStream" uid="uid://d2ftnf3bfvtfw" path="res://Assets/Sonidos/CinematicasSounds/Celda 601/bang_01.ogg" id="16_dnx05"]
+[ext_resource type="AudioStream" uid="uid://mpgk04sfu0wf" path="res://Assets/Sonidos/CinematicasSounds/Celda 601/ethereal_chant_Subclip 15_15.wav" id="18_0oghy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lcn5w"]
 texture = ExtResource("2_12r8x")
@@ -5219,11 +5221,20 @@ tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(6.0333333),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(6.0333333, 6.5, 7.2, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"mostrar_dialogo"
+}, {
+"args": [],
+"method": &"play_extraño"
+}, {
+"args": [],
+"method": &"play_disparo"
+}, {
+"args": [],
+"method": &"play_disparo"
 }]
 }
 
@@ -5351,6 +5362,13 @@ stream = ExtResource("13_2eh5g")
 [node name="AudioDespertar" type="AudioStreamPlayer2D" parent="." unique_id=848122089]
 stream = ExtResource("14_aa13s")
 volume_db = 1.0
+
+[node name="AudioDisparo" type="AudioStreamPlayer2D" parent="." unique_id=1064735260]
+stream = ExtResource("16_dnx05")
+
+[node name="AudioExtraño" type="AudioStreamPlayer2D" parent="." unique_id=1491333259]
+stream = ExtResource("18_0oghy")
+volume_db = -5.0
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1040910013]
 offset_right = 40.0

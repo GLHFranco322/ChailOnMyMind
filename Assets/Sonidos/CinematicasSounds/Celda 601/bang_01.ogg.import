@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2ftnf3bfvtfw"
+path="res://.godot/imported/bang_01.ogg-5e93da4dd55ee8851a25ae688fef112c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sonidos/CinematicasSounds/Celda 601/bang_01.ogg"
+dest_files=["res://.godot/imported/bang_01.ogg-5e93da4dd55ee8851a25ae688fef112c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,8 +1,40 @@
 [gd_scene format=3 uid="uid://eipcdr8d1vvl"]
 
-[ext_resource type="Script" uid="uid://bl0yo2ltglvxf" path="res://Inventory/Inv_UI.gd" id="1_i31qc"]
 [ext_resource type="Texture2D" uid="uid://bcovgykeesrgv" path="res://Inventory/inventory-background.png" id="2_pdjua"]
 [ext_resource type="PackedScene" uid="uid://5vhj4q5rs7v6" path="res://Inventory/inv_UI_slot.tscn" id="3_pdjua"]
+
+[sub_resource type="GDScript" id="GDScript_kvs1u"]
+script/source = "extends Control
+
+@onready var inv: Inv = preload(\"res://Inventory/playerinv.tres\")
+@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+
+
+var is_open = false
+
+func _ready():
+	update_slots()
+	close()
+
+func update_slots():
+	for i in range(min(inv.item.size(), slots.size())):
+		slots[i].update(inv.item[i])
+
+func _process(delta):
+	if Input.is_action_just_pressed(\"Inventary\"):
+		if is_open:
+			close()
+		else:
+			open()
+	
+func open():
+##	visible = true
+##	is_open = true
+	
+func close():
+	visible = false
+	is_open = false
+"
 
 [node name="Inv_UI" type="Control" unique_id=756706378]
 custom_minimum_size = Vector2(86, 22)
@@ -10,7 +42,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 86.0
 offset_bottom = 22.0
-script = ExtResource("1_i31qc")
+script = SubResource("GDScript_kvs1u")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2132279907]
 layout_mode = 0

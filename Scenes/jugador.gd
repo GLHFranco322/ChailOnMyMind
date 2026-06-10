@@ -11,8 +11,6 @@ extends CharacterBody2D
 @onready var hitbox = $Hitbox
 @onready var hitbox_sprite = $Hitbox/Sprite2D
 
-@export var inv: Inv
-
 var vidaJugador: int
 var stamina: float = 0.0
 var is_attacking: bool = false

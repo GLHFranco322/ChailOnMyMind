@@ -9,6 +9,11 @@ func play_respiracion():
 func play_ambiente3():
 	$AudioAmbiente3.play()
 	
+func play_disparo():
+	$AudioDisparo.play()
+	
+func play_extraño():
+	$"AudioExtraño".play()
 	
 func play_despertar():
 	$AudioDespertar.play()
@@ -31,7 +36,7 @@ func mostrar_dialogo():
 	fin_cinematica()
 
 func fin_cinematica():
-	get_tree().change_scene_to_file("res://Scenes/Cinematicas/Celda 601/loading.tscn")
+		get_tree().change_scene_to_file("res://Scenes/comisaria.tscn")
 
 func _on_animation_player_2_animation_finished(anim_name: StringName):
 	if anim_name == "Celda601":

@@ -1,14 +1,27 @@
 [gd_scene format=3 uid="uid://5vhj4q5rs7v6"]
 
 [ext_resource type="Texture2D" uid="uid://bb6tm3b8m8ylg" path="res://Inventory/inventory-slot.png" id="1_cpuxc"]
-[ext_resource type="Script" uid="uid://84674u3anmmj" path="res://Inventory/inv_ui_slot.gd" id="1_nb0t4"]
+
+[sub_resource type="GDScript" id="GDScript_cpuxc"]
+script/source = "##extends Panel
+
+##@onready var item_visual: Sprite2D = $CenterContainer/Panel/item_display
+
+##func update(item: Invitem):
+#	if !item:
+#		item_visual.visible = false
+#	else:
+#		item_visual.visible = true
+#		item_visual.texture = item.texture
+	
+"
 
 [node name="inv_UI_slot" type="Panel" unique_id=1244826204]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(16, 16)
 offset_right = 16.0
 offset_bottom = 16.0
-script = ExtResource("1_nb0t4")
+script = SubResource("GDScript_cpuxc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=20344773]
 texture = ExtResource("1_cpuxc")
