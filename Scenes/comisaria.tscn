@@ -9,9 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://bwop0poy72t5b" path="res://Scenes/broken_wall.tscn" id="7_aq5e2"]
 [ext_resource type="Texture2D" uid="uid://ktsn3snrnvaf" path="res://Assets/Mapa/Carcel 3 sin fondo.png" id="7_tol53"]
 [ext_resource type="PackedScene" uid="uid://djl1hwbcppygn" path="res://Scenes/toxic_dog.tscn" id="8_b41rw"]
+[ext_resource type="PackedScene" uid="uid://bsykiava0wcn8" path="res://Scenes/zombie.tscn" id="9_0hofl"]
+[ext_resource type="PackedScene" uid="uid://cy52k0djj5prx" path="res://Scenes/obscure.tscn" id="14_0r1u1"]
 [ext_resource type="PackedScene" uid="uid://bd7v6rrsvgxll" path="res://Scenes/puerta_final.tscn" id="14_y5c7o"]
 [ext_resource type="PackedScene" uid="uid://d0okiva75l8rl" path="res://Scenes/boton_final.tscn" id="15_0r1u1"]
 [ext_resource type="PackedScene" uid="uid://rtuq0km4ar15" path="res://Scenes/Inmortal.tscn" id="15_aq5e2"]
+[ext_resource type="PackedScene" uid="uid://4yliwq17qhsv" path="res://Scenes/boton.tscn" id="15_myfm4"]
+[ext_resource type="PackedScene" uid="uid://7my0pl2pfavf" path="res://Scenes/puerta.tscn" id="16_rbeo1"]
 [ext_resource type="PackedScene" uid="uid://ddnfhrfkrbdqh" path="res://Scenes/pause_menu.tscn" id="19_1shi5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
@@ -20470,7 +20474,7 @@ position = Vector2(-182, -2047)
 scale = Vector2(0.8, 0.8)
 
 [node name="BotonFinal" parent="." unique_id=1207797317 instance=ExtResource("15_0r1u1")]
-position = Vector2(18, -52)
+position = Vector2(-119, -122)
 puerta_path = NodePath("../PuertaFinal")
 inmortal_path = NodePath("../Inmortal")
 
@@ -20492,3 +20496,20 @@ tile_set = SubResource("TileSet_x1lk2")
 [node name="BrokenWall" parent="." unique_id=820960029 instance=ExtResource("7_aq5e2")]
 position = Vector2(-298, -1648)
 scale = Vector2(0.35, 0.35)
+
+[node name="Obscure" parent="." unique_id=1682887945 instance=ExtResource("14_0r1u1")]
+visible = false
+
+[node name="Boton" parent="." unique_id=1809947209 instance=ExtResource("15_myfm4")]
+position = Vector2(373, -2136)
+puerta_path = NodePath("../Puerta")
+
+[node name="Puerta" parent="." unique_id=224426143 instance=ExtResource("16_rbeo1")]
+position = Vector2(394, -2040)
+rotation = 3.1415927
+scale = Vector2(1.5, 2.5)
+
+[node name="Zombie2" parent="." unique_id=304745947 instance=ExtResource("9_0hofl")]
+position = Vector2(401, -2175)
+scale = Vector2(1.5, 1.5)
+vida = 30
