@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://4yliwq17qhsv" path="res://Scenes/boton.tscn" id="4_5o3be"]
 [ext_resource type="PackedScene" uid="uid://7my0pl2pfavf" path="res://Scenes/puerta.tscn" id="5_j4evn"]
 [ext_resource type="PackedScene" uid="uid://gjcoa8bj07bd" path="res://Assets/Guardia/guardia_de_seguridad.tscn" id="6_j4evn"]
-[ext_resource type="PackedScene" uid="uid://bwevt0c0xynvw" path="res://Scenes/Inventario/InventarioUI.tscn" id="7_teko1"]
+[ext_resource type="PackedScene" uid="uid://b832g2xumdist" path="res://Assets/Guardia/radio.tscn" id="7_suciu"]
+[ext_resource type="PackedScene" uid="uid://eipcdr8d1vvl" path="res://Inventory/Inv_UI.tscn" id="7_teko1"]
 
 [node name="Nivel1" type="Node2D" unique_id=1173929449]
 
@@ -35,6 +36,21 @@ rotation = -1.5707964
 scale = Vector2(1.5, 2.5)
 
 [node name="Guardia de Seguridad" parent="." unique_id=1118828390 instance=ExtResource("6_j4evn")]
-position = Vector2(23, -2126)
+position = Vector2(100, -1961)
 
-[node name="CanvasLayer" parent="." unique_id=1098749685 instance=ExtResource("7_teko1")]
+[node name="Radio" parent="Guardia de Seguridad" unique_id=2082361204 instance=ExtResource("7_suciu")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1241367575]
+
+[node name="Inv_UI" parent="CanvasLayer" unique_id=756706378 instance=ExtResource("7_teko1")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -26.0
+offset_right = 43.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0

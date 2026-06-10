@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Invitem" format=3 uid="uid://dqaiqc7y4e4kp"]
+
+[ext_resource type="Script" uid="uid://blsewtd2dxtuq" path="res://Inventory/inventary_item.gd" id="1_nla38"]
+[ext_resource type="Texture2D" uid="uid://bltgxsmlxryc4" path="res://Assets/ObjetosdeInventario/radio.png" id="2_jqmqa"]
+
+[resource]
+script = ExtResource("1_nla38")
+name = "radio"
+texture = ExtResource("2_jqmqa")
+metadata/_custom_type_script = "uid://blsewtd2dxtuq"
