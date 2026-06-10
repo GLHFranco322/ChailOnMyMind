@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cx77j4e0mv2pp" path="res://Scrips/mensaje_interaccion.gd" id="1_oejfl"]
 [ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="2_05rwh"]
 
-[node name="MensajeInteraccion" type="CanvasLayer" unique_id=1974672649 groups=["ui_interaccion"]]
+[node name="MensajeInteraccion" type="CanvasLayer" unique_id=1974672649]
 script = ExtResource("1_oejfl")
 
-[node name="Mensaje" type="Label" parent="." unique_id=1311742501]
+[node name="Mensaje" type="Label" parent="." unique_id=1311742501 groups=["ui_interaccion"]]
 offset_top = 98.0
 offset_right = 320.0
 offset_bottom = 181.0

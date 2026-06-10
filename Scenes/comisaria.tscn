@@ -21,7 +21,6 @@
 [ext_resource type="Script" uid="uid://cl24b30yo0h8q" path="res://Scenes/point_light_2d.gd" id="19_brn72"]
 [ext_resource type="PackedScene" uid="uid://dq45tfisya3ov" path="res://Scrips/area_interaccion.tscn" id="20_brn72"]
 [ext_resource type="PackedScene" uid="uid://28ev11bxsne7" path="res://Scrips/mensaje_interaccion.tscn" id="20_sh1t7"]
-[ext_resource type="PackedScene" uid="uid://deu6fhq5lm3eg" path="res://Assets/Guardia/guardia.tscn" id="22_gyqgi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
 bg_color = Color(0.7882353, 0.07058824, 0.2901961, 0.5137255)
@@ -20536,11 +20535,3 @@ accion = "salir de la celda"
 [node name="AreaInteraccion2" parent="." unique_id=674652352 instance=ExtResource("20_brn72")]
 position = Vector2(-86, -100)
 accion = "desactivar la seguridad"
-
-[node name="Guardia" parent="." unique_id=71753865 instance=ExtResource("22_gyqgi")]
-position = Vector2(97, -1968)
-scale = Vector2(1.5, 1.5)
-
-[node name="AreaInteraccion3" parent="." unique_id=846296094 instance=ExtResource("20_brn72")]
-position = Vector2(95, -1967)
-accion = ""
