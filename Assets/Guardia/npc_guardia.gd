@@ -9,7 +9,7 @@ func _on_interactuado():
 	var cam = get_tree().get_first_node_in_group("player").get_node("Camera2D2")
 
 	var tween = create_tween()
-	tween.tween_property(cam, "offset:y", 30, 0.5)
+	tween.tween_property(cam, "offset:y", 50, 0.5)
 
 	DialogueManager.show_dialogue_balloon(dialogue_resource)
 
