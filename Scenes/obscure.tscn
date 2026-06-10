@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bpcibjj1lxe74"]
+
+[ext_resource type="Texture2D" uid="uid://25eofrp4k0a1" path="res://Assets/Jugador/background.png" id="1_70f7c"]
+
+[node name="Obscure" type="Node2D" unique_id=1682887945]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1904334795]
+visible = false
+position = Vector2(239.5, 135)
+scale = Vector2(15.03125, 8.375)
+texture = ExtResource("1_70f7c")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=308185206]
+color = Color(0.13725491, 0.13725491, 0.13725491, 1)

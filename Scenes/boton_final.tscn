@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4n27k5k1ycc6" path="res://Assets/Infernus_Tiles/Infernus_WallShield_3.png" id="2_nb2p5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nb2p5"]
-size = Vector2(41, 36)
+size = Vector2(41, 60)
 
 [node name="BotonFinal" type="Area2D" unique_id=1207797317]
 script = ExtResource("1_7y85l")
@@ -13,7 +13,7 @@ script = ExtResource("1_7y85l")
 texture = ExtResource("2_nb2p5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=674469431]
-position = Vector2(-2.5, 8)
+position = Vector2(-2.5, 20)
 shape = SubResource("RectangleShape2D_nb2p5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,5 +1,5 @@
 extends Area2D 
- 
+
 @export var puerta_path : NodePath 
 @export var broken_wall_path : NodePath 
 @export var inmortal_path : NodePath        # ← nuevo export
@@ -11,8 +11,8 @@ extends Area2D
 var player_inside = false 
 var cinematic = false 
 var usado = false 
- 
- 
+
+
 func _process(delta): 
 	if cinematic: 
 		return 
