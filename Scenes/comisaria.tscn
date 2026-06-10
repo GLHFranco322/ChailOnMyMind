@@ -20527,7 +20527,7 @@ dano_ataque = 15.0
 [node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=1414688960]
 zoom = Vector2(0.8, 0.8)
 
-[node name="MensajeInteraccion" parent="Jugador" unique_id=1974672649 groups=["ui_interaccion"] instance=ExtResource("20_sh1t7")]
+[node name="MensajeInteraccion" parent="Jugador" unique_id=1974672649 instance=ExtResource("20_sh1t7")]
 
 [node name="AreaInteraccion" parent="." unique_id=570906423 instance=ExtResource("20_brn72")]
 position = Vector2(366, -2120)
@@ -20539,3 +20539,12 @@ accion = "desactivar la seguridad"
 
 [node name="Guardia" parent="." unique_id=71753865 instance=ExtResource("22_gyqgi")]
 position = Vector2(97, -1968)
+scale = Vector2(1.5, 1.5)
+
+[node name="AreaInteraccion3" parent="." unique_id=846296094 instance=ExtResource("20_brn72")]
+position = Vector2(95, -1967)
+accion = "hablar"
+
+[node name="AreaInteraccion4" parent="." unique_id=1195706581 instance=ExtResource("20_brn72")]
+position = Vector2(95, -1967)
+accion = "revisar al guardia"

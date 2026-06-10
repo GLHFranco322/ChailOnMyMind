@@ -4,35 +4,74 @@ extends Node2D
 @export var radio_scene : PackedScene
 
 var jugador_cerca = false
-var ya_entrego_radio = false
+
+enum Estado {
+	HABLAR,
+	REVISAR,
+	TERMINADO
+}
+
+var estado = Estado.HABLAR
+
+@onready var area_interaccion = $AreaInteraccion
 
 func _process(delta):
 
-	if jugador_cerca and Input.is_action_just_pressed("Pickup"):
+	if !jugador_cerca:
+		return
 
-		if !ya_entrego_radio:
+	match estado:
 
-			ya_entrego_radio = true
+		Estado.HABLAR:
 
-			var balloon = DialogueManager.show_dialogue_balloon(dialogo)
+			if Input.is_action_just_pressed("Pickup"):
 
-			await balloon.tree_exited
+				var balloon = DialogueManager.show_dialogue_balloon(dialogo)
 
-			entregar_radio()
+				await balloon.tree_exited
+
+				estado = Estado.REVISAR
+
+				area_interaccion.accion = "revisar al guardia"
+
+				if area_interaccion.has_overlapping_bodies():
+					area_interaccion.ui.mostrar(
+						"Presiona [ E ] para revisar al guardia"
+					)
+
+		Estado.REVISAR:
+
+			if Input.is_action_just_pressed("Pickup"):
+
+				soltar_radio()
+
+				area_interaccion.ui.ocultar()
+
+				area_interaccion.queue_free()
+
+				estado = Estado.TERMINADO
 
 
-func entregar_radio():
+func _on_area_guardia_body_entered(body):
 
-	var radio = radio_scene.instantiate()
-	get_parent().add_child(radio)
-
-	radio.global_position = global_position + Vector2(0, 50)
-
-func _on_area_guardia_body_entered(body: Node2D):
 	if body.is_in_group("player"):
 		jugador_cerca = true
 
 
-func _on_area_guardia_body_exited(body: Node2D):
+func _on_area_guardia_body_exited(body):
+
 	if body.is_in_group("player"):
 		jugador_cerca = false
+
+
+func soltar_radio():
+
+	if radio_scene == null:
+		print("No asignaste la radio")
+		return
+
+	var radio = radio_scene.instantiate()
+
+	get_parent().add_child(radio)
+
+	radio.global_position = global_position + Vector2(25, 50)

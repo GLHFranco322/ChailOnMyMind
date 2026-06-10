@@ -11,7 +11,7 @@ func _process(delta):
 
 	if jugador_cerca and Input.is_action_just_pressed("Pickup"):
 
-		print("Radio obtenida")
+		print("Radio recogida")
 
 		queue_free()
 

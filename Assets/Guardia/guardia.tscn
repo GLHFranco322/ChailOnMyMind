@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://d3f0ri34u5fsd" path="res://Assets/Guardia/policia tirado.png" id="2_53r3l"]
 [ext_resource type="Resource" uid="uid://5ftq5st8u2it" path="res://Dialogue/dialogo_guardia.dialogue" id="2_je0og"]
 [ext_resource type="PackedScene" uid="uid://b832g2xumdist" path="res://Assets/Guardia/radio.tscn" id="3_smx5f"]
+[ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="5_smx5f"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_41lu4"]
-radius = 15.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyxsl"]
+size = Vector2(29.444443, 16.111113)
 
-[node name="Guardia" type="Node2D" unique_id=71753865]
-scale = Vector2(2, 2)
+[node name="Guardia" type="Node2D" unique_id=71753865 groups=["ui_interaccion"]]
+scale = Vector2(1.8, 1.8)
 script = ExtResource("1_7hu8d")
 dialogo = ExtResource("2_je0og")
 radio_scene = ExtResource("3_smx5f")
@@ -22,7 +23,23 @@ texture = ExtResource("2_53r3l")
 [node name="AreaGuardia" type="Area2D" parent="." unique_id=444581965]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaGuardia" unique_id=1447629948]
-shape = SubResource("CircleShape2D_41lu4")
+position = Vector2(-5.277778, 0.27777806)
+shape = SubResource("RectangleShape2D_tyxsl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=415208033]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=655892978]
+visible = false
+offset_left = -159.0
+offset_top = -63.0
+offset_right = 160.0
+offset_bottom = 2.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_smx5f")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="AreaGuardia" to="." method="_on_area_guardia_body_entered"]
 [connection signal="body_exited" from="AreaGuardia" to="." method="_on_area_guardia_body_exited"]

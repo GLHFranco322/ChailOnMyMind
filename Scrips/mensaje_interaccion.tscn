@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cx77j4e0mv2pp" path="res://Scrips/mensaje_interaccion.gd" id="1_oejfl"]
 [ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="2_05rwh"]
 
-[node name="MensajeInteraccion" type="CanvasLayer" unique_id=1974672649]
+[node name="MensajeInteraccion" type="CanvasLayer" unique_id=1974672649 groups=["ui_interaccion"]]
 script = ExtResource("1_oejfl")
 
 [node name="Mensaje" type="Label" parent="." unique_id=1311742501]
