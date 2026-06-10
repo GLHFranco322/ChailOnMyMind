@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://28ev11bxsne7"]
+
+[ext_resource type="Script" uid="uid://cx77j4e0mv2pp" path="res://Scrips/mensaje_interaccion.gd" id="1_oejfl"]
+[ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="2_05rwh"]
+
+[node name="MensajeInteraccion" type="CanvasLayer" unique_id=1974672649]
+script = ExtResource("1_oejfl")
+
+[node name="Mensaje" type="Label" parent="." unique_id=1311742501]
+offset_top = 98.0
+offset_right = 320.0
+offset_bottom = 181.0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_05rwh")
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1

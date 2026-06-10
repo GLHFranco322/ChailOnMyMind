@@ -1,21 +1,17 @@
 [gd_scene format=3 uid="uid://b832g2xumdist"]
 
-[ext_resource type="Script" uid="uid://ciwf4wsplftbq" path="res://Assets/Guardia/radio.gd" id="1_dsxx0"]
+[ext_resource type="Script" uid="uid://3f0yb8awnr76" path="res://Assets/Guardia/radio.gd" id="1_dsxx0"]
 [ext_resource type="Texture2D" uid="uid://bltgxsmlxryc4" path="res://Assets/ObjetosdeInventario/radio.png" id="1_reti0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dsxx0"]
-radius = 3.0
-height = 6.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_reti0"]
+radius = 16.0
 
-[node name="Radio" type="Node2D" unique_id=2082361204]
+[node name="Radio" type="Area2D" unique_id=40254964]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_dsxx0")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=49732307]
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1179690290]
-position = Vector2(9.536743e-07, 9.536743e-07)
-scale = Vector2(0.2, 0.2)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=495959291]
 texture = ExtResource("1_reti0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1063790029]
-shape = SubResource("CapsuleShape2D_dsxx0")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=791145686]
+shape = SubResource("CircleShape2D_reti0")
