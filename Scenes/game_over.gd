@@ -10,7 +10,7 @@ func _on_reintentar_pressed():
 	SoundManager.play_click()
 	await get_tree().create_timer(0.1).timeout
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/Laberinto.tscn")
+	get_tree().change_scene_to_file("res://Scenes/comisaria.tscn")
 
 
 func _on_menú_pressed():

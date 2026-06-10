@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://pukneohdigoo"]
+
+[ext_resource type="Script" uid="uid://dnr524txcbpmf" path="res://Scrips/loading.gd" id="1_7jik5"]
+[ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="2_1ck5w"]
+
+[node name="Loading" type="Control" unique_id=1045706441]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+script = ExtResource("1_7jik5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=982309142]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=56612735]
+layout_mode = 0
+offset_right = 319.0
+offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("2_1ck5w")
+text = "Cargando..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=2033574351]
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=142238983]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 98.0
+offset_right = 160.0
+offset_bottom = 125.0
+theme_override_fonts/font = ExtResource("2_1ck5w")

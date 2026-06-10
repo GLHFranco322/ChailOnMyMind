@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://ceoimlx2prswv"]
 
 [ext_resource type="Script" uid="uid://jvq06wp2oq3d" path="res://Scenes/game_over.gd" id="1_ktc4i"]
-[ext_resource type="Texture2D" uid="uid://dqt6dtgqbnv1g" path="res://Image-Menús/GameOver.png" id="2_ktc4i"]
+[ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="2_rdiyk"]
 [ext_resource type="FontFile" uid="uid://d1pyf23c33jhy" path="res://Fuentes de Texto/Inky Thin Pixels.woff" id="3_rdiyk"]
 [ext_resource type="Texture2D" uid="uid://bb8qjpahtldgw" path="res://Image-Menús/flashlight_reverse.png" id="4_rdiyk"]
 [ext_resource type="Texture2D" uid="uid://bk5lpmbneljkv" path="res://Image-Menús/FondoNegro.jpg" id="5_bfgkh"]
-[ext_resource type="Texture2D" uid="uid://bbtdx5kjyvhsw" path="res://Image-Menús/1.png" id="6_bfgkh"]
 
 [sub_resource type="Animation" id="Animation_tyjei"]
 resource_name = "Fade_out"
@@ -59,26 +58,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.8509804)
+color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1468963047]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_ktc4i")
-expand_mode = 1
-
-[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=1205214431]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.7882353)
+[node name="Label" type="Label" parent="." unique_id=216947477]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 53.0
+offset_right = 209.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0.3590384, 0, 0.00085198646, 1)
+theme_override_fonts/font = ExtResource("2_rdiyk")
+text = "MORISTE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1517835037]
 layout_mode = 1
@@ -120,29 +112,13 @@ texture = ExtResource("5_bfgkh")
 libraries/ = SubResource("AnimationLibrary_5mu6e")
 autoplay = &"Fade_out"
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1286607147]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -86.0
-offset_top = -45.0
-offset_right = 85.42859
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_bfgkh")
-expand_mode = 1
-
-[connection signal="mouse_entered" from="VBoxContainer/Reintentar" to="." method="_on_control_mouse_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/Reintentar" to="." method="_on_reintentar_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Reintentar" to="." method="_on_control_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Reintentar" to="." method="_on_reintentar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reintentar" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Reintentar" to="." method="_on_control_pressed"]
-[connection signal="pressed" from="VBoxContainer/Reintentar" to="." method="_on_reintentar_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Menú" to="." method="_on_back_mouse_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/Menú" to="." method="_on_menú_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Menú" to="." method="_on_back_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Menú" to="." method="_on_menú_pressed"]
 [connection signal="pressed" from="VBoxContainer/Menú" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Menú" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menú" to="." method="_on_menú_pressed"]

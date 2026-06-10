@@ -1,6 +1,6 @@
 extends Control
 
-@onready var menu_music = preload("res://Assets/Musica/012_Sirens_in_Darkness.mp3")
+@onready var menu_music = preload("res://Assets/Sonidos/CinematicasSounds/Escape/Raining_Sala_segura_soundtrack.mp3")
 
 func _ready():
 	MusicManager.play_menu_music(menu_music)

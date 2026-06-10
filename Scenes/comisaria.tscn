@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://rtuq0km4ar15" path="res://Scenes/Inmortal.tscn" id="15_aq5e2"]
 [ext_resource type="PackedScene" uid="uid://4yliwq17qhsv" path="res://Scenes/boton.tscn" id="15_myfm4"]
 [ext_resource type="PackedScene" uid="uid://7my0pl2pfavf" path="res://Scenes/puerta.tscn" id="16_rbeo1"]
+[ext_resource type="PackedScene" uid="uid://eipcdr8d1vvl" path="res://Inventory/Inv_UI.tscn" id="18_rbeo1"]
 [ext_resource type="PackedScene" uid="uid://ddnfhrfkrbdqh" path="res://Scenes/pause_menu.tscn" id="19_1shi5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
@@ -20434,9 +20435,9 @@ position = Vector2(372, -2120)
 puerta_path = NodePath("../Puerta")
 
 [node name="Puerta" parent="." unique_id=224426143 instance=ExtResource("16_rbeo1")]
-position = Vector2(395.99997, -2048)
-rotation = -1.5707964
-scale = Vector2(1.5, 2.5)
+position = Vector2(396, -2052)
+rotation = 3.1415927
+scale = Vector2(4.52, 3.6930196)
 
 [node name="BrokenWall" parent="." unique_id=425635190 instance=ExtResource("7_aq5e2")]
 position = Vector2(-298, -1648)
@@ -20504,6 +20505,7 @@ scale = Vector2(1.5, 1.5)
 vida = 30
 
 [node name="Obscure" parent="." unique_id=1682887945 instance=ExtResource("14_0r1u1")]
+visible = false
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_3hss1")]
 position = Vector2(410, -2521)
@@ -20513,3 +20515,5 @@ dano_ataque = 15.0
 
 [node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=1414688960]
 zoom = Vector2(0.8, 0.8)
+
+[node name="Inv_UI" parent="." unique_id=756706378 instance=ExtResource("18_rbeo1")]
