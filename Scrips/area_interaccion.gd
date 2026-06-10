@@ -5,6 +5,7 @@ extends Area2D
 
 func _ready():
 	ui = get_tree().get_first_node_in_group("ui_interaccion")
+	
 	print(ui)
 
 	body_entered.connect(_on_body_entered)

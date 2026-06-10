@@ -20543,8 +20543,4 @@ scale = Vector2(1.5, 1.5)
 
 [node name="AreaInteraccion3" parent="." unique_id=846296094 instance=ExtResource("20_brn72")]
 position = Vector2(95, -1967)
-accion = "hablar"
-
-[node name="AreaInteraccion4" parent="." unique_id=1195706581 instance=ExtResource("20_brn72")]
-position = Vector2(95, -1967)
-accion = "revisar al guardia"
+accion = ""
