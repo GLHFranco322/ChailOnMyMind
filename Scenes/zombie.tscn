@@ -142,8 +142,8 @@ animations = [{
 size = Vector2(12, 25)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n70j1"]
-radius = 80.0
-height = 160.0
+radius = 48.0
+height = 96.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyl7r"]
 radius = 7.0
@@ -153,11 +153,10 @@ height = 24.0
 collision_layer = 2
 script = ExtResource("1_n70j1")
 speed = 60.0
-distancia_minima = 20.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1359343111]
 sprite_frames = SubResource("SpriteFrames_4slyf")
-animation = &"attack"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972292059]
 position = Vector2(0, 3.5)
@@ -167,7 +166,7 @@ shape = SubResource("RectangleShape2D_5ia6i")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=883230131]
-position = Vector2(0, 3)
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_n70j1")
 
 [node name="Timer" type="Timer" parent="." unique_id=1890317236]

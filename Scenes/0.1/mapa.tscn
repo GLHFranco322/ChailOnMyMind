@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://csoxsk17lot56"]
 
 [ext_resource type="PackedScene" uid="uid://bwop0poy72t5b" path="res://Scenes/broken_wall.tscn" id="1_f6djq"]
+[ext_resource type="Script" uid="uid://ctro3psmypg6g" path="res://Scenes/0.1/mapa.gd" id="1_uamfx"]
 [ext_resource type="Texture2D" uid="uid://ciokkc6gedbkn" path="res://Assets/Mapa/Comisaria.png" id="2_uamfx"]
 [ext_resource type="Texture2D" uid="uid://cnqh7gjiphbn5" path="res://Assets/Mapa/comisaria 2.png" id="3_ifnwy"]
 [ext_resource type="Texture2D" uid="uid://ktsn3snrnvaf" path="res://Assets/Mapa/Carcel 3 sin fondo.png" id="4_fxfys"]
@@ -106304,6 +106305,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-283, -2009, -7, -2005, -7, -1767, -180, -1761, -177, -1676, 42, -1669, 42, -2004, 381, -2002, 378, -2416, 423, -2416, 423, -2003, 476, -2005, 473, -1777, 303, -1776, 303, -1689, 470, -1685, 467, -1444, 366, -1447, 363, -1607, 206, -1629, 209, -1845, 351, -1842, 351, -1940, 152, -1940, 152, -1612, -168, -1613, -165, -1527, -26, -1525, -20, -1375, 43, -1362, 49, -1538, 307, -1535, 310, -1356, 473, -1356, 473, -1139, 153, -1133, 153, -684, 200, -678, 200, -1048, 473, -1048, 470, -236, 203, -235, 200, -449, 46, -445, 47, -502, 304, -497, 307, -358, 354, -358, 357, -882, 312, -881, 310, -612, 40, -606, 46, -898, -7, -894, -4, -455, -177, -455, -176, -351, 147, -355, 144, -244, -18, -244, -21, -92, -57, -91, -56, -250, -280, -254, -277, -518, -114, -518, -120, -995, -174, -995, -170, -612, -280, -606, -280, -1045, -130, -1042, -130, -1139, -283, -1139, -274, -1368, -170, -1368, -172, -1193, -14, -1197, -17, -1042, 35, -1040, 34, -1186, 350, -1191, 346, -1282, 197, -1284, 190, -1425, 140, -1422, 140, -1287, -117, -1274, -130, -1450, -277, -1459, -277, -1820, -136, -1821, -137, -1897, -285, -1898)])
 
 [node name="Mapa" type="Node2D" unique_id=1958495002]
+script = ExtResource("1_uamfx")
 
 [node name="LineBlack" parent="." unique_id=820960029 instance=ExtResource("1_f6djq")]
 modulate = Color(0, 0, 0, 1)
@@ -106341,3 +106343,161 @@ tile_set = SubResource("TileSet_5mi2y")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1423726084]
 navigation_polygon = SubResource("NavigationPolygon_dl7wa")
+
+[node name="MarkerPrincipal" type="Marker2D" parent="." unique_id=1558748764]
+
+[node name="Marker2D" type="Marker2D" parent="MarkerPrincipal" unique_id=603374064]
+position = Vector2(114, -262)
+
+[node name="Marker2D2" type="Marker2D" parent="MarkerPrincipal" unique_id=778928290]
+position = Vector2(-126, -267)
+
+[node name="Marker2D3" type="Marker2D" parent="MarkerPrincipal" unique_id=1966917561]
+position = Vector2(-64, -463)
+
+[node name="Marker2D4" type="Marker2D" parent="MarkerPrincipal" unique_id=330087964]
+position = Vector2(73, -460)
+
+[node name="Marker2D5" type="Marker2D" parent="MarkerPrincipal" unique_id=2057676318]
+position = Vector2(118, -465)
+
+[node name="Marker2D6" type="Marker2D" parent="MarkerPrincipal" unique_id=1000395482]
+position = Vector2(166, -474)
+
+[node name="Marker2D7" type="Marker2D" parent="MarkerPrincipal" unique_id=469689777]
+position = Vector2(193, -454)
+
+[node name="Marker2D8" type="Marker2D" parent="MarkerPrincipal" unique_id=1477129674]
+position = Vector2(199, -468)
+
+[node name="Marker2D9" type="Marker2D" parent="MarkerPrincipal" unique_id=823643038]
+position = Vector2(238, -468)
+
+[node name="Marker2D10" type="Marker2D" parent="MarkerPrincipal" unique_id=1256560099]
+position = Vector2(225, -445)
+
+[node name="Marker2D11" type="Marker2D" parent="MarkerPrincipal" unique_id=1525112397]
+position = Vector2(275, -459)
+
+[node name="Marker2D12" type="Marker2D" parent="MarkerPrincipal" unique_id=115198076]
+position = Vector2(290, -492)
+
+[node name="Marker2D13" type="Marker2D" parent="MarkerPrincipal" unique_id=1397058178]
+position = Vector2(299, -464)
+
+[node name="Marker2D14" type="Marker2D" parent="MarkerPrincipal" unique_id=836101222]
+position = Vector2(272, -433)
+
+[node name="Marker2D15" type="Marker2D" parent="MarkerPrincipal" unique_id=1666439914]
+position = Vector2(247, -416)
+
+[node name="Marker2D16" type="Marker2D" parent="MarkerPrincipal" unique_id=1934472370]
+position = Vector2(231, -366)
+
+[node name="Marker2D21" type="Marker2D" parent="MarkerPrincipal" unique_id=1204513508]
+position = Vector2(254, -350)
+
+[node name="Marker2D22" type="Marker2D" parent="MarkerPrincipal" unique_id=1666609153]
+position = Vector2(278, -351)
+
+[node name="Marker2D23" type="Marker2D" parent="MarkerPrincipal" unique_id=841820931]
+position = Vector2(234, -342)
+
+[node name="Marker2D24" type="Marker2D" parent="MarkerPrincipal" unique_id=983156319]
+position = Vector2(249, -441)
+
+[node name="Marker2D25" type="Marker2D" parent="MarkerPrincipal" unique_id=1309572565]
+position = Vector2(264, -470)
+
+[node name="Marker2D26" type="Marker2D" parent="MarkerPrincipal" unique_id=707402961]
+position = Vector2(144, -477)
+
+[node name="Marker2D27" type="Marker2D" parent="MarkerPrincipal" unique_id=1269029180]
+position = Vector2(98, -477)
+
+[node name="Marker2D28" type="Marker2D" parent="MarkerPrincipal" unique_id=572349028]
+position = Vector2(-216, -666)
+
+[node name="Marker2D29" type="Marker2D" parent="MarkerPrincipal" unique_id=674390895]
+position = Vector2(-260, -673)
+
+[node name="Marker2D30" type="Marker2D" parent="MarkerPrincipal" unique_id=2036167096]
+position = Vector2(-188, -1003)
+
+[node name="Marker2D31" type="Marker2D" parent="MarkerPrincipal" unique_id=857790291]
+position = Vector2(-252, -1007)
+
+[node name="Marker2D32" type="Marker2D" parent="MarkerPrincipal" unique_id=287720410]
+position = Vector2(-252, -1325)
+
+[node name="Marker2D33" type="Marker2D" parent="MarkerPrincipal" unique_id=689962739]
+position = Vector2(-193, -1328)
+
+[node name="Marker2D34" type="Marker2D" parent="MarkerPrincipal" unique_id=1203695730]
+position = Vector2(-222, -1264)
+
+[node name="Marker2D35" type="Marker2D" parent="MarkerPrincipal" unique_id=1489564941]
+position = Vector2(317, -1164)
+
+[node name="Marker2D36" type="Marker2D" parent="MarkerPrincipal" unique_id=289006338]
+position = Vector2(101, -1047)
+
+[node name="Marker2D37" type="Marker2D" parent="MarkerPrincipal" unique_id=1356198586]
+position = Vector2(44, -980)
+
+[node name="Marker2D38" type="Marker2D" parent="MarkerPrincipal" unique_id=105642828]
+position = Vector2(358, -1309)
+
+[node name="Marker2D39" type="Marker2D" parent="MarkerPrincipal" unique_id=167222848]
+position = Vector2(242, -1394)
+
+[node name="Marker2D40" type="Marker2D" parent="MarkerPrincipal" unique_id=1442952438]
+position = Vector2(-229, -1495)
+
+[node name="Marker2D41" type="Marker2D" parent="MarkerPrincipal" unique_id=1997883938]
+position = Vector2(-254, -1572)
+
+[node name="Marker2D42" type="Marker2D" parent="MarkerPrincipal" unique_id=923228541]
+position = Vector2(-235, -1639)
+
+[node name="Marker2D43" type="Marker2D" parent="MarkerPrincipal" unique_id=1373249320]
+position = Vector2(-226, -1696)
+
+[node name="Marker2D44" type="Marker2D" parent="MarkerPrincipal" unique_id=1514434137]
+position = Vector2(-221, -1952)
+
+[node name="Marker2D45" type="Marker2D" parent="MarkerPrincipal" unique_id=1126076395]
+position = Vector2(-101, -1961)
+
+[node name="Marker2D46" type="Marker2D" parent="MarkerPrincipal" unique_id=911673512]
+position = Vector2(-54, -1922)
+
+[node name="Marker2D47" type="Marker2D" parent="MarkerPrincipal" unique_id=501931532]
+position = Vector2(-171, -1921)
+
+[node name="Marker2D48" type="Marker2D" parent="MarkerPrincipal" unique_id=644604574]
+position = Vector2(-146, -1946)
+
+[node name="Marker2D49" type="Marker2D" parent="MarkerPrincipal" unique_id=505219953]
+position = Vector2(368, -1810)
+
+[node name="Marker2D50" type="Marker2D" parent="MarkerPrincipal" unique_id=936131397]
+position = Vector2(111, -1822)
+
+[node name="Marker2D51" type="Marker2D" parent="MarkerPrincipal" unique_id=279001728]
+position = Vector2(114, -1777)
+
+[node name="Marker2D52" type="Marker2D" parent="MarkerPrincipal" unique_id=1761457993]
+position = Vector2(79, -1708)
+
+[node name="Marker2D17" type="Marker2D" parent="MarkerPrincipal" unique_id=563558281]
+position = Vector2(217, -408)
+
+[node name="Marker2D18" type="Marker2D" parent="MarkerPrincipal" unique_id=498442671]
+position = Vector2(244, -390)
+
+[node name="Marker2D19" type="Marker2D" parent="MarkerPrincipal" unique_id=1466420852]
+position = Vector2(270, -378)
+
+[node name="Marker2D20" type="Marker2D" parent="MarkerPrincipal" unique_id=2140263892]
+position = Vector2(280, -398)

@@ -1,21 +1,21 @@
 extends CharacterBody2D
-
 @export var speed : float = 100
 @export var dano : float = 10
-@export var distancia_minima : float
 @export var vida : int = 20
+@export var usar_navegacion: bool = true
+
+var distancia_minima : float = 49.0
+var rango_ataque : float = 55.0
 
 var player
 var player_en_rango = false
 var atacando = false
 var muerto = false
 var en_knockback = false
-
 @onready var timer = $Timer
 @onready var anim = $AnimatedSprite2D
 @onready var hitbox_ataque = $HitboxAtaque
 @onready var nav_agent = $NavigationAgent2D
-
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -32,48 +32,54 @@ func _physics_process(delta):
 	if atacando:
 		move_and_slide()
 		return
-
 	if player_en_rango:
 		var distancia = global_position.distance_to(player.global_position)
+		print("PHYSICS -> distancia: ", distancia)
 		if distancia > distancia_minima:
-			# Navegación hacia el jugador
-			nav_agent.target_position = player.global_position
-			var next_pos = nav_agent.get_next_path_position()
-			var direction = (next_pos - global_position).normalized()
-			velocity = direction * speed
+			if usar_navegacion:
+				nav_agent.target_position = player.global_position
+				var next_pos = nav_agent.get_next_path_position()
+				var direction = (next_pos - global_position).normalized()
+				velocity = direction * speed
+			else:
+				var direction = (player.global_position - global_position).normalized()
+				velocity = direction * speed
 			timer.stop()
 		else:
 			velocity = Vector2.ZERO
 			if timer.is_stopped():
 				timer.start()
 	else:
-		# Patrulla con navegación
-		if nav_agent.is_navigation_finished():
-			var x = randf_range(-100, 100)
-			var y = randf_range(-100, 100)
-			nav_agent.target_position = global_position + Vector2(x, y)
-		var next_pos = nav_agent.get_next_path_position()
-		var direction = (next_pos - global_position).normalized()
-		velocity = direction * (speed * 0.5)
+		if usar_navegacion:
+			if nav_agent.is_navigation_finished():
+				var x = randf_range(-100, 100)
+				var y = randf_range(-100, 100)
+				nav_agent.target_position = global_position + Vector2(x, y)
+			var next_pos = nav_agent.get_next_path_position()
+			var direction = (next_pos - global_position).normalized()
+			velocity = direction * (speed * 0.5)
+		else:
+			velocity = Vector2.ZERO
 		timer.stop()
-
 	move_and_slide()
 
 func atack():
 	if atacando:
 		return
 	if player_en_rango:
-		var diff = player.global_position - global_position
-		var en_rango = abs(diff.x) < 25 or abs(diff.y) < 25
-		if not en_rango:
+		var distancia = global_position.distance_to(player.global_position)
+		print("ATACK -> distancia: ", distancia)
+		if distancia > rango_ataque:
+			print("ATACK CANCELADO, muy lejos")
 			return
 		atacando = true
+		# ... resto igual
 		velocity = Vector2.ZERO
 		var direction = player.global_position - global_position
 		if abs(direction.x) > abs(direction.y):
 			anim.flip_h = direction.x < 0
 			anim.play("attack")
-			hitbox_ataque.position = Vector2(10 * sign(direction.x), 0)
+			hitbox_ataque.position = Vector2(20 * sign(direction.x), 0)
 		else:
 			if direction.y < 0:
 				anim.play("attackUp")
@@ -128,4 +134,7 @@ func morir():
 
 func _on_hitbox_ataque_body_entered(body):
 	if body.is_in_group("player"):
-		body.recibir_dano(dano, global_position)
+		var distancia = global_position.distance_to(body.global_position)
+		print("HITBOX -> distancia: ", distancia)
+		if distancia <= 55:
+			body.recibir_dano(dano, global_position)

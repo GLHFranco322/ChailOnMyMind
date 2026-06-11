@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ktsn3snrnvaf" path="res://Assets/Mapa/Carcel 3 sin fondo.png" id="7_tol53"]
 [ext_resource type="PackedScene" uid="uid://djl1hwbcppygn" path="res://Scenes/toxic_dog.tscn" id="8_b41rw"]
 [ext_resource type="PackedScene" uid="uid://bsykiava0wcn8" path="res://Scenes/zombie.tscn" id="9_0hofl"]
-[ext_resource type="PackedScene" uid="uid://dnxhgf3swqogy" path="res://Assets/Guardia/NPCGuardia.tscn" id="9_gyqgi"]
+[ext_resource type="PackedScene" path="res://Assets/Guardia/NPCGuardia.tscn" id="9_gyqgi"]
 [ext_resource type="PackedScene" uid="uid://bpcibjj1lxe74" path="res://Scenes/obscure.tscn" id="14_0r1u1"]
 [ext_resource type="PackedScene" uid="uid://bd7v6rrsvgxll" path="res://Scenes/puerta_final.tscn" id="14_y5c7o"]
 [ext_resource type="PackedScene" uid="uid://d0okiva75l8rl" path="res://Scenes/boton_final.tscn" id="15_0r1u1"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://7my0pl2pfavf" path="res://Scenes/puerta.tscn" id="16_rbeo1"]
 [ext_resource type="Texture2D" uid="uid://b60hnldhc4fpf" path="res://Assets/Jugador/FREE Textures Of Light/32x32/32x32 textures (52).png" id="18_1shi5"]
 [ext_resource type="PackedScene" uid="uid://ddnfhrfkrbdqh" path="res://Scenes/pause_menu.tscn" id="19_1shi5"]
-[ext_resource type="Script" uid="uid://cl24b30yo0h8q" path="res://Scenes/point_light_2d.gd" id="19_brn72"]
+[ext_resource type="Script" path="res://Scenes/point_light_2d.gd" id="19_brn72"]
 [ext_resource type="PackedScene" uid="uid://dq45tfisya3ov" path="res://Scrips/area_interaccion.tscn" id="20_brn72"]
 [ext_resource type="PackedScene" uid="uid://duhx6107n61no" path="res://Scrips/canvas_layer.tscn" id="21_sh1t7"]
 
@@ -20433,6 +20433,7 @@ sources/3 = SubResource("TileSetAtlasSource_brn72")
 script = ExtResource("1_e8ytk")
 
 [node name="Mapa" parent="." unique_id=1958495002 instance=ExtResource("2_20pul")]
+zombie_scene = ExtResource("9_0hofl")
 
 [node name="Boton" parent="." unique_id=1809947209 instance=ExtResource("15_myfm4")]
 position = Vector2(372, -2120)
@@ -20519,10 +20520,16 @@ position = Vector2(404, -2171)
 scale = Vector2(1.5, 1.5)
 vida = 30
 
+[node name="Zombie3" parent="." unique_id=206250252 instance=ExtResource("9_0hofl")]
+position = Vector2(415, -1526)
+scale = Vector2(1.5, 1.5)
+vida = 30
+usar_navegacion = false
+
 [node name="Obscure" parent="." unique_id=1682887945 instance=ExtResource("14_0r1u1")]
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_3hss1")]
-position = Vector2(410, -2521)
+position = Vector2(409.99997, -2519)
 scale = Vector2(0.7, 0.7)
 collision_mask = 1
 dano_ataque = 15.0
