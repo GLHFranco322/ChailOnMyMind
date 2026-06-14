@@ -3,10 +3,6 @@ extends CharacterBody2D
 @export var dano : float = 10
 @export var vida : int = 20
 @export var usar_navegacion: bool = true
-
-var distancia_minima : float = 49.0
-var rango_ataque : float = 55.0
-
 var player
 var player_en_rango = false
 var atacando = false
@@ -19,6 +15,16 @@ var en_knockback = false
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
+
+func obtener_rango_ataque() -> float:
+	var direction = player.global_position - global_position
+	if abs(direction.x) > abs(direction.y):
+		return Vector2(27.0, 0).length()
+	else:
+		if direction.y < 0:
+			return 37.0
+		else:
+			return 38.0
 
 func _physics_process(delta):
 	if muerto:
@@ -34,8 +40,7 @@ func _physics_process(delta):
 		return
 	if player_en_rango:
 		var distancia = global_position.distance_to(player.global_position)
-		print("PHYSICS -> distancia: ", distancia)
-		if distancia > distancia_minima:
+		if distancia > obtener_rango_ataque():
 			if usar_navegacion:
 				nav_agent.target_position = player.global_position
 				var next_pos = nav_agent.get_next_path_position()
@@ -69,24 +74,30 @@ func atack():
 	if player_en_rango:
 		var distancia = global_position.distance_to(player.global_position)
 		print("ATACK -> distancia: ", distancia)
-		if distancia > rango_ataque:
+		if distancia > obtener_rango_ataque():
 			print("ATACK CANCELADO, muy lejos")
 			return
 		atacando = true
-		# ... resto igual
 		velocity = Vector2.ZERO
 		var direction = player.global_position - global_position
 		if abs(direction.x) > abs(direction.y):
 			anim.flip_h = direction.x < 0
 			anim.play("attack")
-			hitbox_ataque.position = Vector2(20 * sign(direction.x), 0)
+			if direction.x > 0:
+				hitbox_ataque.position = Vector2(27.0, 0)
+				hitbox_ataque.rotation = 0
+			else:
+				hitbox_ataque.position = Vector2(-27.0, 0)
+				hitbox_ataque.rotation = 0
 		else:
 			if direction.y < 0:
 				anim.play("attackUp")
-				hitbox_ataque.position = Vector2(0, -20)
+				hitbox_ataque.position = Vector2(0, -37.0)
+				hitbox_ataque.rotation = deg_to_rad(90)
 			else:
 				anim.play("attackDown")
-				hitbox_ataque.position = Vector2(0, 20)
+				hitbox_ataque.position = Vector2(0, 38.0)
+				hitbox_ataque.rotation = deg_to_rad(90)
 		await get_tree().create_timer(0.2).timeout
 		hitbox_ataque.monitoring = true
 		await get_tree().create_timer(0.1).timeout
@@ -136,5 +147,5 @@ func _on_hitbox_ataque_body_entered(body):
 	if body.is_in_group("player"):
 		var distancia = global_position.distance_to(body.global_position)
 		print("HITBOX -> distancia: ", distancia)
-		if distancia <= 55:
+		if distancia <= obtener_rango_ataque():
 			body.recibir_dano(dano, global_position)

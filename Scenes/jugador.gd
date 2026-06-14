@@ -141,13 +141,13 @@ func start_attack():
 func update_hitbox_direction():
 	match last_direction:
 		"down":
-			hitbox.position = Vector2(0, 40)
+			hitbox.position = Vector2(0, 25.5)
 		"up":
-			hitbox.position = Vector2(0, 0)
+			hitbox.position = Vector2(0, -25.5)
 		"right":
-			hitbox.position = Vector2(40, 20)
+			hitbox.position = Vector2(40, 0)
 		"left":
-			hitbox.position = Vector2(-40, 20)
+			hitbox.position = Vector2(-40, 0)
 
 
 func update_animation(direction: Vector2):

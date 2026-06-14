@@ -139,15 +139,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ia6i"]
-size = Vector2(12, 25)
+size = Vector2(12, 27)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n70j1"]
-radius = 48.0
-height = 96.0
+radius = 98.0
+height = 200.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyl7r"]
-radius = 7.0
-height = 24.0
+radius = 5.0
+height = 60.0
 
 [node name="Zombie" type="CharacterBody2D" unique_id=304745947 groups=["Enemigos"]]
 collision_layer = 2
@@ -155,18 +155,21 @@ script = ExtResource("1_n70j1")
 speed = 60.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1359343111]
+position = Vector2(0.99999994, -10)
+scale = Vector2(2.375, 2.40625)
 sprite_frames = SubResource("SpriteFrames_4slyf")
-animation = &"Idle"
+animation = &"attack"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1972292059]
-position = Vector2(0, 3.5)
+position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_5ia6i")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1729469784]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=883230131]
-position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_n70j1")
 
 [node name="Timer" type="Timer" parent="." unique_id=1890317236]
@@ -180,7 +183,6 @@ autostart = true
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxAtaque" unique_id=227823531]
-position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_iyl7r")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=822310842]
