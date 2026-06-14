@@ -3,11 +3,14 @@ extends CharacterBody2D
 @export var dano : float = 10
 @export var vida : int = 20
 @export var usar_navegacion: bool = true
+
 var player
 var player_en_rango = false
 var atacando = false
 var muerto = false
 var en_knockback = false
+var puede_atacar = true
+
 @onready var timer = $Timer
 @onready var anim = $AnimatedSprite2D
 @onready var hitbox_ataque = $HitboxAtaque
@@ -52,7 +55,7 @@ func _physics_process(delta):
 			timer.stop()
 		else:
 			velocity = Vector2.ZERO
-			if timer.is_stopped():
+			if timer.is_stopped() and puede_atacar:
 				timer.start()
 	else:
 		if usar_navegacion:
@@ -69,7 +72,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func atack():
-	if atacando:
+	if atacando or not puede_atacar:
 		return
 	if player_en_rango:
 		var distancia = global_position.distance_to(player.global_position)
@@ -128,6 +131,10 @@ func recibir_dano(cantidad, origen: Vector2 = Vector2.ZERO):
 	if vida <= 0:
 		morir()
 		return
+	
+	puede_atacar = false
+	timer.stop()
+	
 	if origen != Vector2.ZERO:
 		en_knockback = true
 		var dir = (global_position - origen).normalized()
@@ -135,6 +142,9 @@ func recibir_dano(cantidad, origen: Vector2 = Vector2.ZERO):
 		await get_tree().create_timer(0.3).timeout
 		en_knockback = false
 		velocity = Vector2.ZERO
+	
+	await get_tree().create_timer(0.5).timeout
+	puede_atacar = true
 
 func morir():
 	muerto = true

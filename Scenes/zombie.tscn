@@ -151,6 +151,7 @@ height = 60.0
 
 [node name="Zombie" type="CharacterBody2D" unique_id=304745947 groups=["Enemigos"]]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_n70j1")
 speed = 60.0
 
