@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bknvqca456488"]
+
+[ext_resource type="Script" uid="uid://cjurn42n2k8kw" path="res://bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://gq0rifxqdpmd" path="res://Assets/TheUltimateWeaponsPack/TheUltimateWeaponsPack_Sheet.png" id="2_ycag2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6afsh"]
+size = Vector2(2, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odot3"]
+atlas = ExtResource("2_ycag2")
+region = Rect2(0, 335, 15, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8o6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odot3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="CharacterBody2D" unique_id=786268752]
+scale = Vector2(2, 2)
+script = ExtResource("1_oduel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1579787672]
+shape = SubResource("RectangleShape2D_6afsh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1106540127]
+position = Vector2(0, 1.4901161e-08)
+scale = Vector2(0.13333333, 0.09999995)
+sprite_frames = SubResource("SpriteFrames_t8o6v")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1933158590]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=806560656]
+shape = SubResource("RectangleShape2D_6afsh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

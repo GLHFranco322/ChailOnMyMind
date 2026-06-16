@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dpv2fdxeix4xd"]
+
+[ext_resource type="Texture2D" uid="uid://gq0rifxqdpmd" path="res://Assets/TheUltimateWeaponsPack/TheUltimateWeaponsPack_Sheet.png" id="1_nxj5y"]
+
+[sub_resource type="GDScript" id="GDScript_nxj5y"]
+script/source = "extends Node2D  # ← cambiado de CharacterBody2D a Node2D
+
+var bullet = preload(\"res://Scenes/bullet.tscn\")
+@onready var anim = $CollisionShape2D/AnimatedSprite2D
+
+var max_bullets: int = 10
+var current_bullets: int = max_bullets
+
+func _physics_process(_delta: float) -> void:
+	anim.flip_h = true
+	look_at(get_global_mouse_position())
+	if Input.is_action_just_pressed(\"shoot\"):
+		shoot()
+
+func shoot():
+	if current_bullets <= 0:
+		print(\"Sin balas!\")
+		return
+	
+	var newBullet = bullet.instantiate()
+	newBullet.direction = rotation
+	newBullet.global_position = $spawmPoint.global_position
+	get_tree().current_scene.add_child(newBullet)
+	
+	current_bullets -= 1
+	print(\"Balas restantes: \", current_bullets)
+
+func add_bullets(amount: int) -> void:
+	current_bullets = min(current_bullets + amount, max_bullets)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4teu"]
+size = Vector2(9, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqrbh"]
+atlas = ExtResource("1_nxj5y")
+region = Rect2(45, 0, 15, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6ynv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqrbh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Gun" type="Node2D" unique_id=2056578777]
+script = SubResource("GDScript_nxj5y")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=651746678]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_k4teu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1073248853]
+position = Vector2(0.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_t6ynv")
+metadata/_edit_group_ = true
+
+[node name="spawmPoint" type="Node2D" parent="." unique_id=1334932094]
+position = Vector2(3, -4)

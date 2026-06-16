@@ -4,13 +4,16 @@ extends CharacterBody2D
 @export var vida_max: int = 100
 @export var stamina_max: float = 50.0
 @export var invulnerable_time: float = 0.5
-@export var dano_ataque : float
+@export var dano_ataque: float
 
 @onready var bar = $ProgressBar
 @onready var anim = $AnimatedSprite2D
 @onready var hitbox = $Hitbox
-@onready var hitbox_sprite = $Hitbox/Sprite2D
 
+var bullet = preload("res://Scenes/bullet.tscn")  # ← bala
+var tiene_gun: bool = true                        # ← empieza sin arma
+var max_bullets: int = 10
+var current_bullets: int = 20                       # ← empieza sin balas
 
 var vidaJugador: int
 var stamina: float = 0.0
@@ -18,19 +21,15 @@ var is_attacking: bool = false
 var last_direction = "down"
 var invulnerable: bool = false
 var is_dead: bool = false
-var cansado = false
-
+var cansado: bool = false
 var already_hit: bool = false
 
 func _ready() -> void:
 	vidaJugador = vida_max
 	add_to_group("player")
-	
 	anim.animation_finished.connect(_on_animation_finished)
-	
 	hitbox.monitoring = false
 	hitbox.visible = false
- 
 
 func _physics_process(delta):
 	if is_dead:
@@ -61,50 +60,30 @@ func _physics_process(delta):
 	
 	if input_vector != Vector2.ZERO:
 		is_moving = true
-		
+
 	var is_running = false
 
-# Si está cansado se mueve lento
 	if cansado:
-
 		current_speed = 100
-
-# Puede correr solo si NO está cansado
 	elif Input.is_action_pressed("Run") and is_moving and stamina > 0:
-
 		is_running = true
 		current_speed = speed * 2
 	
 	velocity = input_vector * current_speed
 	move_and_slide()
-	
 	update_animation(input_vector)
 	
-	# CORRIENDO = GASTA stamina
-	# CORRIENDO = GASTA stamina
 	if is_running:
-
 		stamina -= 40 * delta
-
-# QUIETO = RECUPERA stamina
 	elif not is_moving and not cansado:
-
 		stamina += 30 * delta
-
-# CAMINANDO = recupera lento
 	elif not cansado:
-
 		stamina += 10 * delta
 
-
-# Llega a 0 → cansancio
 	if stamina <= 0 and not cansado:
-
 		stamina = 0
 		cansado = true
-
 		await get_tree().create_timer(3.0).timeout
-
 		cansado = false
 	
 	stamina = clamp(stamina, 0.0, stamina_max)
@@ -112,6 +91,38 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Attack") and not is_attacking:
 		start_attack()
+	
+	# Disparo
+	if tiene_gun and Input.is_action_just_pressed("shoot"):
+		shoot()
+
+func shoot():
+	if current_bullets <= 0:
+		print("Sin balas!")
+		return
+	
+	var newBullet = bullet.instantiate()
+	# La bala sale hacia donde apunta el mouse
+	var dir = (get_global_mouse_position() - global_position).angle()
+	newBullet.direction = dir
+	newBullet.global_position = global_position
+	get_tree().current_scene.add_child(newBullet)
+	
+	current_bullets -= 1
+	print("Balas restantes: ", current_bullets)
+
+func pick_up_gun() -> void:
+	tiene_gun = true
+	current_bullets = max_bullets
+	print("Gun equipada! Balas: ", current_bullets)
+
+func add_bullets(amount: int) -> void:
+	if not tiene_gun:
+		return
+	current_bullets = min(current_bullets + amount, max_bullets)
+	print("Balas: ", current_bullets)
+
+# ... el resto de tus funciones quedan igual
 
 
 func start_attack():
