@@ -11,9 +11,9 @@ extends CharacterBody2D
 @onready var hitbox = $Hitbox
 
 var bullet = preload("res://Scenes/bullet.tscn")  # ← bala
-var tiene_gun: bool = true                        # ← empieza sin arma
+var tiene_gun: bool = false                        # ← antes true, ahora false
 var max_bullets: int = 10
-var current_bullets: int = 20                       # ← empieza sin balas
+var current_bullets: int = 0                       # ← antes 20, ahora 0                    # ← empieza sin balas
 
 var vidaJugador: int
 var stamina: float = 0.0
@@ -255,3 +255,11 @@ func disable_hitbox():
 
 func bloquear_movimiento(valor: bool):
 	set_physics_process(not valor)
+
+func curar(cantidad: int) -> void:
+	vidaJugador = min(vidaJugador + cantidad, vida_max)
+	print("Vida curada! Vida actual: ", vidaJugador)
+	
+	var vida_bar = get_tree().get_first_node_in_group("VidaBar")
+	if vida_bar:
+		vida_bar.value = vidaJugador

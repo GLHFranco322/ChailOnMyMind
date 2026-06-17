@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://h02hxxtuwr23"]
+
+[ext_resource type="Script" uid="uid://b8wkvb30ychdu" path="res://Scenes/botiquin.gd" id="1_ieeqc"]
+[ext_resource type="Texture2D" uid="uid://dp1hrgnaf5s3l" path="res://Assets/Mapa/carcel 2 sin fondo.png" id="1_vyeob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ieeqc"]
+size = Vector2(34, 96)
+
+[node name="Botiquin" type="Area2D" unique_id=208800678]
+script = ExtResource("1_ieeqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=246769832]
+position = Vector2(-7, 13)
+texture = ExtResource("1_vyeob")
+hframes = 22
+vframes = 13
+frame = 281
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=956946625]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_ieeqc")

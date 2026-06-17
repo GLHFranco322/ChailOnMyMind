@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cu371x5btxt02"]
+
+[ext_resource type="Script" uid="uid://be8nyvbbudmgv" path="res://item_pistola.gd" id="1_yvfso"]
+[ext_resource type="Texture2D" uid="uid://gq0rifxqdpmd" path="res://Assets/TheUltimateWeaponsPack/TheUltimateWeaponsPack_Sheet.png" id="2_vqwhk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp60x"]
+size = Vector2(37, 46)
+
+[node name="itemPistola" type="Area2D" unique_id=317967889]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_yvfso")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=798760384]
+texture = ExtResource("2_vqwhk")
+hframes = 22
+vframes = 18
+frame = 112
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553186595]
+light_mask = 7
+visibility_layer = 7
+position = Vector2(1.5, 20)
+shape = SubResource("RectangleShape2D_tp60x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
