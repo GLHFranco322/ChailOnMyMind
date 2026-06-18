@@ -4,16 +4,16 @@ extends Area2D
 @export var cantidad_curacion: int = 30
 
 var jugador_cerca: CharacterBody2D = null
-var ya_agarrado: bool = false
+#var ya_agarrado: bool = false
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
-func _process(_delta: float) -> void:
-	if jugador_cerca and not ya_agarrado:
-		if Input.is_action_just_pressed("Pickup"):
-			agarrar_item()
+#func _process(_delta: float) -> void:
+#	if jugador_cerca and not ya_agarrado:
+#		if Input.is_action_just_pressed("Pickup"):
+#			agarrar_item()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -24,7 +24,7 @@ func _on_body_exited(body: Node2D) -> void:
 		jugador_cerca = null
 
 func agarrar_item() -> void:
-	ya_agarrado = true
+	#ya_agarrado = true
 	jugador_cerca.curar(cantidad_curacion)
 	mostrar_mensaje(mensaje)
 	$Sprite2D.visible = false

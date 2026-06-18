@@ -20433,6 +20433,7 @@ sources/2 = SubResource("TileSetAtlasSource_1shi5")
 sources/3 = SubResource("TileSetAtlasSource_brn72")
 
 [node name="Comisaria" type="Node2D" unique_id=1683358964]
+position = Vector2(4, 12)
 script = ExtResource("1_e8ytk")
 
 [node name="Mapa" parent="." unique_id=1958495002 instance=ExtResource("2_20pul")]
@@ -20557,7 +20558,6 @@ vida = 30
 usar_navegacion = false
 
 [node name="Obscure" parent="." unique_id=1682887945 instance=ExtResource("14_0r1u1")]
-visible = false
 
 [node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("20_brn72")]
 position = Vector2(-86, -98)
