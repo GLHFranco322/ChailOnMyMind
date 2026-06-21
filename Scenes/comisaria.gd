@@ -16,6 +16,7 @@ func _ready() -> void:
 			var zombie = zombie_scene.instantiate()
 			zombie.global_position = marker.global_position
 			zombie.scale = Vector2(0.7, 0.7)
+			zombie.usar_navegacion = true
 			add_child(zombie)
 
 

@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://duhx6107n61no" path="res://Scrips/canvas_layer.tscn" id="21_sh1t7"]
 [ext_resource type="PackedScene" uid="uid://cu371x5btxt02" path="res://Scenes/item_pistola.tscn" id="24_i6jur"]
 [ext_resource type="PackedScene" uid="uid://h02hxxtuwr23" path="res://Scenes/botiquin.tscn" id="25_52sbi"]
+[ext_resource type="Script" uid="uid://rhccw5uc7n3" path="res://Scenes/trigger_devil.gd" id="26_2be8x"]
+[ext_resource type="Script" uid="uid://dsilctpceskg1" path="res://Scenes/devil_spawner.gd" id="27_iei18"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
 bg_color = Color(0.7882353, 0.07058824, 0.2901961, 0.5137255)
@@ -20432,8 +20434,10 @@ sources/1 = SubResource("TileSetAtlasSource_rbeo1")
 sources/2 = SubResource("TileSetAtlasSource_1shi5")
 sources/3 = SubResource("TileSetAtlasSource_brn72")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52sbi"]
+size = Vector2(20, 210)
+
 [node name="Comisaria" type="Node2D" unique_id=1683358964]
-position = Vector2(4, 12)
 script = ExtResource("1_e8ytk")
 
 [node name="Mapa" parent="." unique_id=1958495002 instance=ExtResource("2_20pul")]
@@ -20538,10 +20542,11 @@ tile_set = SubResource("TileSet_x1lk2")
 position = Vector2(-66, -1519)
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_3hss1")]
-position = Vector2(414, -2514)
+position = Vector2(261, -981)
 scale = Vector2(0.7, 0.7)
 collision_mask = 1
 dano_ataque = 15.0
+metadata/_edit_group_ = true
 
 [node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=1414688960]
 zoom = Vector2(0.8, 0.8)
@@ -20558,6 +20563,7 @@ vida = 30
 usar_navegacion = false
 
 [node name="Obscure" parent="." unique_id=1682887945 instance=ExtResource("14_0r1u1")]
+visible = false
 
 [node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("20_brn72")]
 position = Vector2(-86, -98)
@@ -20631,103 +20637,98 @@ position = Vector2(-226, -1696)
 position = Vector2(-221, -1952)
 
 [node name="Marker2D45" type="Marker2D" parent="MarkerPrincipal" unique_id=411557146]
-position = Vector2(-101, -1961)
+position = Vector2(-71, -1963)
 
 [node name="Marker2D46" type="Marker2D" parent="MarkerPrincipal" unique_id=1156103546]
 position = Vector2(-54, -1922)
 
 [node name="Marker2D47" type="Marker2D" parent="MarkerPrincipal" unique_id=1422168523]
-position = Vector2(-171, -1921)
+position = Vector2(-183, -1967)
 
 [node name="Marker2D48" type="Marker2D" parent="MarkerPrincipal" unique_id=191748862]
-position = Vector2(-146, -1946)
+position = Vector2(-129, -1932)
 
 [node name="Marker2D49" type="Marker2D" parent="MarkerPrincipal" unique_id=1402672876]
 position = Vector2(368, -1810)
 
 [node name="Marker2D50" type="Marker2D" parent="MarkerPrincipal" unique_id=1891521993]
-position = Vector2(111, -1822)
+position = Vector2(92, -1835)
 
 [node name="Marker2D51" type="Marker2D" parent="MarkerPrincipal" unique_id=862334427]
-position = Vector2(114, -1777)
+position = Vector2(92, -1776)
 
 [node name="Marker2D52" type="Marker2D" parent="MarkerPrincipal" unique_id=1971559610]
-position = Vector2(79, -1708)
-
-[node name="Marker2D53" type="Marker2D" parent="MarkerPrincipal" unique_id=1097088836]
-position = Vector2(133, -464)
-
-[node name="Marker2D54" type="Marker2D" parent="MarkerPrincipal" unique_id=796226976]
-position = Vector2(155, -467)
-
-[node name="Marker2D55" type="Marker2D" parent="MarkerPrincipal" unique_id=307923891]
-position = Vector2(90, -473)
-
-[node name="Marker2D56" type="Marker2D" parent="MarkerPrincipal" unique_id=1705387227]
-position = Vector2(66, -460)
-
-[node name="Marker2D57" type="Marker2D" parent="MarkerPrincipal" unique_id=1427470399]
-position = Vector2(199, -478)
-
-[node name="Marker2D58" type="Marker2D" parent="MarkerPrincipal" unique_id=745079705]
-position = Vector2(244, -477)
-
-[node name="Marker2D59" type="Marker2D" parent="MarkerPrincipal" unique_id=740240287]
-position = Vector2(281, -455)
-
-[node name="Marker2D60" type="Marker2D" parent="MarkerPrincipal" unique_id=389365194]
-position = Vector2(227, -430)
-
-[node name="Marker2D61" type="Marker2D" parent="MarkerPrincipal" unique_id=642746154]
-position = Vector2(257, -435)
-
-[node name="Marker2D62" type="Marker2D" parent="MarkerPrincipal" unique_id=1260311489]
-position = Vector2(289, -396)
-
-[node name="Marker2D63" type="Marker2D" parent="MarkerPrincipal" unique_id=769785635]
-position = Vector2(267, -388)
-
-[node name="Marker2D64" type="Marker2D" parent="MarkerPrincipal" unique_id=114841672]
-position = Vector2(231, -383)
-
-[node name="Marker2D65" type="Marker2D" parent="MarkerPrincipal" unique_id=159474056]
-position = Vector2(231, -339)
-
-[node name="Marker2D66" type="Marker2D" parent="MarkerPrincipal" unique_id=1376464590]
-position = Vector2(261, -335)
-
-[node name="Marker2D67" type="Marker2D" parent="MarkerPrincipal" unique_id=1769167155]
-position = Vector2(284, -343)
-
-[node name="Marker2D68" type="Marker2D" parent="MarkerPrincipal" unique_id=1484001883]
-position = Vector2(238, -312)
-
-[node name="Marker2D69" type="Marker2D" parent="MarkerPrincipal" unique_id=1453716963]
-position = Vector2(275, -307)
-
-[node name="Marker2D70" type="Marker2D" parent="MarkerPrincipal" unique_id=1397646677]
-position = Vector2(246, -402)
-
-[node name="Marker2D71" type="Marker2D" parent="MarkerPrincipal" unique_id=994468161]
-position = Vector2(262, -459)
-
-[node name="Marker2D72" type="Marker2D" parent="MarkerPrincipal" unique_id=1495504887]
-position = Vector2(237, -450)
-
-[node name="Marker2D73" type="Marker2D" parent="MarkerPrincipal" unique_id=704831117]
-position = Vector2(174, -477)
-
-[node name="Marker2D74" type="Marker2D" parent="MarkerPrincipal" unique_id=1862918064]
-position = Vector2(138, -480)
-
-[node name="Marker2D75" type="Marker2D" parent="MarkerPrincipal" unique_id=51249134]
-position = Vector2(115, -469)
-
-[node name="Marker2D76" type="Marker2D" parent="MarkerPrincipal" unique_id=2101183293]
-position = Vector2(66, -479)
-
-[node name="Marker2D77" type="Marker2D" parent="MarkerPrincipal" unique_id=1288208529]
-position = Vector2(294, -320)
+position = Vector2(95, -1694)
 
 [node name="Botiquin" parent="." unique_id=208800678 instance=ExtResource("25_52sbi")]
 position = Vector2(-227, -1399)
+
+[node name="TriggerDevil" type="Area2D" parent="." unique_id=654845009]
+position = Vector2(336, -966)
+script = ExtResource("26_2be8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDevil" unique_id=1753684975]
+shape = SubResource("RectangleShape2D_52sbi")
+
+[node name="DevilSpawner" type="Node2D" parent="." unique_id=762916703]
+script = ExtResource("27_iei18")
+
+[node name="Marker2D" type="Marker2D" parent="DevilSpawner" unique_id=1292322787]
+position = Vector2(430, -330)
+
+[node name="Marker2D2" type="Marker2D" parent="DevilSpawner" unique_id=827069602]
+position = Vector2(393, -321)
+
+[node name="Marker2D3" type="Marker2D" parent="DevilSpawner" unique_id=1930856217]
+position = Vector2(445, -263)
+
+[node name="Marker2D4" type="Marker2D" parent="DevilSpawner" unique_id=1186294694]
+position = Vector2(392, -377)
+
+[node name="Marker2D5" type="Marker2D" parent="DevilSpawner" unique_id=1416952909]
+position = Vector2(430, -383)
+
+[node name="Marker2D6" type="Marker2D" parent="DevilSpawner" unique_id=1769085243]
+position = Vector2(398, -444)
+
+[node name="Marker2D7" type="Marker2D" parent="DevilSpawner" unique_id=900982656]
+position = Vector2(439, -440)
+
+[node name="Marker2D8" type="Marker2D" parent="DevilSpawner" unique_id=1984614352]
+position = Vector2(397, -480)
+
+[node name="Marker2D9" type="Marker2D" parent="DevilSpawner" unique_id=1763647365]
+position = Vector2(443, -504)
+
+[node name="Marker2D10" type="Marker2D" parent="DevilSpawner" unique_id=1028762557]
+position = Vector2(395, -538)
+
+[node name="Marker2D11" type="Marker2D" parent="DevilSpawner" unique_id=1604481558]
+position = Vector2(435, -550)
+
+[node name="Marker2D12" type="Marker2D" parent="DevilSpawner" unique_id=756425275]
+position = Vector2(402, -574)
+
+[node name="Marker2D13" type="Marker2D" parent="DevilSpawner" unique_id=667080369]
+position = Vector2(442, -595)
+
+[node name="Marker2D14" type="Marker2D" parent="DevilSpawner" unique_id=1366218370]
+position = Vector2(398, -621)
+
+[node name="Marker2D15" type="Marker2D" parent="DevilSpawner" unique_id=1205127843]
+position = Vector2(436, -638)
+
+[node name="Marker2D16" type="Marker2D" parent="DevilSpawner" unique_id=699322047]
+position = Vector2(332, -309)
+
+[node name="Marker2D17" type="Marker2D" parent="DevilSpawner" unique_id=1670141168]
+position = Vector2(371, -293)
+
+[node name="Marker2D18" type="Marker2D" parent="DevilSpawner" unique_id=1001716649]
+position = Vector2(395, -277)
+
+[node name="Marker2D19" type="Marker2D" parent="DevilSpawner" unique_id=1273845228]
+position = Vector2(352, -264)
+
+[node name="Marker2D20" type="Marker2D" parent="DevilSpawner" unique_id=872940849]
+position = Vector2(445, -292)

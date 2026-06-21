@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4yliwq17qhsv"]
 
-[ext_resource type="Script" uid="uid://ct6pussnb3m8n" path="res://boton.gd" id="1_mt4we"]
+[ext_resource type="Script" uid="uid://ct6pussnb3m8n" path="res://Scenes/boton.gd" id="1_mt4we"]
 [ext_resource type="Texture2D" uid="uid://d33qphfxhbd7u" path="res://Assets/Infernus_Tiles/Infernus_Chalice.png" id="2_i7qh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfayi"]
