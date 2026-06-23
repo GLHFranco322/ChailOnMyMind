@@ -1,3 +1,91 @@
 [gd_scene format=3 uid="uid://bsdohlwv8lw0r"]
 
+[ext_resource type="Texture2D" uid="uid://cyjsqxn7qb6ci" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/inmortal-Sheet-prueba-cinematic.png" id="1_y232a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6xal"]
+atlas = ExtResource("1_y232a")
+region = Rect2(0, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi3mk"]
+atlas = ExtResource("1_y232a")
+region = Rect2(48, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uar3w"]
+atlas = ExtResource("1_y232a")
+region = Rect2(96, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygge0"]
+atlas = ExtResource("1_y232a")
+region = Rect2(144, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrgdg"]
+atlas = ExtResource("1_y232a")
+region = Rect2(192, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcerq"]
+atlas = ExtResource("1_y232a")
+region = Rect2(240, 0, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvwmj"]
+atlas = ExtResource("1_y232a")
+region = Rect2(144, 106, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymm25"]
+atlas = ExtResource("1_y232a")
+region = Rect2(192, 106, 48, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfx1b"]
+atlas = ExtResource("1_y232a")
+region = Rect2(240, 106, 48, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2grra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6xal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi3mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uar3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygge0")
+}],
+"loop": true,
+"name": &"IdleInmortal1",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrgdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcerq")
+}],
+"loop": true,
+"name": &"WalkInmortalAbj",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvwmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymm25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfx1b")
+}],
+"loop": true,
+"name": &"WalkInmortalIzq",
+"speed": 5.0
+}]
+
 [node name="cinematicainmortal2" type="Node2D" unique_id=1162747083]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1606684929]
+sprite_frames = SubResource("SpriteFrames_2grra")
+animation = &"WalkInmortalAbj"
+frame_progress = 0.8608417
