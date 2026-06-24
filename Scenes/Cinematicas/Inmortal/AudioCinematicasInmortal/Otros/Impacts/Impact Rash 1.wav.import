@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cktq3nf1m0q20"
+path="res://.godot/imported/Impact Rash 1.wav-f2c08f6a8aaf9c57677d3942025949c6.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impacts/Impact Rash 1.wav"
+dest_files=["res://.godot/imported/Impact Rash 1.wav-f2c08f6a8aaf9c57677d3942025949c6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

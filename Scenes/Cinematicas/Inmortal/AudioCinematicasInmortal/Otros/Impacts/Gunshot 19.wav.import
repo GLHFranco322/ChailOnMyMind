@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnad4br5j3jae"
+path="res://.godot/imported/Gunshot 19.wav-eb692de03759fa268e3f67ccf9c35dc8.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impacts/Gunshot 19.wav"
+dest_files=["res://.godot/imported/Gunshot 19.wav-eb692de03759fa268e3f67ccf9c35dc8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

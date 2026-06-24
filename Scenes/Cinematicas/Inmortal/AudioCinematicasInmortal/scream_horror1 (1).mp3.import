@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dagvd6vxwq023"
+path="res://.godot/imported/scream_horror1 (1).mp3-99b31150c514fcd4d067e1d9505e3b8d.mp3str"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/scream_horror1 (1).mp3"
+dest_files=["res://.godot/imported/scream_horror1 (1).mp3-99b31150c514fcd4d067e1d9505e3b8d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

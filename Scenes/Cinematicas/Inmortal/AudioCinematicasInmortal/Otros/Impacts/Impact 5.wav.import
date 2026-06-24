@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lwgbbfpmlhtj"
+path="res://.godot/imported/Impact 5.wav-76583792ba65bccb88fb0a1fe179f89d.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impacts/Impact 5.wav"
+dest_files=["res://.godot/imported/Impact 5.wav-76583792ba65bccb88fb0a1fe179f89d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

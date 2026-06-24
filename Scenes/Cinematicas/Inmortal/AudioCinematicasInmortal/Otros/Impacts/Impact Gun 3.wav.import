@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://sp0skghaqycl"
+path="res://.godot/imported/Impact Gun 3.wav-1c3a08cfd6d14c6a799c7a0bf6689ef3.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impacts/Impact Gun 3.wav"
+dest_files=["res://.godot/imported/Impact Gun 3.wav-1c3a08cfd6d14c6a799c7a0bf6689ef3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,16 +1,20 @@
 extends AnimatedSprite2D
 
 func play_idle():
-	play("Idle")
+	play("IdleInmortal")
 	
-func play_death():
-	play("Death")
+func play_Carga():
+	play("CargaPortal")
 	
-func play_walk():
-	play("Walk")
+func play_Presentacion():
+	play("Spawn")
 
-func play_spell():
-	play("Spell")
+func play_GarraPortal():
+	play("Portal")
 	
-func play_cast():
-	play("Cast")
+func play_AbrirPortal():
+	play("AtaquePortal")
+
+func play_AtaqueFrontal():
+	play("AtackDown")
+	

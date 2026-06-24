@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cmoic3ba118rg"
+path="res://.godot/imported/step_cloth1.ogg-8280e6ed39476173dd7e141b2863131b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Cinematica Inmortal/step_cloth1.ogg"
+dest_files=["res://.godot/imported/step_cloth1.ogg-8280e6ed39476173dd7e141b2863131b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
