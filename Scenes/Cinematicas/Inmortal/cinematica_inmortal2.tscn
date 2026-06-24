@@ -19,6 +19,12 @@
 [ext_resource type="AudioStream" uid="uid://dpkdbi8djgkch" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Arma/toy-double-barrel-shotgun-equip.wav" id="15_drfbl"]
 [ext_resource type="AudioStream" uid="uid://bkv27l2n7djog" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/breathing tired (1).wav" id="15_lhblt"]
 [ext_resource type="AudioStream" uid="uid://c8igh4ogpvj7" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/ghost.wav" id="16_75025"]
+[ext_resource type="AudioStream" uid="uid://q06wkdcms26i" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/horror sfx/horror_effect2.wav" id="17_e3o8n"]
+[ext_resource type="AudioStream" uid="uid://vsqlo3r3wqn" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/radio_death.mp3" id="20_ib57k"]
+[ext_resource type="AudioStream" uid="uid://dpo1oaqec4q61" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/aargh0.ogg" id="22_j14xm"]
+[ext_resource type="AudioStream" uid="uid://cc4yj46c4xucw" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impact 12.wav" id="23_88fm6"]
+[ext_resource type="AudioStream" uid="uid://db6scbhujbunv" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impacts/apple_bite.ogg" id="24_dedpo"]
+[ext_resource type="AudioStream" uid="uid://oifqijgvvd8k" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/walkie static.wav" id="25_88fm6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ehbmx"]
 texture = ExtResource("8_ymm25")
@@ -8031,7 +8037,7 @@ sources/1 = SubResource("TileSetAtlasSource_xxh0i")
 
 [sub_resource type="Animation" id="Animation_xxh0i"]
 resource_name = "CinematicaInmortalContexto"
-length = 17.033333
+length = 22.066668
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -8039,7 +8045,7 @@ tracks/0/path = NodePath("AudioMusica")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 17.033333),
+"times": PackedFloat32Array(0, 22.066668),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [0.0],
@@ -8056,7 +8062,7 @@ tracks/1/path = NodePath("Guardia de Seguridad1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.06666666, 5, 13.633333, 15),
+"times": PackedFloat32Array(0.06666666, 5, 16.9, 20),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(160, 200), Vector2(160, 144), Vector2(160, 144), Vector2(159, 187)]
@@ -8068,7 +8074,7 @@ tracks/2/path = NodePath("Guardia de Seguridad1")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 4.9666667, 7.1, 9.766666, 10.066667, 10.666667, 11.066667, 11.233334, 11.466666, 11.7, 12.3, 13.4),
+"times": PackedFloat32Array(0, 4.9666667, 7.1, 9.766666, 10.066667, 10.666667, 11.066667, 11.233334, 11.466666, 11.7, 12.3, 16.933332),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -8127,7 +8133,7 @@ tracks/4/path = NodePath("InmortalContexto")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(7, 7.5, 9.766666, 10.066667, 10.666667, 11.066667, 11.233334, 11.7, 12.3, 13.4),
+"times": PackedFloat32Array(7, 7.5, 9.766666, 10.066667, 10.666667, 11.066667, 11.233334, 11.7, 12.3, 16.633333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -8168,7 +8174,7 @@ tracks/5/path = NodePath("InmortalContexto:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 9.466666, 10, 10.533334, 11, 11.633333, 12.266666, 12.8, 13.4, 15.2),
+"times": PackedFloat32Array(0, 9.466666, 10, 10.533334, 11, 11.633333, 12.266666, 12.8, 16.366667, 20.066668),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(161, 65), Vector2(161, 65), Vector2(160, 60), Vector2(161, 65), Vector2(155, 65), Vector2(160, 60), Vector2(167, 66), Vector2(160, 66), Vector2(160, 66), Vector2(161, 196)]
@@ -8192,7 +8198,7 @@ tracks/7/path = NodePath("Fin de escena1:color")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 2.2, 15.208362, 16.933332),
+"times": PackedFloat32Array(0, 2.2, 17.3, 20.066668),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -8204,9 +8210,15 @@ tracks/8/path = NodePath("AudioPasos")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.033333335, 5.1666665),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.033333335, 5.1666665, 16.933332, 20.066668),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
 "args": [0.0],
 "method": &"play"
 }, {
@@ -8221,9 +8233,15 @@ tracks/9/path = NodePath("AudioRespiracion")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(5.1666665, 7.233333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(5.1666665, 7.233333, 12.333333, 16.933332),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
 "args": [0.0],
 "method": &"play"
 }, {
@@ -8317,6 +8335,85 @@ tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(12.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/14/type = "method"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AudioInmortalDistorsión")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(16.6333, 19.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/15/type = "method"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AudioRespiracionInmortal")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(12.766666, 16.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AudioMuerte")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(20),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("AudioImpacto")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(19.633333, 21.633333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/18/type = "method"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("AudioComiendo")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(21.433332),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -8809,15 +8906,37 @@ stream = ExtResource("14_lhblt")
 volume_db = -4.0
 
 [node name="AudioInmortalDistorsión" type="AudioStreamPlayer2D" parent="." unique_id=2107528666]
+stream = ExtResource("17_e3o8n")
+volume_db = 5.0
 
 [node name="AudioInmortalSusto" type="AudioStreamPlayer2D" parent="." unique_id=175688168]
 
 [node name="AudioPasos" type="AudioStreamPlayer2D" parent="." unique_id=674847162]
 stream = ExtResource("14_75025")
+volume_db = -4.0
 
 [node name="AudioRespiracion" type="AudioStreamPlayer2D" parent="." unique_id=596820704]
 stream = ExtResource("15_lhblt")
 volume_db = 2.0
 
+[node name="AudioRespiracionInmortal" type="AudioStreamPlayer2D" parent="." unique_id=1394127242]
+stream = ExtResource("20_ib57k")
+volume_db = -2.0
+
 [node name="AudioInmortalSpawn" type="AudioStreamPlayer2D" parent="." unique_id=1440073581]
 stream = ExtResource("16_75025")
+
+[node name="AudioMuerte" type="AudioStreamPlayer2D" parent="." unique_id=1335976423]
+stream = ExtResource("22_j14xm")
+volume_db = 2.0
+
+[node name="AudioImpacto" type="AudioStreamPlayer2D" parent="." unique_id=1870394229]
+stream = ExtResource("23_88fm6")
+volume_db = 8.0
+
+[node name="AudioComiendo" type="AudioStreamPlayer2D" parent="." unique_id=1477091138]
+stream = ExtResource("24_dedpo")
+
+[node name="AudioWalkie" type="AudioStreamPlayer2D" parent="." unique_id=256252703]
+stream = ExtResource("25_88fm6")
+volume_db = 2.0

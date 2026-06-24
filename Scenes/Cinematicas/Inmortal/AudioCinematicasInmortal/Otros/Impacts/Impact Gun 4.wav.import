@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cx521fyome06i"
+path="res://.godot/imported/Impact Gun 4.wav-042cf6d916028e0fe9213ef3328c4833.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impacts/Impact Gun 4.wav"
+dest_files=["res://.godot/imported/Impact Gun 4.wav-042cf6d916028e0fe9213ef3328c4833.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

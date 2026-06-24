@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://c8dshdf0kh8ys" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/chant1.wav" id="26_qtxb5"]
 [ext_resource type="AudioStream" uid="uid://cks3tw3jprf8i" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/run_30fps20pat.mp3" id="28_8x1a7"]
 [ext_resource type="AudioStream" uid="uid://c05otg8coy65f" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/i_see_you_voice.mp3" id="29_wt0vr"]
+[ext_resource type="AudioStream" uid="uid://oifqijgvvd8k" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/walkie static.wav" id="30_sooww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_870fx"]
 shader = ExtResource("1_tqj85")
@@ -13186,3 +13187,7 @@ stream = ExtResource("28_8x1a7")
 [node name="AudioInmortalHabla" type="AudioStreamPlayer2D" parent="." unique_id=1786234811]
 stream = ExtResource("29_wt0vr")
 volume_db = 8.0
+
+[node name="AudioWalkie" type="AudioStreamPlayer2D" parent="." unique_id=839516924]
+stream = ExtResource("30_sooww")
+volume_db = 2.0

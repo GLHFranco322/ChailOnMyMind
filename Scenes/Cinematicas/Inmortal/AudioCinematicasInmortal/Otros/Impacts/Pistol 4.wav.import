@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwg00fbqis5m5"
+path="res://.godot/imported/Pistol 4.wav-716913be92b9c5470ef4b56af8e12cfc.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impacts/Pistol 4.wav"
+dest_files=["res://.godot/imported/Pistol 4.wav-716913be92b9c5470ef4b56af8e12cfc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
