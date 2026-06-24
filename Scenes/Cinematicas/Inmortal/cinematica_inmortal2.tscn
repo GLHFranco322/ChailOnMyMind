@@ -12,7 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://wvxx5mdqnyrr" path="res://Assets/Jugador/light.png" id="11_vuolu"]
 [ext_resource type="Script" uid="uid://d01fplm72p0eh" path="res://Scenes/Cinematicas/Inmortal/inmortal_contexto.gd" id="12_75025"]
 [ext_resource type="AudioStream" uid="uid://f0x6ciuucxac" path="res://Assets/Sonidos/CinematicasSounds/Inmortal/the_world_fell_silent_loop.mp3" id="12_vuolu"]
+[ext_resource type="AudioStream" uid="uid://cks3tw3jprf8i" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/run_30fps20pat.mp3" id="14_75025"]
+[ext_resource type="AudioStream" uid="uid://cfovjbmhudvw8" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Arma/bang_01.ogg" id="14_byyvu"]
+[ext_resource type="AudioStream" uid="uid://dhg05ecsrbc5f" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/high_pitch_scream_gverb.mp3" id="14_lhblt"]
 [ext_resource type="Script" uid="uid://c5smkysbac2f2" path="res://Scenes/Cinematicas/Inmortal/guardia_de_seguridad.gd" id="14_s1ss7"]
+[ext_resource type="AudioStream" uid="uid://dpkdbi8djgkch" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Arma/toy-double-barrel-shotgun-equip.wav" id="15_drfbl"]
+[ext_resource type="AudioStream" uid="uid://bkv27l2n7djog" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/breathing tired (1).wav" id="15_lhblt"]
+[ext_resource type="AudioStream" uid="uid://c8igh4ogpvj7" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/ghost.wav" id="16_75025"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ehbmx"]
 texture = ExtResource("8_ymm25")
@@ -8191,6 +8197,132 @@ tracks/7/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioPasos")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.033333335, 5.1666665),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("AudioRespiracion")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(5.1666665, 7.233333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("AudioInmortalSpawn")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(6.9666667, 8.8),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/11/type = "method"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AudioDisparo")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(9.7667, 10.6667, 11.0667, 11.2333, 11.466666, 11.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AudioInmortal")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(9.766666, 10.0667, 10.6667, 11.2333, 11.7, 12.3, 106667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("AudioRecarga")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(12.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ehbmx"]
 length = 0.001
@@ -8642,14 +8774,13 @@ color = Color(0.05490196, 0.05882353, 0, 1)
 [node name="Guardia de Seguridad1" type="AnimatedSprite2D" parent="." unique_id=207303850]
 position = Vector2(166, 187)
 sprite_frames = SubResource("SpriteFrames_mhwh8")
-animation = &"IdleGuardia1"
+animation = &"EscaparGuardia1"
 script = ExtResource("14_s1ss7")
 
 [node name="InmortalContexto" type="AnimatedSprite2D" parent="." unique_id=840121224]
 position = Vector2(161, 65)
 sprite_frames = SubResource("SpriteFrames_hx6yv")
-animation = &"EsquivardeCostado"
-frame_progress = 0.9230913
+animation = &"ApariciónComisaria"
 script = ExtResource("12_75025")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=332372469]
@@ -8668,11 +8799,25 @@ volume_db = 3.0
 [node name="AudioAlarma" type="AudioStreamPlayer2D" parent="." unique_id=473375462]
 
 [node name="AudioDisparo" type="AudioStreamPlayer2D" parent="." unique_id=973597892]
+stream = ExtResource("14_byyvu")
 
 [node name="AudioRecarga" type="AudioStreamPlayer2D" parent="." unique_id=71613506]
+stream = ExtResource("15_drfbl")
 
 [node name="AudioInmortal" type="AudioStreamPlayer2D" parent="." unique_id=576432999]
+stream = ExtResource("14_lhblt")
+volume_db = -4.0
 
 [node name="AudioInmortalDistorsión" type="AudioStreamPlayer2D" parent="." unique_id=2107528666]
 
 [node name="AudioInmortalSusto" type="AudioStreamPlayer2D" parent="." unique_id=175688168]
+
+[node name="AudioPasos" type="AudioStreamPlayer2D" parent="." unique_id=674847162]
+stream = ExtResource("14_75025")
+
+[node name="AudioRespiracion" type="AudioStreamPlayer2D" parent="." unique_id=596820704]
+stream = ExtResource("15_lhblt")
+volume_db = 2.0
+
+[node name="AudioInmortalSpawn" type="AudioStreamPlayer2D" parent="." unique_id=1440073581]
+stream = ExtResource("16_75025")
