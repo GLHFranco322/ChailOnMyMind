@@ -8639,9 +8639,6 @@ script = SubResource("GDScript_75025")
 [node name="Sala" type="CanvasModulate" parent="." unique_id=469306563]
 color = Color(0.05490196, 0.05882353, 0, 1)
 
-[node name="AudioMusica" type="AudioStreamPlayer2D" parent="." unique_id=153456724]
-stream = ExtResource("12_vuolu")
-
 [node name="Guardia de Seguridad1" type="AnimatedSprite2D" parent="." unique_id=207303850]
 position = Vector2(166, 187)
 sprite_frames = SubResource("SpriteFrames_mhwh8")
@@ -8663,3 +8660,19 @@ zoom = Vector2(1.1, 1.1)
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 0)
+
+[node name="AudioMusica" type="AudioStreamPlayer2D" parent="." unique_id=153456724]
+stream = ExtResource("12_vuolu")
+volume_db = 3.0
+
+[node name="AudioAlarma" type="AudioStreamPlayer2D" parent="." unique_id=473375462]
+
+[node name="AudioDisparo" type="AudioStreamPlayer2D" parent="." unique_id=973597892]
+
+[node name="AudioRecarga" type="AudioStreamPlayer2D" parent="." unique_id=71613506]
+
+[node name="AudioInmortal" type="AudioStreamPlayer2D" parent="." unique_id=576432999]
+
+[node name="AudioInmortalDistorsión" type="AudioStreamPlayer2D" parent="." unique_id=2107528666]
+
+[node name="AudioInmortalSusto" type="AudioStreamPlayer2D" parent="." unique_id=175688168]

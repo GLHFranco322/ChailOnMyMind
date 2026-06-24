@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hrpo3s4ca205"
+path="res://.godot/imported/horror_effect1.wav-d7543646b46e820082e24ae42e975829.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/horror sfx/horror_effect1.wav"
+dest_files=["res://.godot/imported/horror_effect1.wav-d7543646b46e820082e24ae42e975829.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

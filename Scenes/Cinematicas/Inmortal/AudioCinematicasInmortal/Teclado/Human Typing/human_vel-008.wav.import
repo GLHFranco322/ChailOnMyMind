@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://84bxe8ipp1vf"
+path="res://.godot/imported/human_vel-008.wav-0ca0ca96d13d4ecc0132d20e7bda162d.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Teclado/Human Typing/human_vel-008.wav"
+dest_files=["res://.godot/imported/human_vel-008.wav-0ca0ca96d13d4ecc0132d20e7bda162d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

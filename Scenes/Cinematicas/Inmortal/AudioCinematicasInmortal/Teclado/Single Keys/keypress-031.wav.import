@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://g7onc2k6pnip"
+path="res://.godot/imported/keypress-031.wav-21d91bb7cbd7a416f1fc6ea34ac05172.sample"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Teclado/Single Keys/keypress-031.wav"
+dest_files=["res://.godot/imported/keypress-031.wav-21d91bb7cbd7a416f1fc6ea34ac05172.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

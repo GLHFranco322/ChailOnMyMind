@@ -19,6 +19,16 @@
 [ext_resource type="Texture2D" uid="uid://vysfod3gm3xn" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Guardia/guardia de seguridad en apuros.png" id="13_a1efr"]
 [ext_resource type="Texture2D" uid="uid://wvxx5mdqnyrr" path="res://Assets/Jugador/light.png" id="18_65x41"]
 [ext_resource type="Script" uid="uid://dq6yh8eq20hj1" path="res://Scenes/Cinematicas/Seguridad/guardia_de_seguridad_2.gd" id="18_88dhg"]
+[ext_resource type="AudioStream" uid="uid://qkro8h2xx8ew" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Teclado/Human Typing/human_vel-001.wav" id="20_6usf8"]
+[ext_resource type="AudioStream" uid="uid://ch4xi0j7loquc" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Ambient Horror Track 01/ambient_horror_track01.ogg" id="20_ebxep"]
+[ext_resource type="AudioStream" uid="uid://dcolafuqgo15y" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/static1.wav" id="21_g7pll"]
+[ext_resource type="AudioStream" uid="uid://dagvd6vxwq023" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/scream_horror1 (1).mp3" id="22_qtxb5"]
+[ext_resource type="AudioStream" uid="uid://cahp130oyqfnh" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/alarm (1).ogg" id="22_w8sxq"]
+[ext_resource type="AudioStream" uid="uid://c8igh4ogpvj7" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/ghost.wav" id="23_w8sxq"]
+[ext_resource type="AudioStream" uid="uid://vsqlo3r3wqn" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/radio_death.mp3" id="25_8x1a7"]
+[ext_resource type="AudioStream" uid="uid://c8dshdf0kh8ys" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/chant1.wav" id="26_qtxb5"]
+[ext_resource type="AudioStream" uid="uid://cks3tw3jprf8i" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/run_30fps20pat.mp3" id="28_8x1a7"]
+[ext_resource type="AudioStream" uid="uid://c05otg8coy65f" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/i_see_you_voice.mp3" id="29_wt0vr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_870fx"]
 shader = ExtResource("1_tqj85")
@@ -713,6 +723,183 @@ tracks/25/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
+tracks/26/type = "method"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("AudioFondo")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 39.966667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/27/type = "method"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("AudioTeclado")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 4.866667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/28/type = "method"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("AudioFalla")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(5, 39.966667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/29/type = "method"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("AudioInmortalSpawn")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(11.966666, 14.266666),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/30/type = "method"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("AudioInmortalPoder")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(15.966666, 20.233334),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/31/type = "method"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("AudioInmortalScremear")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(19.5, 34.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/32/type = "method"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("AudioAlarma")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(20.9, 40),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("AudioAlarma:parameters/looping")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(20.966667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/34/type = "method"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("AudioPasos")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(35.566666, 40),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("AudioInmortalPoder:parameters/looping")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(16),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/36/type = "method"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("AudioInmortalHabla")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(30.9, 40),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gjnm7"]
 length = 0.001
@@ -979,6 +1166,30 @@ tracks/21/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("AudioAlarma:parameters/looping")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("AudioInmortalPoder:parameters/looping")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a1efr"]
@@ -12937,3 +13148,41 @@ color = Color(0.05490196, 0.05882353, 0, 1)
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioTeclado" type="AudioStreamPlayer2D" parent="." unique_id=1046494073]
+stream = ExtResource("20_6usf8")
+volume_db = -1.0
+
+[node name="AudioFalla" type="AudioStreamPlayer2D" parent="." unique_id=238411941]
+stream = ExtResource("21_g7pll")
+volume_db = -10.0
+
+[node name="AudioAlarma" type="AudioStreamPlayer2D" parent="." unique_id=1611156150]
+stream = ExtResource("22_w8sxq")
+parameters/looping = true
+
+[node name="AudioInmortalScremear" type="AudioStreamPlayer2D" parent="." unique_id=2147419999]
+stream = ExtResource("22_qtxb5")
+volume_db = 4.0
+
+[node name="AudioInmortalSpawn" type="AudioStreamPlayer2D" parent="." unique_id=986764726]
+stream = ExtResource("23_w8sxq")
+
+[node name="AudioFondo" type="AudioStreamPlayer2D" parent="." unique_id=1515725182]
+stream = ExtResource("20_ebxep")
+volume_db = -2.0
+
+[node name="AudioInmortalPoder" type="AudioStreamPlayer2D" parent="." unique_id=878491452]
+stream = ExtResource("25_8x1a7")
+parameters/looping = true
+
+[node name="VocesInentendibles" type="AudioStreamPlayer2D" parent="." unique_id=1115277089]
+stream = ExtResource("26_qtxb5")
+volume_db = 6.0
+
+[node name="AudioPasos" type="AudioStreamPlayer2D" parent="." unique_id=626717018]
+stream = ExtResource("28_8x1a7")
+
+[node name="AudioInmortalHabla" type="AudioStreamPlayer2D" parent="." unique_id=1786234811]
+stream = ExtResource("29_wt0vr")
+volume_db = 8.0
