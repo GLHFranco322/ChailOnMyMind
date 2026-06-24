@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://cc4yj46c4xucw" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impact 12.wav" id="23_88fm6"]
 [ext_resource type="AudioStream" uid="uid://db6scbhujbunv" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/Otros/Impacts/apple_bite.ogg" id="24_dedpo"]
 [ext_resource type="AudioStream" uid="uid://oifqijgvvd8k" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/walkie static.wav" id="25_88fm6"]
+[ext_resource type="PackedScene" uid="uid://gfhixhv84v0x" path="res://Scenes/Cinematicas/Inmortal/subtitulos_cinematicas.tscn" id="26_dedpo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ehbmx"]
 texture = ExtResource("8_ymm25")
@@ -8420,6 +8421,37 @@ tracks/18/keys = {
 "method": &"play"
 }]
 }
+tracks/19/type = "method"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("AudioWalkie")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/20/type = "method"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("SubtitulosCinematicas")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"guardia_01"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ehbmx"]
 length = 0.001
@@ -8940,3 +8972,6 @@ stream = ExtResource("24_dedpo")
 [node name="AudioWalkie" type="AudioStreamPlayer2D" parent="." unique_id=256252703]
 stream = ExtResource("25_88fm6")
 volume_db = 2.0
+
+[node name="SubtitulosCinematicas" parent="." unique_id=1736316228 instance=ExtResource("26_dedpo")]
+visible = false

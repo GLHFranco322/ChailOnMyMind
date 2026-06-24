@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://mg3pm3byyr6f"
+path="res://.godot/imported/dialogo_central.dialogue-2d0b702aab35c14dfb3f22ba28bc11fd.tres"
+
+[deps]
+
+source_file="res://Scenes/Cinematicas/Inmortal/dialogo_central.dialogue"
+dest_files=["res://.godot/imported/dialogo_central.dialogue-2d0b702aab35c14dfb3f22ba28bc11fd.tres"]
+
+[params]
+
+defaults=true

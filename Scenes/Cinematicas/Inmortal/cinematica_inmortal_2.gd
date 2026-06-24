@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var light = $Sprite2D/LuzRoja
-@onready var dialogue = load("res://Dialogue/dialogo_central.dialogue")
 
 @export var rotation_speed := 5.0
 @export var base_energy := 2.0
@@ -10,11 +9,8 @@ extends Node2D
 
 func _ready():
 	light.color = Color.RED
+	
 
 func _process(delta):
-	# Giro de la sirena
 	light.rotation += rotation_speed * delta
-
-	# Parpadeo de intensidad
 	light.energy = base_energy + sin(Time.get_ticks_msec() * 0.01) * pulse_strength
-	
