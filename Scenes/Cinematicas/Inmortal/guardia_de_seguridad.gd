@@ -1,14 +1,19 @@
 extends AnimatedSprite2D
 
 func play_idle():
-	play("IdleGuardia")
+	play("IdleGuardia1")
 	
 func play_Correr():
-	play("RunGuardia")
+	play("RunGuardia1")
 	
 func play_Pistola():
-	play("ArmaGuardia")
+	play("ArmaGuardia1")
 	
 func play_Disparo():
-	play ("ShotGuardia")
+	play ("ShotGuardia1")
 	
+func play_Correr2():
+	play("RunGuardia1")
+	
+func play_escapar():
+	play("EscaparGuardia1")
