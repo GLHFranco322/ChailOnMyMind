@@ -21,7 +21,7 @@ func _on_play_pressed():
 	await get_tree().create_timer(0.1).timeout
 
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/Cinematicas/Intro/cinematica_intro.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Cinematicas/Seguridad/cinematica_seguridad.tscn")
 
 func _on_options_pressed():
 	SoundManager.play_click()

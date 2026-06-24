@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://diat4shvn18el"]
+
+[ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="1_hfgam"]
+[ext_resource type="Script" uid="uid://cmelk60ucopei" path="res://Scenes/Cinematicas/almismotiempo.gd" id="1_y11jh"]
+
+[sub_resource type="Animation" id="Animation_y11jh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dxvs6"]
+resource_name = "titulo_transicion"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.02, 2.99, 4.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4obg7"]
+_data = {
+&"RESET": SubResource("Animation_y11jh"),
+&"titulo_transicion": SubResource("Animation_dxvs6")
+}
+
+[node name="TituloIntermedio" type="CanvasLayer" unique_id=1707699119]
+script = ExtResource("1_y11jh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=541626991]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=926847335]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -17.5
+offset_right = 88.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_hfgam")
+text = "MIENTRAS TANTO...
+EN OTRO SECTOR DE LA PRISIÓN"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=349798422]
+libraries/ = SubResource("AnimationLibrary_4obg7")
+autoplay = &"titulo_transicion"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://cks3tw3jprf8i" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/run_30fps20pat.mp3" id="28_8x1a7"]
 [ext_resource type="AudioStream" uid="uid://c05otg8coy65f" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/i_see_you_voice.mp3" id="29_wt0vr"]
 [ext_resource type="AudioStream" uid="uid://oifqijgvvd8k" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/walkie static.wav" id="30_sooww"]
+[ext_resource type="PackedScene" uid="uid://gfhixhv84v0x" path="res://Scenes/Cinematicas/Inmortal/subtitulos_cinematicas.tscn" id="31_68yfq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_870fx"]
 shader = ExtResource("1_tqj85")
@@ -899,6 +900,100 @@ tracks/36/keys = {
 }, {
 "args": [],
 "method": &"stop"
+}]
+}
+tracks/37/type = "method"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("SubtitulosCinematicas")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0.26666668, 3.3333333, 5, 7.0333333, 7.766667, 9.866667, 12.033334, 13.9, 15.333333, 17.266666, 18.9, 20.566668, 24.933332, 26.933332, 34.033333, 36.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"guardia_13"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_15"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_16"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_18"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_21"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_23"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_25"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_27"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}]
+}
+tracks/38/type = "method"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("AudioWalkie")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0, 4.9666667, 7.766667, 12, 15.3, 18.9, 24.933332, 34),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -13191,3 +13286,7 @@ volume_db = 8.0
 [node name="AudioWalkie" type="AudioStreamPlayer2D" parent="." unique_id=839516924]
 stream = ExtResource("30_sooww")
 volume_db = 2.0
+
+[node name="SubtitulosCinematicas" parent="." unique_id=1736316228 instance=ExtResource("31_68yfq")]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

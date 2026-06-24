@@ -15,3 +15,8 @@ func _process(delta):
 
 	# Parpadeo de intensidad
 	light.energy = base_energy + sin(Time.get_ticks_msec() * 0.01) * pulse_strength
+
+
+func _on_animation_player_animation_finished(anim_name: StringName):
+	if anim_name == "CinematicaSeguridad":
+		get_tree().change_scene_to_file("res://Scenes/Cinematicas/Inmortal/cinematica_inmortal2.tscn")

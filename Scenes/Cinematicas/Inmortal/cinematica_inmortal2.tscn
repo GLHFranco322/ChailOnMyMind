@@ -8428,9 +8428,24 @@ tracks/19/path = NodePath("AudioWalkie")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 4.5, 6.9666667, 11.733334, 17.166666, 20.066668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
 "args": [0.0],
 "method": &"play"
 }]
@@ -8442,11 +8457,41 @@ tracks/20/path = NodePath("SubtitulosCinematicas")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
-"times": PackedFloat32Array(0, 3.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1, 2.7666667, 4.5, 6.1, 7, 8.233334, 11.733334, 13.533334, 17.2, 19.1, 20.033333, 20.566668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"guardia_01"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_03"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_05"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_10"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_11"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"guardia_12"
 }, {
 "args": [],
 "method": &"ocultar_dialogo"
@@ -8975,3 +9020,5 @@ volume_db = 2.0
 
 [node name="SubtitulosCinematicas" parent="." unique_id=1736316228 instance=ExtResource("26_dedpo")]
 visible = false
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
