@@ -1,7 +1,7 @@
 extends CharacterBody2D
-@export var speed : float
-@export var dano : float
-@export var vida : int
+@export var speed : float = 60
+@export var dano : float = 20
+@export var vida : int = 30
 @export var usar_navegacion: bool = true
 
 var player

@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cu371x5btxt02" path="res://Scenes/item_pistola.tscn" id="24_i6jur"]
 [ext_resource type="PackedScene" uid="uid://h02hxxtuwr23" path="res://Scenes/botiquin.tscn" id="25_52sbi"]
 [ext_resource type="Script" uid="uid://rhccw5uc7n3" path="res://Scenes/trigger_devil.gd" id="26_2be8x"]
+[ext_resource type="AudioStream" uid="uid://cu1n55c32oo6c" path="res://Assets/Sonidos/GAMEPLAY/atlasaudio-horror-ambience-512255.mp3" id="27_iei18"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
 bg_color = Color(0.7882353, 0.07058824, 0.2901961, 0.5137255)
@@ -20525,7 +20526,6 @@ inmortal_path = NodePath("../Inmortal")
 
 [node name="Inmortal" parent="." unique_id=511109610 instance=ExtResource("15_aq5e2")]
 position = Vector2(-350, -1645)
-detection_distance = 400.0
 
 [node name="Pausa" type="CanvasLayer" parent="." unique_id=7428]
 process_mode = 3
@@ -20541,10 +20541,9 @@ tile_set = SubResource("TileSet_x1lk2")
 position = Vector2(-66, -1519)
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_3hss1")]
-position = Vector2(261, -981)
+position = Vector2(272, -950.0001)
 scale = Vector2(0.7, 0.7)
 collision_mask = 1
-dano_ataque = 15.0
 metadata/_edit_group_ = true
 
 [node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=1414688960]
@@ -20553,12 +20552,10 @@ zoom = Vector2(0.8, 0.8)
 [node name="Zombie2" parent="." unique_id=304745947 instance=ExtResource("9_0hofl")]
 position = Vector2(404, -2171)
 scale = Vector2(0.7, 0.7)
-vida = 30
 
 [node name="Zombie3" parent="." unique_id=206250252 instance=ExtResource("9_0hofl")]
 position = Vector2(415, -1526)
 scale = Vector2(0.7, 0.7)
-vida = 30
 usar_navegacion = false
 
 [node name="Obscure" parent="." unique_id=1682887945 instance=ExtResource("14_0r1u1")]
@@ -20730,3 +20727,9 @@ position = Vector2(352, -264)
 
 [node name="Marker2D20" type="Marker2D" parent="DevilSpawner" unique_id=872940849]
 position = Vector2(445, -292)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=12214511]
+stream = ExtResource("27_iei18")
+volume_db = -11.143
+autoplay = true
+parameters/looping = true

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://rtuq0km4ar15"]
 
-[ext_resource type="Texture2D" uid="uid://c0kxqimp6s72g" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Basic Undead Animations/Vampire Bat/VampireBat.png" id="1_bcbr7"]
+[ext_resource type="Texture2D" uid="uid://eenatxiq0ilv" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Inmortal/Correcciones/Sprite Inmortal - AtackSide.png" id="1_vfxyc"]
+[ext_resource type="Texture2D" uid="uid://cglcnmptfiljt" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Inmortal/Correcciones/Sprite Inmortal - Idle.png" id="1_wwn60"]
+[ext_resource type="Texture2D" uid="uid://c8y8cife8w6d4" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Inmortal/Correcciones/Sprite Inmortal - AtackUp.png" id="2_5j2bl"]
+[ext_resource type="Texture2D" uid="uid://dtdb73aaa2gds" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Inmortal/Correcciones/Sprite Inmortal - AtackFrontal.png" id="2_fhtq1"]
 
 [sub_resource type="GDScript" id="GDScript_n7tue"]
 script/source = "extends CharacterBody2D
@@ -8,191 +11,249 @@ script/source = "extends CharacterBody2D
 @export var speed: float = 60.0
 @export var chase_speed: float = 120.0
 @export var dano: float = 10.0
-@export var detection_distance: float
 @export var attack_range: float = 50.0
 
 var vida = 1000
-var state = \"idle\"
+var state = \"chase\"  # ← arranca siempre persiguiendo
 var direction = Vector2.ZERO
 var change_dir_time = 0.0
 var can_attack = true
 var preparing_attack = false
+var player = null
 
 @onready var anim = $AnimatedSprite2D
-@onready var player = get_tree().get_first_node_in_group(\"player\")
 @onready var agent = $NavigationAgent2D
 @onready var attack_area = $Area2D
 
 func _ready():
+	player = get_tree().get_first_node_in_group(\"player\")
 	randomize()
 	anim.play(\"default\")
-	set_random_direction()
-	
 	if attack_area:
 		attack_area.monitoring = false
+	if player == null:
+		print(\"ERROR: jugador no encontrado\")
+	else:
+		print(\"Jugador encontrado: \", player.name)
 
-func _physics_process(delta):
-	
+func _physics_process(_delta):
 	if player == null:
 		return
 	
-	if preparing_attack:
-		move_and_slide()
-		return
-	
 	match state:
-		\"idle\":
-			idle_behavior(delta)
-	
 		\"chase\":
 			chase_behavior()
 	
 	move_and_slide()
 	
-	try_attack()
-
-# =========================
-# PATRULLA
-# =========================
-
-func idle_behavior(delta):
-	
-	change_dir_time -= delta
-	
-	if change_dir_time <= 0:
-		set_random_direction()
-	
-	velocity = direction * speed
-	
-	if can_detect_player():
-		state = \"chase\"
-
-func set_random_direction():
-	
-	direction = Vector2(
-		randf_range(-1.0, 1.0),
-		randf_range(-1.0, 1.0)
-	).normalized()
-	
-	change_dir_time = randf_range(1.0, 3.0)
+	if not preparing_attack:
+		try_attack()
 
 # =========================
 # PERSECUCIÓN
 # =========================
-
 func chase_behavior():
-
-	if !can_detect_player():
-		state = \"idle\"
+	if preparing_attack:
 		return
-
-	var distance = global_position.distance_to(player.global_position)
-
-	# Si ya está en rango de ataque se detiene
-	if distance <= attack_range:
-		velocity = Vector2.ZERO
-		return
-
 	agent.target_position = player.global_position
-
 	var next_position = agent.get_next_path_position()
-
 	velocity = global_position.direction_to(next_position) * chase_speed
-
-# =========================
-# DETECCIÓN
-# =========================
-
-func can_detect_player() -> bool:
-	
-	if player == null:
-		return false
-	
-	return global_position.distance_to(player.global_position) <= detection_distance
 
 # =========================
 # ATAQUE
 # =========================
-
 func try_attack():
-	
-	if !can_attack or preparing_attack:
+	if !can_attack:
 		return
-	
 	var distance = global_position.distance_to(player.global_position)
-	
 	if distance <= attack_range:
 		attack()
 
+func get_attack_direction() -> String:
+	var dir = player.global_position - global_position
+	if abs(dir.x) > abs(dir.y):
+		return \"right\" if dir.x > 0 else \"left\"
+	else:
+		return \"down\" if dir.y > 0 else \"up\"
+
+func play_attack_animation(attack_dir: String) -> void:
+	match attack_dir:
+		\"right\":
+			anim.flip_h = false
+			anim.play(\"attack\")
+		\"left\":
+			anim.flip_h = true
+			anim.play(\"attack\")
+		\"up\":
+			anim.flip_h = false
+			anim.play(\"attackUp\")
+		\"down\":
+			anim.flip_h = false
+			anim.play(\"attackDown\")
+
 func attack():
-	
-	if !can_attack:
-		return
-	
 	can_attack = false
 	preparing_attack = true
-	
-	# Se detiene para cargar el golpe
 	velocity = Vector2.ZERO
 	
-	# Se pone rojo
+	var attack_dir = get_attack_direction()
+	play_attack_animation(attack_dir)
+	
+	# Frames 0, 1, 2: carga (rojo)
 	anim.modulate = Color.RED
+	await get_tree().create_timer(3.0 / 4.0).timeout
 	
-	# Tiempo para que el jugador reaccione
-	await get_tree().create_timer(0.5).timeout
-	
-	# ¿El jugador sigue cerca?
-	if player != null:
-	
-		var distance = global_position.distance_to(player.global_position)
-	
-		if distance <= attack_range:
-	
-			# Muerte instantánea
-			if player.has_method(\"recibir_dano\"):
-				player.recibir_dano(dano)
-	
-	# Vuelve al color normal
+	# Frame 3: daño
 	anim.modulate = Color.WHITE
+	if player != null:
+		var distance = global_position.distance_to(player.global_position)
+		if distance <= attack_range:
+			if player.has_method(\"recibir_dano\"):
+				player.recibir_dano(dano, global_position)
 	
+	# Frame 4: esperar fin de animación con timer en vez de señal
+	await get_tree().create_timer(1.0 / 4.0).timeout
+	
+	anim.play(\"default\")
 	preparing_attack = false
 	
 	# Cooldown
 	await get_tree().create_timer(1.0).timeout
-	
 	can_attack = true
 "
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p3fa4"]
-atlas = ExtResource("1_bcbr7")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lw4l"]
+atlas = ExtResource("1_vfxyc")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ok2qp"]
-atlas = ExtResource("1_bcbr7")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_64iaw"]
+atlas = ExtResource("1_vfxyc")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_121tc"]
-atlas = ExtResource("1_bcbr7")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0st4o"]
+atlas = ExtResource("1_vfxyc")
+region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0ws5"]
-atlas = ExtResource("1_bcbr7")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxj7l"]
+atlas = ExtResource("1_vfxyc")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ak23"]
+atlas = ExtResource("2_fhtq1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elwj5"]
+atlas = ExtResource("2_fhtq1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm4l1"]
+atlas = ExtResource("2_fhtq1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrigs"]
+atlas = ExtResource("2_fhtq1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l34am"]
+atlas = ExtResource("2_5j2bl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sa7e"]
+atlas = ExtResource("2_5j2bl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hcuu"]
+atlas = ExtResource("2_5j2bl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11sf6"]
+atlas = ExtResource("2_5j2bl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hw2w"]
+atlas = ExtResource("1_wwn60")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfxyc"]
+atlas = ExtResource("1_wwn60")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j2bl"]
+atlas = ExtResource("1_wwn60")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhtq1"]
+atlas = ExtResource("1_wwn60")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ke60v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p3fa4")
+"texture": SubResource("AtlasTexture_0lw4l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ok2qp")
+"texture": SubResource("AtlasTexture_64iaw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_121tc")
+"texture": SubResource("AtlasTexture_64iaw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s0ws5")
+"texture": SubResource("AtlasTexture_0st4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxj7l")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ak23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elwj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm4l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrigs")
+}],
+"loop": false,
+"name": &"attackDown",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l34am")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sa7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hcuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11sf6")
+}],
+"loop": false,
+"name": &"attackUp",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hw2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfxyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j2bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhtq1")
 }],
 "loop": true,
 "name": &"default",
@@ -200,7 +261,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hagk"]
-size = Vector2(46, 29)
+size = Vector2(46, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bcbr7"]
 size = Vector2(46, 29)
@@ -213,9 +274,10 @@ dano = 10000.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=606554116]
 scale = Vector2(3.25, 3.25)
 sprite_frames = SubResource("SpriteFrames_ke60v")
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=584165859]
-position = Vector2(0, 1.5)
+position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_2hagk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=475936457]

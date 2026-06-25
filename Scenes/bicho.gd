@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed: float
-@export var dano: float
+@export var speed: float = 100
+@export var dano: float = 60
 @export var vida: int
 @export var usar_navegacion: bool = false  # ← default a false para bichos
 
@@ -31,7 +31,7 @@ func obtener_rango_ataque() -> float:
 		else:
 			return 38.0
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if muerto:
 		return
 	if en_knockback:
@@ -44,20 +44,16 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 	
-	if player_en_rango:
-		var distancia = global_position.distance_to(player.global_position)
-		if distancia > obtener_rango_ataque():
-			var direction = (player.global_position - global_position).normalized()
-			velocity = direction * speed
-			timer.stop()
-		else:
-			velocity = Vector2.ZERO
-			if timer.is_stopped() and puede_atacar:
-				timer.start()
+	var distancia = global_position.distance_to(player.global_position)
+	
+	if distancia <= obtener_rango_ataque():
+		velocity = Vector2.ZERO
+		if timer.is_stopped() and puede_atacar:
+			timer.start()
 	else:
-		# Persigue siempre al jugador en línea recta, sin pathfinding
+		# Persigue siempre en línea recta
 		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * (speed * 0.5)
+		velocity = direction * speed
 		timer.stop()
 	
 	move_and_slide()
@@ -65,37 +61,37 @@ func _physics_process(delta):
 func atack():
 	if atacando or not puede_atacar:
 		return
-	if player_en_rango:
-		var distancia = global_position.distance_to(player.global_position)
-		if distancia > obtener_rango_ataque():
-			return
-		atacando = true
-		velocity = Vector2.ZERO
-		var direction = player.global_position - global_position
-		if abs(direction.x) > abs(direction.y):
-			anim.flip_h = direction.x < 0
-			anim.play("Attack")
-			if direction.x > 0:
-				hitbox_ataque.position = Vector2(27.0, 0)
-				hitbox_ataque.rotation = 0
-			else:
-				hitbox_ataque.position = Vector2(-27.0, 0)
-				hitbox_ataque.rotation = 0
+	
+	var distancia = global_position.distance_to(player.global_position)
+	if distancia > obtener_rango_ataque():
+		return
+	
+	atacando = true
+	velocity = Vector2.ZERO
+	
+	var direction = player.global_position - global_position
+	if abs(direction.x) > abs(direction.y):
+		anim.flip_h = direction.x < 0  # ← flip según dirección real
+		anim.play("Attack")
+		hitbox_ataque.position = Vector2(27.0 * sign(direction.x), 0)
+		hitbox_ataque.rotation = 0
+	else:
+		anim.flip_h = false
+		if direction.y < 0:
+			anim.play("AttackUp")
+			hitbox_ataque.position = Vector2(0, -37.0)
+			hitbox_ataque.rotation = deg_to_rad(90)
 		else:
-			if direction.y < 0:
-				anim.play("AttackUp")
-				hitbox_ataque.position = Vector2(0, -37.0)
-				hitbox_ataque.rotation = deg_to_rad(90)
-			else:
-				anim.play("AttackDown")
-				hitbox_ataque.position = Vector2(0, 38.0)
-				hitbox_ataque.rotation = deg_to_rad(90)
-		await get_tree().create_timer(0.2).timeout
-		hitbox_ataque.monitoring = true
-		await get_tree().create_timer(0.1).timeout
-		hitbox_ataque.monitoring = false
-		await anim.animation_finished
-		atacando = false
+			anim.play("AttackDown")
+			hitbox_ataque.position = Vector2(0, 38.0)
+			hitbox_ataque.rotation = deg_to_rad(90)
+	
+	await get_tree().create_timer(0.2).timeout
+	hitbox_ataque.monitoring = true
+	await get_tree().create_timer(0.1).timeout
+	hitbox_ataque.monitoring = false
+	await anim.animation_finished
+	atacando = false
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
@@ -110,7 +106,9 @@ func _on_timer_timeout():
 	atack()
 
 func recibir_dano(cantidad, origen: Vector2 = Vector2.ZERO):
+	print("BICHO recibe daño: ", cantidad, " | vida: ", vida)
 	if muerto:
+		print("ya muerto, ignorado")
 		return
 	vida -= cantidad
 	anim.modulate = Color(1, 0, 0)

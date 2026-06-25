@@ -138,7 +138,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l0pm1")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attack",
 "speed": 8.0
 }, {
@@ -164,7 +164,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kq5e1")
 }],
-"loop": true,
+"loop": false,
 "name": &"AttackDown",
 "speed": 8.0
 }, {
@@ -190,7 +190,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y7xvc")
 }],
-"loop": true,
+"loop": false,
 "name": &"AttackUp",
 "speed": 8.0
 }, {
@@ -230,16 +230,15 @@ radius = 5.0
 height = 60.0
 
 [node name="Bicho" type="CharacterBody2D" unique_id=649095194]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_ea2uj")
-speed = 80.0
-dano = 40.0
 vida = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1912851746]
 scale = Vector2(2.9230769, 3.2222223)
 sprite_frames = SubResource("SpriteFrames_2krni")
-animation = &"Attack"
-frame_progress = 0.87152404
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984521081]
 shape = SubResource("RectangleShape2D_w37pj")
@@ -266,4 +265,5 @@ shape = SubResource("CapsuleShape2D_ei802")
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
 [connection signal="body_entered" from="HitboxAtaque" to="." method="_on_hitbox_ataque_body_entered"]

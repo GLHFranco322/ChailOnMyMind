@@ -1,10 +1,10 @@
 extends CharacterBody2D
  
-@export var speed: int = 200
+@export var speed: int
 @export var vida_max: int = 100
 @export var stamina_max: float = 50.0
 @export var invulnerable_time: float = 0.5
-@export var dano_ataque: float
+@export var dano_ataque: float = 20
 
 @onready var bar = $ProgressBar
 @onready var anim = $AnimatedSprite2D

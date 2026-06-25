@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cyfs7f241l8se"]
+
+[ext_resource type="Script" uid="uid://v8u3takmxy2h" path="res://music_manager.gd" id="1_hsxb6"]
+[ext_resource type="AudioStream" uid="uid://cu1n55c32oo6c" path="res://Assets/Sonidos/GAMEPLAY/atlasaudio-horror-ambience-512255.mp3" id="2_sdmu8"]
+
+[node name="MusicManager" type="Node" unique_id=696004520]
+script = ExtResource("1_hsxb6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=745514249]
+stream = ExtResource("2_sdmu8")
