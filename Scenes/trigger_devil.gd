@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var bicho_scene: PackedScene = preload("res://Scenes/bicho.tscn")
-@export var spawner_path: NodePath  # arrastrá el nodo DevilSpawner acá desde el editor
+@export var spawner_path: NodePath
 
 var ya_activado: bool = false
 
@@ -22,5 +22,7 @@ func spawnear_bichos() -> void:
 			await get_tree().create_timer(0.05).timeout
 			var bicho = bicho_scene.instantiate()
 			bicho.global_position = marker.global_position
+			bicho.scale = Vector2(0.7, 0.7)
+			bicho.usar_navegacion = false
 			get_tree().current_scene.add_child(bicho)
 	print("Bichos spawneados en sus markers")

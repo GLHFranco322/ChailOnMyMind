@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+ 
 @export var speed: int = 200
 @export var vida_max: int = 100
 @export var stamina_max: float = 50.0
@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var bar = $ProgressBar
 @onready var anim = $AnimatedSprite2D
 @onready var hitbox = $Hitbox
+@onready var sonido_ataque = $SonidoAtaque
 
 var bullet = preload("res://Scenes/bullet.tscn")  # ← bala
 var tiene_gun: bool = false                        # ← antes true, ahora false
@@ -131,6 +132,8 @@ func start_attack():
 	is_attacking = true
 	already_hit = false
 	velocity = Vector2.ZERO
+	
+	sonido_ataque.play()
 	
 	update_hitbox_direction()
 	enable_hitbox() # ESTO FALTABA

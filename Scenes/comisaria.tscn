@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://cu371x5btxt02" path="res://Scenes/item_pistola.tscn" id="24_i6jur"]
 [ext_resource type="PackedScene" uid="uid://h02hxxtuwr23" path="res://Scenes/botiquin.tscn" id="25_52sbi"]
 [ext_resource type="Script" uid="uid://rhccw5uc7n3" path="res://Scenes/trigger_devil.gd" id="26_2be8x"]
-[ext_resource type="Script" uid="uid://dsilctpceskg1" path="res://Scenes/devil_spawner.gd" id="27_iei18"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
 bg_color = Color(0.7882353, 0.07058824, 0.2901961, 0.5137255)
@@ -20563,7 +20562,6 @@ vida = 30
 usar_navegacion = false
 
 [node name="Obscure" parent="." unique_id=1682887945 instance=ExtResource("14_0r1u1")]
-visible = false
 
 [node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("20_brn72")]
 position = Vector2(-86, -98)
@@ -20663,15 +20661,15 @@ position = Vector2(95, -1694)
 [node name="Botiquin" parent="." unique_id=208800678 instance=ExtResource("25_52sbi")]
 position = Vector2(-227, -1399)
 
-[node name="TriggerDevil" type="Area2D" parent="." unique_id=654845009]
+[node name="TriggerDevil" type="Area2D" parent="." unique_id=133843393]
 position = Vector2(336, -966)
 script = ExtResource("26_2be8x")
+spawner_path = NodePath("../DevilSpawner")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerDevil" unique_id=1753684975]
 shape = SubResource("RectangleShape2D_52sbi")
 
 [node name="DevilSpawner" type="Node2D" parent="." unique_id=762916703]
-script = ExtResource("27_iei18")
 
 [node name="Marker2D" type="Marker2D" parent="DevilSpawner" unique_id=1292322787]
 position = Vector2(430, -330)

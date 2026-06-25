@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 @export var bicho_scene: PackedScene = preload("res://Scenes/bicho.tscn")
 @export var spawner_path: NodePath  # arrastrá el nodo DevilSpawner acá desde el editor

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cu371x5btxt02"]
 
-[ext_resource type="Script" uid="uid://be8nyvbbudmgv" path="res://Scenes/item_pistola.gd" id="1_yvfso"]
+[ext_resource type="Script" path="res://Scenes/item_pistola.gd" id="1_yvfso"]
 [ext_resource type="Texture2D" uid="uid://gq0rifxqdpmd" path="res://Assets/TheUltimateWeaponsPack/TheUltimateWeaponsPack_Sheet.png" id="2_vqwhk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp60x"]
