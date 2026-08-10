@@ -31,6 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://c05otg8coy65f" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/i_see_you_voice.mp3" id="29_wt0vr"]
 [ext_resource type="AudioStream" uid="uid://oifqijgvvd8k" path="res://Scenes/Cinematicas/Inmortal/AudioCinematicasInmortal/walkie static.wav" id="30_sooww"]
 [ext_resource type="PackedScene" uid="uid://gfhixhv84v0x" path="res://Scenes/Cinematicas/Inmortal/subtitulos_cinematicas.tscn" id="31_68yfq"]
+[ext_resource type="FontFile" uid="uid://d1pyf23c33jhy" path="res://Fuentes de Texto/Inky Thin Pixels.woff" id="32_vcd3v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_870fx"]
 shader = ExtResource("1_tqj85")
@@ -13289,4 +13290,24 @@ volume_db = 2.0
 
 [node name="SubtitulosCinematicas" parent="." unique_id=1736316228 instance=ExtResource("31_68yfq")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1583617584]
+
+[node name="OmitirButton" type="Button" parent="CanvasLayer" unique_id=1564599719]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -28.0
+offset_right = -5.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("32_vcd3v")
+theme_override_font_sizes/font_size = 8
+text = "OMITIR"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/OmitirButton" to="." method="_on_omitir_button_pressed"]
