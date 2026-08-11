@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c0fixalfmubru" path="res://Scenes/Cinematicas/Celda 601/cinematica_celda_601.gd" id="1_b1fa3"]
 [ext_resource type="Texture2D" uid="uid://dp1hrgnaf5s3l" path="res://Assets/Mapa/carcel 2 sin fondo.png" id="2_12r8x"]
-[ext_resource type="Resource" uid="uid://vqc7qntmviuc" path="res://Scenes/Cinematicas/Celda 601/dialogo_celda601.dialogue" id="2_scp65"]
 [ext_resource type="Texture2D" uid="uid://0vwmv3228u02" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/playerprisioner-Sheet-prueba.png" id="3_scp65"]
 [ext_resource type="Texture2D" uid="uid://cqnbugpix5aaf" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_left_down.png" id="4_e660q"]
 [ext_resource type="Texture2D" uid="uid://bn33l04biw6i4" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_left_up.png" id="5_dnx05"]
@@ -18,6 +17,8 @@
 [ext_resource type="Script" uid="uid://dpb7nkhkflru7" path="res://Scenes/Cinematicas/Celda 601/camera_plano_cara.gd" id="15_3l8bg"]
 [ext_resource type="AudioStream" uid="uid://d2ftnf3bfvtfw" path="res://Assets/Sonidos/CinematicasSounds/Celda 601/bang_01.ogg" id="16_dnx05"]
 [ext_resource type="AudioStream" uid="uid://mpgk04sfu0wf" path="res://Assets/Sonidos/CinematicasSounds/Celda 601/ethereal_chant_Subclip 15_15.wav" id="18_0oghy"]
+[ext_resource type="PackedScene" uid="uid://gfhixhv84v0x" path="res://Scenes/Cinematicas/Inmortal/subtitulos_cinematicas.tscn" id="19_dnx05"]
+[ext_resource type="Script" uid="uid://cmnqos6suuff2" path="res://Scenes/Cinematicas/Inmortal/subtitulos_cinematicas1.gd" id="20_ecev8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lcn5w"]
 texture = ExtResource("2_12r8x")
@@ -5089,7 +5090,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_k7ay2"]
 resource_name = "Acto 3"
-length = 8.0
+length = 9.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -5221,12 +5222,9 @@ tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(6.0333333, 6.5, 7.2, 7.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(6.5, 7.2, 7.8),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
-"args": [],
-"method": &"mostrar_dialogo"
-}, {
 "args": [],
 "method": &"play_extraño"
 }, {
@@ -5235,6 +5233,29 @@ tracks/9/keys = {
 }, {
 "args": [],
 "method": &"play_disparo"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SubtitulosCinematicas1")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2.4666667, 4.766667, 7.133333, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"Martin_01"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
+}, {
+"args": [],
+"method": &"Martin_02"
+}, {
+"args": [],
+"method": &"ocultar_dialogo"
 }]
 }
 
@@ -5321,7 +5342,6 @@ _data = {
 
 [node name="cinematicas celda601" type="Node2D" unique_id=570120719]
 script = ExtResource("1_b1fa3")
-dialogo = ExtResource("2_scp65")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=28043611]
 offset_right = 40.0
@@ -5381,6 +5401,9 @@ position = Vector2(191, 71)
 scale = Vector2(7929.348, 692.585)
 zoom = Vector2(10, 10)
 script = ExtResource("15_3l8bg")
+
+[node name="SubtitulosCinematicas1" parent="." unique_id=1736316228 instance=ExtResource("19_dnx05")]
+script = ExtResource("20_ecev8")
 
 [connection signal="frame_changed" from="PrisioneroCelda601" to="." method="_on_prisionero_celda_601_frame_changed"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]
