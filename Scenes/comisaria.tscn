@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://h02hxxtuwr23" path="res://Scenes/botiquin.tscn" id="25_52sbi"]
 [ext_resource type="Script" uid="uid://rhccw5uc7n3" path="res://Scenes/trigger_devil.gd" id="26_2be8x"]
 [ext_resource type="AudioStream" uid="uid://cu1n55c32oo6c" path="res://Assets/Sonidos/GAMEPLAY/atlasaudio-horror-ambience-512255.mp3" id="27_iei18"]
+[ext_resource type="AudioStream" uid="uid://chhh5tk58hpm6" path="res://Assets/Musica/Action1 - Encounter With The Witches.ogg" id="28_tk1gd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ytk"]
 bg_color = Color(0.7882353, 0.07058824, 0.2901961, 0.5137255)
@@ -20730,6 +20731,10 @@ position = Vector2(445, -292)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=12214511]
 stream = ExtResource("27_iei18")
-volume_db = -11.143
+volume_db = -11.0
 autoplay = true
 parameters/looping = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=98092114]
+stream = ExtResource("28_tk1gd")
+volume_db = -11.0

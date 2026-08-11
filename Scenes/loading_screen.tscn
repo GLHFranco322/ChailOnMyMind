@@ -4,6 +4,10 @@
 [ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="2_0t5xw"]
 [ext_resource type="Texture2D" uid="uid://dje7el3h87mqw" path="res://Image-Menús/Logo-Celda601.png" id="3_nfm0g"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfm0g"]
+bg_color = Color(0.6, 0, 0, 1)
+corner_detail = 1
+
 [node name="LoadingScreen" type="Control" unique_id=1604671388]
 layout_mode = 3
 anchors_preset = 15
@@ -56,6 +60,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_0t5xw")
 theme_override_font_sizes/font_size = 10
+theme_override_styles/fill = SubResource("StyleBoxFlat_nfm0g")
 
 [node name="Logo" type="TextureRect" parent="." unique_id=1471824587]
 modulate = Color(1, 1, 1, 0.50980395)

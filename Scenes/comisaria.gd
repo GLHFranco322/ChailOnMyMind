@@ -7,6 +7,11 @@ extends Node2D
 @onready var marker_principal = $MarkerPrincipal
 @export var zombie_scene: PackedScene = preload("res://Scenes/zombie.tscn")
 
+@onready var musica_normal = $AudioStreamPlayer
+@onready var musica_inmortal = $AudioStreamPlayer2
+
+var musica_cambiada := false
+
 func _ready() -> void:
 	# Empieza sin colisión
 	line_black_collision.disabled = true
@@ -24,8 +29,11 @@ func _process(delta: float) -> void:
 	
 	vida_bar.value = jugador.vidaJugador
 	
-
-
+	if botonFinal.usado and not musica_cambiada:
+		musica_cambiada = true 
+		
+		musica_normal.stop()
+		musica_inmortal.play()
 
 func activar_blackline():
 		# Activar la colisión una sola vez cuando se use el botón
