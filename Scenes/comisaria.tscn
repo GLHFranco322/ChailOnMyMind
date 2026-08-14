@@ -20542,7 +20542,7 @@ tile_set = SubResource("TileSet_x1lk2")
 position = Vector2(-66, -1519)
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_3hss1")]
-position = Vector2(436, -2524)
+position = Vector2(415, -2509)
 scale = Vector2(0.7, 0.7)
 collision_mask = 1
 metadata/_edit_group_ = true
@@ -20571,6 +20571,7 @@ position = Vector2(372, -2120)
 [node name="CanvasLayer" parent="." unique_id=1988996643 instance=ExtResource("21_sh1t7")]
 
 [node name="MarkerPrincipal" type="Marker2D" parent="." unique_id=382837887]
+visible = false
 
 [node name="Marker2D" type="Marker2D" parent="MarkerPrincipal" unique_id=1806203120]
 position = Vector2(114, -262)
@@ -20731,10 +20732,10 @@ position = Vector2(445, -292)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=12214511]
 stream = ExtResource("27_iei18")
-volume_db = -11.0
+volume_db = -80.0
 autoplay = true
 parameters/looping = true
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=98092114]
 stream = ExtResource("28_tk1gd")
-volume_db = -11.0
+volume_db = -80.0

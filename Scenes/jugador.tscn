@@ -696,6 +696,7 @@ scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_oua2g")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=576862911]
+visible = false
 modulate = Color(0, 0.7485815, 0.30814126, 1)
 self_modulate = Color(0.8080731, 0, 0.31681502, 1)
 top_level = true
