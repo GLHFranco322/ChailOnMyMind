@@ -7,6 +7,9 @@ extends Area2D
 @onready var puerta = get_node(puerta_path) 
 @onready var broken_wall = get_node(broken_wall_path) 
 @onready var inmortal = get_node(inmortal_path)    # ← nuevo
+@onready var sonido_boton = $AudioStreamPlayer
+@onready var sonido_risainmortal = $AudioStreamPlayer2
+
 
 var player_inside = false 
 var cinematic = false 
@@ -19,11 +22,15 @@ func _process(delta):
 	if player_inside and Input.is_action_just_pressed("Pickup"): 
 		activar_boton() 
  
- 
 func activar_boton(): 
 	if cinematic or usado: 
 		return 
- 
+		
+	$AreaInteraccion.visible = false
+	$AreaInteraccion.monitoring = false
+
+	sonido_boton.play()
+
 	usado = true 
 	cinematic = true 
  
@@ -63,6 +70,8 @@ func activar_boton():
 	await broken_wall.romper()
 
 	# Recién ahora mover al Inmortal
+	sonido_risainmortal.volume_db = 0.0
+	sonido_risainmortal.play()
 	var tween_inmortal = create_tween()
 	tween_inmortal.tween_property(
 		inmortal,
@@ -70,8 +79,14 @@ func activar_boton():
 		Vector2(-250.0, -1645.0),
 		1.2
 	)
+	tween_inmortal.parallel().tween_property(
+	sonido_risainmortal,"volume_db",-20.0,3.0)
+	
 	await tween_inmortal.finished
-
+	
+	sonido_risainmortal.stop()
+	sonido_risainmortal.volume_db = 0.0
+	
 	await get_tree().create_timer(0.5).timeout
  
 	# ================================================== 

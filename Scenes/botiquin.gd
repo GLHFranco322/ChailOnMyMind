@@ -3,6 +3,8 @@ extends Area2D
 @export var mensaje: String = "TE CURASTE +30 DE VIDA"
 @export var cantidad_curacion: int = 30
 
+@onready var sonido_botiquin = $AudioMedikit
+
 var jugador_cerca: CharacterBody2D = null
 #var ya_agarrado: bool = false
 
@@ -29,8 +31,16 @@ func agarrar_item() -> void:
 	mostrar_mensaje(mensaje)
 	$Sprite2D.visible = false
 	$CollisionShape2D.set_deferred("disabled", true)
+	$AreaInteraccion.monitoring = false
+	sonido_botiquin.play()
 	
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(2).timeout
+	
+		# Ocultar el mensaje
+	var ui = get_tree().get_first_node_in_group("ui_mensajes")
+	if ui:
+		ui.visible = false
+	
 	queue_free()
 
 func mostrar_mensaje(texto: String) -> void:

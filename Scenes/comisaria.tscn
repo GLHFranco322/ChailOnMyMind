@@ -6,11 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://csoxsk17lot56" path="res://Scenes/0.1/mapa.tscn" id="2_20pul"]
 [ext_resource type="Texture2D" uid="uid://cnqh7gjiphbn5" path="res://Assets/Mapa/comisaria 2.png" id="3_xydu2"]
 [ext_resource type="Texture2D" uid="uid://dp1hrgnaf5s3l" path="res://Assets/Mapa/carcel 2 sin fondo.png" id="6_20pul"]
+[ext_resource type="PackedScene" uid="uid://byj2omi62fqgq" path="res://Assets/mapa evento/electricidad.tscn" id="6_mo0cv"]
 [ext_resource type="PackedScene" uid="uid://bwop0poy72t5b" path="res://Scenes/broken_wall.tscn" id="7_aq5e2"]
+[ext_resource type="PackedScene" uid="uid://c2f3fdrjfb17t" path="res://Assets/mapa evento/escotilla_oscura.tscn" id="7_n4sgu"]
 [ext_resource type="Texture2D" uid="uid://ktsn3snrnvaf" path="res://Assets/Mapa/Carcel 3 sin fondo.png" id="7_tol53"]
 [ext_resource type="PackedScene" uid="uid://djl1hwbcppygn" path="res://Scenes/toxic_dog.tscn" id="8_b41rw"]
 [ext_resource type="PackedScene" uid="uid://bsykiava0wcn8" path="res://Scenes/zombie.tscn" id="9_0hofl"]
 [ext_resource type="PackedScene" uid="uid://dnxhgf3swqogy" path="res://Assets/Guardia/NPCGuardia.tscn" id="9_gyqgi"]
+[ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="11_aq3x4"]
 [ext_resource type="Script" uid="uid://clvrddxdv5y70" path="res://Scenes/label_mensaje.gd" id="11_u3bvy"]
 [ext_resource type="PackedScene" uid="uid://bpcibjj1lxe74" path="res://Scenes/obscure.tscn" id="14_0r1u1"]
 [ext_resource type="PackedScene" uid="uid://bd7v6rrsvgxll" path="res://Scenes/puerta_final.tscn" id="14_y5c7o"]
@@ -20456,6 +20459,13 @@ scale = Vector2(4.52, 3.6930196)
 position = Vector2(-298, -1648)
 scale = Vector2(0.35, 0.35)
 
+[node name="Electricidad" parent="." unique_id=108836490 instance=ExtResource("6_mo0cv")]
+position = Vector2(416, -1090.0004)
+scale = Vector2(0.7, 0.7)
+
+[node name="EscotillaOscura" parent="." unique_id=1602038304 instance=ExtResource("7_n4sgu")]
+position = Vector2(126, -375)
+
 [node name="PuertaFinal" parent="." unique_id=428866347 instance=ExtResource("14_y5c7o")]
 position = Vector2(-153, -2091)
 scale = Vector2(1.3, 1.1)
@@ -20515,6 +20525,10 @@ offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 8
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("11_aq3x4")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 script = ExtResource("11_u3bvy")
@@ -20542,7 +20556,7 @@ tile_set = SubResource("TileSet_x1lk2")
 position = Vector2(-66, -1519)
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_3hss1")]
-position = Vector2(-90.99997, -39.000244)
+position = Vector2(432.99997, -2535.9998)
 scale = Vector2(0.7, 0.7)
 collision_mask = 1
 metadata/_edit_group_ = true

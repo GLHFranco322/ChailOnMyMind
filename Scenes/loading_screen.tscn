@@ -2,7 +2,73 @@
 
 [ext_resource type="Script" uid="uid://dhs20877u62v5" path="res://Scenes/loading_screen.gd" id="1_oobaa"]
 [ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="2_0t5xw"]
+[ext_resource type="Texture2D" uid="uid://m15nav5imkde" path="res://Top-Down_Retro_Interior/TopDownHouse_FurnitureState1-Sheet-reloj.png" id="2_1godw"]
 [ext_resource type="Texture2D" uid="uid://dje7el3h87mqw" path="res://Image-Menús/Logo-Celda601.png" id="3_nfm0g"]
+[ext_resource type="AudioStream" uid="uid://ccgds82miwxoy" path="res://Assets/Musica/012_Sirens_in_Darkness.mp3" id="5_yisgd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jelyh"]
+atlas = ExtResource("2_1godw")
+region = Rect2(0, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jae06"]
+atlas = ExtResource("2_1godw")
+region = Rect2(208, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46h6q"]
+atlas = ExtResource("2_1godw")
+region = Rect2(416, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x03jn"]
+atlas = ExtResource("2_1godw")
+region = Rect2(624, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxk5x"]
+atlas = ExtResource("2_1godw")
+region = Rect2(832, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkk7l"]
+atlas = ExtResource("2_1godw")
+region = Rect2(1040, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxgkj"]
+atlas = ExtResource("2_1godw")
+region = Rect2(1248, 0, 208, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lrfh"]
+atlas = ExtResource("2_1godw")
+region = Rect2(1456, 0, 208, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gegoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jelyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jae06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46h6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x03jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxk5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkk7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxgkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lrfh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfm0g"]
 bg_color = Color(0.6, 0, 0, 1)
@@ -29,6 +95,12 @@ offset_top = -3.0
 offset_right = 327.0
 offset_bottom = 183.0
 color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=242894681]
+modulate = Color(1, 1, 1, 0.5411765)
+position = Vector2(295, 161)
+sprite_frames = SubResource("SpriteFrames_gegoj")
+animation = &"Idle"
 
 [node name="Label" type="Label" parent="Control" unique_id=1055925994]
 layout_mode = 1
@@ -70,3 +142,7 @@ offset_right = 190.0
 offset_bottom = 60.0
 texture = ExtResource("3_nfm0g")
 expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1848450111]
+stream = ExtResource("5_yisgd")
+volume_db = -30.0

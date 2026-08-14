@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c2f3fdrjfb17t"]
+
+[ext_resource type="Texture2D" uid="uid://y5orkrbphthw" path="res://Assets/mapa evento/escotillaoscura.png" id="1_1ev7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg01i"]
+size = Vector2(32, 32)
+
+[node name="EscotillaOscura" type="StaticBody2D" unique_id=1602038304]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1475456969]
+texture = ExtResource("1_1ev7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880324344]
+shape = SubResource("RectangleShape2D_bg01i")

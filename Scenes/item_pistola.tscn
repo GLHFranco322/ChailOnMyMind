@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://be8nyvbbudmgv" path="res://Scenes/item_pistola.gd" id="1_yvfso"]
 [ext_resource type="Texture2D" uid="uid://gq0rifxqdpmd" path="res://Assets/TheUltimateWeaponsPack/TheUltimateWeaponsPack_Sheet.png" id="2_vqwhk"]
 [ext_resource type="PackedScene" uid="uid://dq45tfisya3ov" path="res://Scrips/area_interaccion.tscn" id="3_tp60x"]
+[ext_resource type="AudioStream" uid="uid://j5dn7utv3evv" path="res://Assets/Musica/Nuevos Sonidos/items/equipar.wav" id="4_0ixwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp60x"]
 size = Vector2(37, 46)
@@ -24,7 +25,8 @@ visibility_layer = 7
 position = Vector2(1.5, 20)
 shape = SubResource("RectangleShape2D_tp60x")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1778537445]
+[node name="AudioEquipar" type="AudioStreamPlayer" parent="." unique_id=1942880589]
+stream = ExtResource("4_0ixwy")
 
 [node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("3_tp60x")]
 position = Vector2(0, 14.000002)

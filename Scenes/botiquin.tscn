@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://h02hxxtuwr23"]
 
 [ext_resource type="Script" uid="uid://b8wkvb30ychdu" path="res://Scenes/botiquin.gd" id="1_ieeqc"]
-[ext_resource type="Texture2D" uid="uid://dp1hrgnaf5s3l" path="res://Assets/Mapa/carcel 2 sin fondo.png" id="1_vyeob"]
+[ext_resource type="Texture2D" uid="uid://byhla3a77eh2" path="res://Assets/mapa evento/medikit.png" id="2_3x7xb"]
+[ext_resource type="AudioStream" uid="uid://c8asw3vjjfpa2" path="res://Assets/Musica/Nuevos Sonidos/items/vendarse.wav" id="3_x75c5"]
+[ext_resource type="PackedScene" uid="uid://dq45tfisya3ov" path="res://Scrips/area_interaccion.tscn" id="4_3x7xb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ieeqc"]
 size = Vector2(34, 96)
@@ -10,12 +12,18 @@ size = Vector2(34, 96)
 script = ExtResource("1_ieeqc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=246769832]
-position = Vector2(-7, 13)
-texture = ExtResource("1_vyeob")
-hframes = 22
-vframes = 13
-frame = 281
+position = Vector2(-1.4305115e-06, 0.5000011)
+scale = Vector2(1.2, 1.168)
+texture = ExtResource("2_3x7xb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=956946625]
 position = Vector2(0, 22)
 shape = SubResource("RectangleShape2D_ieeqc")
+
+[node name="AudioMedikit" type="AudioStreamPlayer" parent="." unique_id=822083439]
+stream = ExtResource("3_x75c5")
+volume_db = 3.0
+
+[node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("4_3x7xb")]
+position = Vector2(0, 24)
+scale = Vector2(2.0000005, 2.28)

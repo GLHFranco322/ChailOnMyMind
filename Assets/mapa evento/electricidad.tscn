@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://byj2omi62fqgq"]
+
+[ext_resource type="Texture2D" uid="uid://k4xmfmm4apgg" path="res://Assets/mapa evento/electricidad.png" id="1_ser6v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_thhe3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ulwq"]
+size = Vector2(26, 30)
+
+[node name="Electricidad" type="StaticBody2D" unique_id=108836490]
+scale = Vector2(1.2, 1.2)
+physics_material_override = SubResource("PhysicsMaterial_thhe3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=523461076]
+texture = ExtResource("1_ser6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1917083340]
+shape = SubResource("RectangleShape2D_5ulwq")

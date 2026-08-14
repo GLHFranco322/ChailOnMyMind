@@ -2,8 +2,14 @@ extends Control
 
 var escena_a_cargar := "res://Scenes/comisaria.tscn"
 
+@onready var sonido_cargar = $AudioStreamPlayer
+@onready var anim = $Control/AnimatedSprite2D
+
 func _ready():
 	ResourceLoader.load_threaded_request(escena_a_cargar)
+	sonido_cargar.play()
+	anim.play("Idle")
+
 
 func _process(_delta):
 	var progreso = []

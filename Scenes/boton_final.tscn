@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://6irqdunutrcb" path="res://Scenes/boton_final.gd" id="1_7y85l"]
 [ext_resource type="Texture2D" uid="uid://b4n27k5k1ycc6" path="res://Assets/Infernus_Tiles/Infernus_WallShield_3.png" id="2_nb2p5"]
+[ext_resource type="PackedScene" uid="uid://dq45tfisya3ov" path="res://Scrips/area_interaccion.tscn" id="3_kjyl5"]
+[ext_resource type="AudioStream" uid="uid://bqpqw2dnmvf0d" path="res://Assets/Musica/Nuevos Sonidos/items/boton.wav" id="4_tgbww"]
+[ext_resource type="AudioStream" uid="uid://d3f0dfyq54lnw" path="res://Assets/Musica/Nuevos Sonidos/ghost_and_lich_voice_pack/Ghost and Lich Voice Pack/output (9).wav" id="5_k88lv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nb2p5"]
 size = Vector2(41, 60)
@@ -15,6 +18,16 @@ texture = ExtResource("2_nb2p5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=674469431]
 position = Vector2(-2.5, 20)
 shape = SubResource("RectangleShape2D_nb2p5")
+
+[node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("3_kjyl5")]
+scale = Vector2(2.1999998, 4.6799994)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=185716708]
+stream = ExtResource("4_tgbww")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1442378741]
+stream = ExtResource("5_k88lv")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

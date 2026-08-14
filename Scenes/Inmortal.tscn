@@ -28,7 +28,7 @@ var player = null
 @onready var agent = $NavigationAgent2D
 @onready var attack_area = $Area2D
 @onready var sonido_ataque = $AudioStreamPlayer2D
-@onready var sonido_eliminacion = $AudioStreamPlayer2D2
+## @onready var sonido_eliminacion = $AudioStreamPlayer2D2
 
 func _ready():
 	player = get_tree().get_first_node_in_group(\"player\")
@@ -117,7 +117,7 @@ func attack():
 		if distance <= attack_range:
 			
 	#Sonido de Muerte
-			sonido_eliminacion.play()
+##			sonido_eliminacion.play()
 
 			if player.has_method(\"recibir_dano\"):
 				player.recibir_dano(dano, global_position)

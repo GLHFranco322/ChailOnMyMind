@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var sonido_dano = $AudioDaño
 ## @onready var sonido_muerte = $AudioMuerte
 @onready var sonido_pasos = $AudioCaminar
+@onready var sonido_disparo = $AudioDisparo
 
 var tiempo_paso: float = 0.0
 
@@ -128,7 +129,10 @@ func _physics_process(delta):
 func shoot():
 	if current_bullets <= 0:
 		print("Sin balas!")
+		mostrar_mensaje("sin munición")
 		return
+	
+	sonido_disparo.play()
 	
 	var newBullet = bullet.instantiate()
 	# La bala sale hacia donde apunta el mouse
@@ -301,3 +305,13 @@ func curar(cantidad: int) -> void:
 	var vida_bar = get_tree().get_first_node_in_group("VidaBar")
 	if vida_bar:
 		vida_bar.value = vidaJugador
+
+
+func mostrar_mensaje(texto: String) -> void:
+	var ui = get_tree().get_first_node_in_group("ui_mensajes")
+	if ui:
+		ui.mostrar_texto(texto.to_upper())
+		
+		await get_tree().create_timer(1.5).timeout
+		
+		ui.visible = false
