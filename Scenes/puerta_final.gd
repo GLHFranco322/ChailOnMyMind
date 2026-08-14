@@ -3,6 +3,8 @@ extends StaticBody2D
 var abierta = false
 @onready var collision = $CollisionShape2D
 @onready var luz = $PointLight2D
+@onready var alarma = $AudioStreamPlayer
+
 
 @export var dialogue_resource: DialogueResource
 
@@ -31,6 +33,8 @@ func toggle_puerta():
 	if abierta:
 		$Sprite2D.hide()
 		luz.abrir()
+		alarma.play()
+
 		# Desactivar interacción
 		$AreaInteraccion.monitoring = false
 		
@@ -42,6 +46,7 @@ func toggle_puerta():
 func get_camera_position():
 	return collision.global_position
 
+	alarma.stop()
 
 func _on_area_2d_body_entered(body: Node2D):
 	if abierta and body.is_in_group("player"):

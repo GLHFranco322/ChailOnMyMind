@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://celf06ko33mgk"
+path="res://.godot/imported/metal_03.ogg-915709703b4a42d40d902d5ada640f2a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/80-CC0-RPG-SFX/metal_03.ogg"
+dest_files=["res://.godot/imported/metal_03.ogg-915709703b4a42d40d902d5ada640f2a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

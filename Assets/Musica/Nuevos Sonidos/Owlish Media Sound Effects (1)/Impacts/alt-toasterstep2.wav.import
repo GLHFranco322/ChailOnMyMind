@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ugmwqefcy58u"
+path="res://.godot/imported/alt-toasterstep2.wav-83267b4a8d4a85c4a7bb12511d6a947e.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Impacts/alt-toasterstep2.wav"
+dest_files=["res://.godot/imported/alt-toasterstep2.wav-83267b4a8d4a85c4a7bb12511d6a947e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

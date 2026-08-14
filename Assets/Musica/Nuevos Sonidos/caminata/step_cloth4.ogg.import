@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c3jc4yp78i26b"
+path="res://.godot/imported/step_cloth4.ogg-be5547f5e88ec9b667836c97a5777936.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/caminata/step_cloth4.ogg"
+dest_files=["res://.godot/imported/step_cloth4.ogg-be5547f5e88ec9b667836c97a5777936.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

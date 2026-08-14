@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brp3d2hbqds4"
+path="res://.godot/imported/click-finger-snap.wav-923abc28f500bc1cf0cc3e3956492a3e.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Human/click-finger-snap.wav"
+dest_files=["res://.godot/imported/click-finger-snap.wav-923abc28f500bc1cf0cc3e3956492a3e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

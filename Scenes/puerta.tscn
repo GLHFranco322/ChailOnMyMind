@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bg4sujdgyknah" path="res://Scenes/puerta.gd" id="1_tswu4"]
 [ext_resource type="Texture2D" uid="uid://kdgpkpp2ul7u" path="res://Assets/Mapa/reja.png" id="2_tswu4"]
+[ext_resource type="AudioStream" uid="uid://diqwqnr0wnsw" path="res://Assets/Musica/Nuevos Sonidos/iron_door.ogg" id="3_0nvjv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tswu4"]
 size = Vector2(15, 23)
@@ -17,3 +18,7 @@ texture = ExtResource("2_tswu4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1876550110]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_tswu4")
+
+[node name="AudioPuerta" type="AudioStreamPlayer2D" parent="." unique_id=1817606464]
+stream = ExtResource("3_0nvjv")
+volume_db = -4.86

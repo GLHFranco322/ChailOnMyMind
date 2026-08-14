@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d33aythtlhfm2" path="res://Scenes/broken_wall.gd" id="1_brnok"]
 [ext_resource type="Texture2D" uid="uid://bducbfivcll5c" path="res://Assets/Mapa/BrokenWall.png" id="1_g230g"]
+[ext_resource type="AudioStream" uid="uid://b3ulomnl5jun7" path="res://Assets/Musica/Nuevos Sonidos/wet_breaks/Wet Break 1.wav" id="3_owd88"]
+[ext_resource type="AudioStream" uid="uid://cm3a6sj0jr8ka" path="res://Assets/Musica/Nuevos Sonidos/independent_nu_ljudbank-extreme_splatter/extreme_splatter/0814.WAV" id="4_xl0mk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_brnok"]
 atlas = ExtResource("1_g230g")
@@ -30,3 +32,9 @@ sprite_frames = SubResource("SpriteFrames_owd88")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=204612590]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_xl0mk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1536183161]
+stream = ExtResource("3_owd88")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1198881686]
+stream = ExtResource("4_xl0mk")

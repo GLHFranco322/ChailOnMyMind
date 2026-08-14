@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2dc2t2cla7hr"
+path="res://.godot/imported/slap2.wav-6947bc32f6a895205b07a195ec46f38a.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Impacts/slap2.wav"
+dest_files=["res://.godot/imported/slap2.wav-6947bc32f6a895205b07a195ec46f38a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

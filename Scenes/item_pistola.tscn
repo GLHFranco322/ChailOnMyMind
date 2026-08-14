@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cu371x5btxt02"]
 
-[ext_resource type="Script" path="res://Scenes/item_pistola.gd" id="1_yvfso"]
+[ext_resource type="Script" uid="uid://be8nyvbbudmgv" path="res://Scenes/item_pistola.gd" id="1_yvfso"]
 [ext_resource type="Texture2D" uid="uid://gq0rifxqdpmd" path="res://Assets/TheUltimateWeaponsPack/TheUltimateWeaponsPack_Sheet.png" id="2_vqwhk"]
+[ext_resource type="PackedScene" uid="uid://dq45tfisya3ov" path="res://Scrips/area_interaccion.tscn" id="3_tp60x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tp60x"]
 size = Vector2(37, 46)
@@ -22,6 +23,12 @@ light_mask = 7
 visibility_layer = 7
 position = Vector2(1.5, 20)
 shape = SubResource("RectangleShape2D_tp60x")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1778537445]
+
+[node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("3_tp60x")]
+position = Vector2(0, 14.000002)
+scale = Vector2(1.6525137, 1.6967467)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

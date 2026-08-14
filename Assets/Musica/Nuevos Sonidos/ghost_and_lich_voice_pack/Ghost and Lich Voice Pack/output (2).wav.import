@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7qswe6l4f0pp"
+path="res://.godot/imported/output (2).wav-c44fce381740f03438bf8531d3395c1d.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/ghost_and_lich_voice_pack/Ghost and Lich Voice Pack/output (2).wav"
+dest_files=["res://.godot/imported/output (2).wav-c44fce381740f03438bf8531d3395c1d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

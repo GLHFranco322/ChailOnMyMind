@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://duw34bjs8eltp"
+path="res://.godot/imported/plugpull.wav-1c715c95fec344241c8d1e5f90a0e72b.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Technology/plugpull.wav"
+dest_files=["res://.godot/imported/plugpull.wav-1c715c95fec344241c8d1e5f90a0e72b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

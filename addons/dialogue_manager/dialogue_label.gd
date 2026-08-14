@@ -44,7 +44,6 @@ signal paused_typing(duration: float)
 
 var _already_mutated_indices: PackedInt32Array = []
 
-
 ## The current line of dialogue.
 var dialogue_line:
 	set(value):
@@ -128,6 +127,7 @@ func skip_typing() -> void:
 
 # Type out the next character(s)
 func _type_next(delta: float, seconds_needed: float) -> void:
+	
 	if _is_awaiting_mutation: return
 
 	if visible_characters == get_total_character_count():

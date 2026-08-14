@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brpwxy2qgfpkl"
+path="res://.godot/imported/UI_036.wav-97b9f2dac3d22912cf6336f0f65e5be1.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/UI/UI_036.wav"
+dest_files=["res://.godot/imported/UI_036.wav-97b9f2dac3d22912cf6336f0f65e5be1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dyf2tumdmfac0"
+path="res://.godot/imported/lock_02.ogg-833f5f7d62ec05fa51b45799b474180c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/80-CC0-RPG-SFX/lock_02.ogg"
+dest_files=["res://.godot/imported/lock_02.ogg-833f5f7d62ec05fa51b45799b474180c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

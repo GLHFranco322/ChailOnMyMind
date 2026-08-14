@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://de4v7vavj252c"
+path="res://.godot/imported/clamour10.wav-a8c488bdfa9c31566140357c6f081096.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Impacts/clamour10.wav"
+dest_files=["res://.godot/imported/clamour10.wav-a8c488bdfa9c31566140357c6f081096.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

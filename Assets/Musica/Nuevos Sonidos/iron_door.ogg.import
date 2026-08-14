@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://diqwqnr0wnsw"
+path="res://.godot/imported/iron_door.ogg-ab0b8f913f444374a2893eab94968b76.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/iron_door.ogg"
+dest_files=["res://.godot/imported/iron_door.ogg-ab0b8f913f444374a2893eab94968b76.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

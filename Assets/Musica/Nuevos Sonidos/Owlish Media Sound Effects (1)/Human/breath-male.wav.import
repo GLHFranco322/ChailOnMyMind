@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blw4dv8jesclb"
+path="res://.godot/imported/breath-male.wav-2c51f47c63c0f7bf50f76afc2ff4f7c6.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Human/breath-male.wav"
+dest_files=["res://.godot/imported/breath-male.wav-2c51f47c63c0f7bf50f76afc2ff4f7c6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

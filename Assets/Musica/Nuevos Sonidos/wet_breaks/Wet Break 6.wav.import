@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b18uti1ytlt77"
+path="res://.godot/imported/Wet Break 6.wav-e92def9af4314217e1409116e6f5195a.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/wet_breaks/Wet Break 6.wav"
+dest_files=["res://.godot/imported/Wet Break 6.wav-e92def9af4314217e1409116e6f5195a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

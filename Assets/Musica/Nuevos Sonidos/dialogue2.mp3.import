@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ntbtpjxh4da4"
+path="res://.godot/imported/dialogue2.mp3-735d5e5c4403d560b1a5827901095c45.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/dialogue2.mp3"
+dest_files=["res://.godot/imported/dialogue2.mp3-735d5e5c4403d560b1a5827901095c45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

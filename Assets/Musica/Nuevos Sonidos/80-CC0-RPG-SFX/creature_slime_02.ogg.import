@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://vbsu5mavhg0r"
+path="res://.godot/imported/creature_slime_02.ogg-967ce7ceabb4fbc79366b153ec568475.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/80-CC0-RPG-SFX/creature_slime_02.ogg"
+dest_files=["res://.godot/imported/creature_slime_02.ogg-967ce7ceabb4fbc79366b153ec568475.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

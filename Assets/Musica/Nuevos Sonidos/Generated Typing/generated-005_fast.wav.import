@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dm7p6827xwor7"
+path="res://.godot/imported/generated-005_fast.wav-8a0039479a46fa748f2d1ec4c607c95d.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Generated Typing/generated-005_fast.wav"
+dest_files=["res://.godot/imported/generated-005_fast.wav-8a0039479a46fa748f2d1ec4c607c95d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

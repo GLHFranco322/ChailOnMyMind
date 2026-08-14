@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bc7i3uc7srbn0"
+path="res://.godot/imported/running-shoes-2.wav-31b052a77205f6f48dd80708c3862e3f.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Footsteps/running-shoes-2.wav"
+dest_files=["res://.godot/imported/running-shoes-2.wav-31b052a77205f6f48dd80708c3862e3f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

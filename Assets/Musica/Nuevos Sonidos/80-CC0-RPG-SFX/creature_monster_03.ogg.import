@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvc5uv0jd5heo"
+path="res://.godot/imported/creature_monster_03.ogg-9e98e0f37e14d739c147a0a8172f7746.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/80-CC0-RPG-SFX/creature_monster_03.ogg"
+dest_files=["res://.godot/imported/creature_monster_03.ogg-9e98e0f37e14d739c147a0a8172f7746.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

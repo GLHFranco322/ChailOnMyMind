@@ -70,10 +70,13 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
 
+@onready var dialogue_sound2: AudioStreamPlayer = $AudioStreamPlayer2
 
 func _ready() -> void:
+	
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
+	dialogue_label.spoke.connect(_on_dialogue_label_spoke)
 
 	# If the responses menu doesn't have a next action set, use this one
 	if responses_menu.next_action.is_empty():
@@ -213,5 +216,11 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
 
+func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+	if letter in [" ", ".", ",", "!", "?", ":", ";"]:
+		return
+	
+	if letter_index % 6 == 0:
+		dialogue_sound2.play()
 
 #endregion

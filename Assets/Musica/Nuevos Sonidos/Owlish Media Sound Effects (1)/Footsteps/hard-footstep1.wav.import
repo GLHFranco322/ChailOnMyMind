@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cskn176s7eqh5"
+path="res://.godot/imported/hard-footstep1.wav-7ecc20d3bb507df1af70671620819418.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Footsteps/hard-footstep1.wav"
+dest_files=["res://.godot/imported/hard-footstep1.wav-7ecc20d3bb507df1af70671620819418.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

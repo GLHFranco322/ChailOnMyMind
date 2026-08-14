@@ -10,6 +10,11 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var hitbox = $Hitbox
 @onready var sonido_ataque = $SonidoAtaque
+@onready var sonido_dano = $AudioDaño
+## @onready var sonido_muerte = $AudioMuerte
+@onready var sonido_pasos = $AudioCaminar
+
+var tiempo_paso: float = 0.0
 
 var bullet = preload("res://Scenes/bullet.tscn")  # ← bala
 var tiene_gun: bool = false                        # ← antes true, ahora false
@@ -33,6 +38,7 @@ func _ready() -> void:
 	hitbox.visible = false
 
 func _physics_process(delta):
+	
 	if is_dead:
 		$CollisionShape2D.disabled = true
 		return
@@ -73,6 +79,28 @@ func _physics_process(delta):
 	velocity = input_vector * current_speed
 	move_and_slide()
 	update_animation(input_vector)
+	
+# SONIDO DE PISADAS
+	if is_moving:                        
+
+		if not is_running:
+			tiempo_paso -= delta       
+
+			if tiempo_paso <= 0:
+				sonido_pasos.play()
+				tiempo_paso = 0.35
+
+		else:
+			tiempo_paso -= delta
+
+			if tiempo_paso <= 0:
+				sonido_pasos.play()
+				tiempo_paso = 0.20
+
+	else:
+		tiempo_paso = 0.0
+		
+########
 	
 	if is_running:
 		stamina -= 40 * delta
@@ -208,6 +236,9 @@ func recibir_dano(cantidad, origen: Vector2 = Vector2.ZERO) -> void:
 	invulnerable = true
 	vidaJugador -= cantidad
 	print("Vida restante:", vidaJugador)
+	
+	#Sonido de Daño
+	sonido_dano.play()
 
 	# Flash rojo
 	anim.modulate = Color(1, 0, 0)
@@ -234,6 +265,10 @@ func morir() -> void:
 	
 	is_dead = true
 	velocity = Vector2.ZERO
+	
+	#Sonido de Muerte
+	## sonido_muerte.play()
+	
 	anim.play("death")
 
 	await anim.animation_finished

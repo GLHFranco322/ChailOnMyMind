@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://co6g6546qqsh2"
+path="res://.godot/imported/tap-water-2.wav-4e9b138b8c9f69f61e3293931aeb9bc8.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Water/tap-water-2.wav"
+dest_files=["res://.godot/imported/tap-water-2.wav-4e9b138b8c9f69f61e3293931aeb9bc8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bnl4pc4fafndk"
+path="res://.godot/imported/Yucky Beast.wav-08593fc47c32aebd38b5f56b0ab11337.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/enemigo normal/Yucky Beast.wav"
+dest_files=["res://.godot/imported/Yucky Beast.wav-08593fc47c32aebd38b5f56b0ab11337.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

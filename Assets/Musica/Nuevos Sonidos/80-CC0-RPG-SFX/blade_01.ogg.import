@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dmsklef2te58n"
+path="res://.godot/imported/blade_01.ogg-589ea5fbfbf401dde833dd981fde1cee.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/80-CC0-RPG-SFX/blade_01.ogg"
+dest_files=["res://.godot/imported/blade_01.ogg-589ea5fbfbf401dde833dd981fde1cee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

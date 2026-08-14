@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bgemhluvx5h77"
+path="res://.godot/imported/breath-female2.wav-3fdb4ce35140e927668309a4e5295423.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Owlish Media Sound Effects (1)/Human/breath-female2.wav"
+dest_files=["res://.godot/imported/breath-female2.wav-3fdb4ce35140e927668309a4e5295423.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

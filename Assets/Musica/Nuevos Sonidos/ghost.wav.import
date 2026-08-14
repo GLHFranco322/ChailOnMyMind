@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://1x3gmuxkmv4x"
+path="res://.godot/imported/ghost.wav-7c81b71423daa45c9ffb8ac77667e921.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/ghost.wav"
+dest_files=["res://.godot/imported/ghost.wav-7c81b71423daa45c9ffb8ac77667e921.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

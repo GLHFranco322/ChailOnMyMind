@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bffc6wyikaw3s" path="res://Scenes/puerta_final.gd" id="1_ykbxj"]
 [ext_resource type="Resource" uid="uid://cedgkge3t5255" path="res://dialogo_puerta_final.dialogue" id="2_4ph2x"]
 [ext_resource type="PackedScene" uid="uid://dq45tfisya3ov" path="res://Scrips/area_interaccion.tscn" id="3_tkhse"]
+[ext_resource type="AudioStream" uid="uid://ceffky4jrwt45" path="res://Assets/Musica/Nuevos Sonidos/alarm (1).ogg" id="5_cji7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykbxj"]
 size = Vector2(62, 100)
@@ -30,5 +31,9 @@ shape = SubResource("RectangleShape2D_tkhse")
 [node name="AreaInteraccion" parent="." unique_id=1718836556 instance=ExtResource("3_tkhse")]
 position = Vector2(0, 50.000004)
 scale = Vector2(1.905, 1.905)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=976599232]
+stream = ExtResource("5_cji7p")
+volume_db = -5.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

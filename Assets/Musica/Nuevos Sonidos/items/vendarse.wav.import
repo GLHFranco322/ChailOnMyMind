@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8asw3vjjfpa2"
+path="res://.godot/imported/vendarse.wav-e2a4c7464a1b8ec89e9a8a1824a3c256.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/items/vendarse.wav"
+dest_files=["res://.godot/imported/vendarse.wav-e2a4c7464a1b8ec89e9a8a1824a3c256.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

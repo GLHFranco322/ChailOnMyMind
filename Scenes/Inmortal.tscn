@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cglcnmptfiljt" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Inmortal/Correcciones/Sprite Inmortal - Idle.png" id="1_wwn60"]
 [ext_resource type="Texture2D" uid="uid://c8y8cife8w6d4" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Inmortal/Correcciones/Sprite Inmortal - AtackUp.png" id="2_5j2bl"]
 [ext_resource type="Texture2D" uid="uid://dtdb73aaa2gds" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/Inmortal/Correcciones/Sprite Inmortal - AtackFrontal.png" id="2_fhtq1"]
+[ext_resource type="AudioStream" uid="uid://1x3gmuxkmv4x" path="res://Assets/Musica/Nuevos Sonidos/ghost.wav" id="5_fhtq1"]
+[ext_resource type="AudioStream" uid="uid://d3f0dfyq54lnw" path="res://Assets/Musica/Nuevos Sonidos/ghost_and_lich_voice_pack/Ghost and Lich Voice Pack/output (9).wav" id="6_0lw4l"]
 
 [sub_resource type="GDScript" id="GDScript_n7tue"]
 script/source = "extends CharacterBody2D
@@ -25,6 +27,8 @@ var player = null
 @onready var anim = $AnimatedSprite2D
 @onready var agent = $NavigationAgent2D
 @onready var attack_area = $Area2D
+@onready var sonido_ataque = $AudioStreamPlayer2D
+@onready var sonido_eliminacion = $AudioStreamPlayer2D2
 
 func _ready():
 	player = get_tree().get_first_node_in_group(\"player\")
@@ -99,16 +103,22 @@ func attack():
 	
 	var attack_dir = get_attack_direction()
 	play_attack_animation(attack_dir)
+	sonido_ataque.play()
 	
 	# Frames 0, 1, 2: carga (rojo)
 	anim.modulate = Color.RED
 	await get_tree().create_timer(3.0 / 4.0).timeout
+	
 	
 	# Frame 3: daño
 	anim.modulate = Color.WHITE
 	if player != null:
 		var distance = global_position.distance_to(player.global_position)
 		if distance <= attack_range:
+			
+	#Sonido de Muerte
+			sonido_eliminacion.play()
+
 			if player.has_method(\"recibir_dano\"):
 				player.recibir_dano(dano, global_position)
 	
@@ -290,5 +300,10 @@ shape = SubResource("RectangleShape2D_bcbr7")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=594164941]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=951294850]
+stream = ExtResource("5_fhtq1")
+volume_db = -3.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=702901970]
+stream = ExtResource("6_0lw4l")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

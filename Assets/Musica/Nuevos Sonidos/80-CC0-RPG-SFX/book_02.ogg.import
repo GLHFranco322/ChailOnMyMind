@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://crc4kfhse6kv6"
+path="res://.godot/imported/book_02.ogg-070d4b57f3d7a448b91dfaebdc3477a1.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/80-CC0-RPG-SFX/book_02.ogg"
+dest_files=["res://.godot/imported/book_02.ogg-070d4b57f3d7a448b91dfaebdc3477a1.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

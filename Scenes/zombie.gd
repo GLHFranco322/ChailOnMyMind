@@ -15,6 +15,9 @@ var puede_atacar = true
 @onready var anim = $AnimatedSprite2D
 @onready var hitbox_ataque = $HitboxAtaque
 @onready var nav_agent = $NavigationAgent2D
+@onready var sonido_ataque = $AudioAtaque
+@onready var sonido_dano = $AudioDaño
+
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
@@ -82,6 +85,10 @@ func atack():
 			return
 		atacando = true
 		velocity = Vector2.ZERO
+		
+		#Sonido de ataque
+		sonido_ataque.play()
+		
 		var direction = player.global_position - global_position
 		if abs(direction.x) > abs(direction.y):
 			anim.flip_h = direction.x < 0
@@ -125,6 +132,10 @@ func recibir_dano(cantidad, origen: Vector2 = Vector2.ZERO):
 		return
 	vida -= cantidad
 	print("Vida zombie:", vida)
+	
+	#Sonido de Daño Recibido
+	sonido_dano.play()
+	
 	anim.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.1).timeout
 	anim.modulate = Color(1, 1, 1)
@@ -150,6 +161,9 @@ func morir():
 	muerto = true
 	velocity = Vector2.ZERO
 	timer.stop()
+	
+	sonido_dano.play()
+	
 	anim.visible = false
 	queue_free()
 

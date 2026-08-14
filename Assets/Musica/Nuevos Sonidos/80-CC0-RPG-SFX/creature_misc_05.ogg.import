@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b3kood2iy3y3m"
+path="res://.godot/imported/creature_misc_05.ogg-b005da1ed1bdc498bdf44577e4b3ded4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/80-CC0-RPG-SFX/creature_misc_05.ogg"
+dest_files=["res://.godot/imported/creature_misc_05.ogg-b005da1ed1bdc498bdf44577e4b3ded4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

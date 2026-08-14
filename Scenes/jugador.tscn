@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://c1ko6nmufrop3" path="res://Assets/Jugador/FREE Textures Of Light/64x64/64x64 textures (99).png" id="8_6vc6x"]
 [ext_resource type="AudioStream" uid="uid://dnqlaegx321nb" path="res://Assets/Sonidos/CinematicasSounds/Celda 601/step_cloth3.ogg" id="10_x1a6r"]
 [ext_resource type="AudioStream" uid="uid://e3etlaxobihb" path="res://Assets/Sonidos/GAMEPLAY/cut/creatorshome-draw-a-sword-327726.mp3" id="11_oua2g"]
+[ext_resource type="AudioStream" uid="uid://drqd5340xtarf" path="res://Assets/Musica/Nuevos Sonidos/Sonido de muerte/Playersounds - Track 5 - Hurt1.wav" id="12_aknpy"]
+[ext_resource type="AudioStream" uid="uid://pqpffqh42jov" path="res://Assets/Musica/Nuevos Sonidos/Sonido de muerte/1.mp3" id="13_1bknw"]
+[ext_resource type="AudioStream" uid="uid://38w3lkdmk70a" path="res://Assets/Musica/Nuevos Sonidos/caminata/step_cloth1.ogg" id="14_1bknw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x1a6r"]
 atlas = ExtResource("2_3cdix")
@@ -727,5 +730,17 @@ stream = ExtResource("10_x1a6r")
 
 [node name="SonidoAtaque" type="AudioStreamPlayer" parent="." unique_id=807884091]
 stream = ExtResource("11_oua2g")
+
+[node name="AudioDaño" type="AudioStreamPlayer2D" parent="." unique_id=503880051]
+stream = ExtResource("12_aknpy")
+volume_db = -4.0
+
+[node name="AudioMuerte" type="AudioStreamPlayer2D" parent="." unique_id=184638975]
+stream = ExtResource("13_1bknw")
+volume_db = -4.0
+
+[node name="AudioCaminar" type="AudioStreamPlayer2D" parent="." unique_id=439497623]
+stream = ExtResource("14_1bknw")
+volume_db = -2.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

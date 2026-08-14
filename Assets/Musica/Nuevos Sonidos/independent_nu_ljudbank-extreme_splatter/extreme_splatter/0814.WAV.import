@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cm3a6sj0jr8ka"
+path="res://.godot/imported/0814.WAV-fb2d960b7a220297d8bb615891613ce3.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/independent_nu_ljudbank-extreme_splatter/extreme_splatter/0814.WAV"
+dest_files=["res://.godot/imported/0814.WAV-fb2d960b7a220297d8bb615891613ce3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

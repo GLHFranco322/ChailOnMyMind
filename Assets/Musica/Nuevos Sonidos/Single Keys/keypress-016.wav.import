@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcw1a3f3v8txj"
+path="res://.godot/imported/keypress-016.wav-5e88dbd09e80912e4c51a330e15d3279.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Single Keys/keypress-016.wav"
+dest_files=["res://.godot/imported/keypress-016.wav-5e88dbd09e80912e4c51a330e15d3279.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

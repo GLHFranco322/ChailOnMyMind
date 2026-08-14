@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ce8wdv2tbk154"
+path="res://.godot/imported/human_vel-004.wav-54c7c08b027860f2275ca819611fa5c2.sample"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/Human Typing/human_vel-004.wav"
+dest_files=["res://.godot/imported/human_vel-004.wav-54c7c08b027860f2275ca819611fa5c2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

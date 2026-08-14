@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://32kgj2awm7e2"
+path="res://.godot/imported/preview.ogg-474d2a99dab26d0a0a376d51b11e0f6c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Musica/Nuevos Sonidos/preview.ogg"
+dest_files=["res://.godot/imported/preview.ogg-474d2a99dab26d0a0a376d51b11e0f6c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
