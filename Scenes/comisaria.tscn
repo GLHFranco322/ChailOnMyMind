@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://d0okiva75l8rl" path="res://Scenes/boton_final.tscn" id="15_0r1u1"]
 [ext_resource type="PackedScene" uid="uid://rtuq0km4ar15" path="res://Scenes/Inmortal.tscn" id="15_aq5e2"]
 [ext_resource type="PackedScene" uid="uid://4yliwq17qhsv" path="res://Scenes/boton.tscn" id="15_myfm4"]
+[ext_resource type="Script" uid="uid://cs3dvb28plrjw" path="res://Scrips/balas_label.gd" id="15_n4sgu"]
 [ext_resource type="PackedScene" uid="uid://7my0pl2pfavf" path="res://Scenes/puerta.tscn" id="16_rbeo1"]
 [ext_resource type="Texture2D" uid="uid://b60hnldhc4fpf" path="res://Assets/Jugador/FREE Textures Of Light/32x32/32x32 textures (52).png" id="18_1shi5"]
 [ext_resource type="PackedScene" uid="uid://ddnfhrfkrbdqh" path="res://Scenes/pause_menu.tscn" id="19_1shi5"]
@@ -20533,6 +20534,13 @@ theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 script = ExtResource("11_u3bvy")
 
+[node name="BalasLabel" type="Label" parent="UI" unique_id=1648675803]
+offset_left = 20.0
+offset_top = 35.0
+offset_right = 60.0
+offset_bottom = 58.0
+script = ExtResource("15_n4sgu")
+
 [node name="BotonFinal" parent="." unique_id=1207797317 instance=ExtResource("15_0r1u1")]
 position = Vector2(-84, -115)
 puerta_path = NodePath("../PuertaFinal")
@@ -20540,10 +20548,13 @@ broken_wall_path = NodePath("../BrokenWall")
 inmortal_path = NodePath("../Inmortal")
 
 [node name="Inmortal" parent="." unique_id=511109610 instance=ExtResource("15_aq5e2")]
-position = Vector2(-350, -1645)
+position = Vector2(-384, -1644)
+speed = 80.0
+chase_speed = 110.0
 
 [node name="Pausa" type="CanvasLayer" parent="." unique_id=7428]
 process_mode = 3
+visible = false
 
 [node name="PauseMenu" parent="Pausa" unique_id=209647423 instance=ExtResource("19_1shi5")]
 
@@ -20556,7 +20567,7 @@ tile_set = SubResource("TileSet_x1lk2")
 position = Vector2(-66, -1519)
 
 [node name="Jugador" parent="." unique_id=1547580877 instance=ExtResource("1_3hss1")]
-position = Vector2(432.99997, -2535.9998)
+position = Vector2(424.99997, -2507)
 scale = Vector2(0.7, 0.7)
 collision_mask = 1
 metadata/_edit_group_ = true
@@ -20583,93 +20594,6 @@ scale = Vector2(1.335, 1.335)
 position = Vector2(372, -2120)
 
 [node name="CanvasLayer" parent="." unique_id=1988996643 instance=ExtResource("21_sh1t7")]
-
-[node name="MarkerPrincipal" type="Marker2D" parent="." unique_id=382837887]
-visible = false
-
-[node name="Marker2D" type="Marker2D" parent="MarkerPrincipal" unique_id=1806203120]
-position = Vector2(114, -262)
-
-[node name="Marker2D2" type="Marker2D" parent="MarkerPrincipal" unique_id=939025730]
-position = Vector2(-126, -267)
-
-[node name="Marker2D3" type="Marker2D" parent="MarkerPrincipal" unique_id=176423562]
-position = Vector2(-64, -463)
-
-[node name="Marker2D28" type="Marker2D" parent="MarkerPrincipal" unique_id=1415753235]
-position = Vector2(-216, -666)
-
-[node name="Marker2D29" type="Marker2D" parent="MarkerPrincipal" unique_id=743270077]
-position = Vector2(-260, -673)
-
-[node name="Marker2D30" type="Marker2D" parent="MarkerPrincipal" unique_id=1955378555]
-position = Vector2(-188, -1003)
-
-[node name="Marker2D31" type="Marker2D" parent="MarkerPrincipal" unique_id=1566487011]
-position = Vector2(-252, -1007)
-
-[node name="Marker2D32" type="Marker2D" parent="MarkerPrincipal" unique_id=1602239959]
-position = Vector2(-252, -1325)
-
-[node name="Marker2D33" type="Marker2D" parent="MarkerPrincipal" unique_id=2052550286]
-position = Vector2(-193, -1328)
-
-[node name="Marker2D34" type="Marker2D" parent="MarkerPrincipal" unique_id=1061173343]
-position = Vector2(-222, -1264)
-
-[node name="Marker2D35" type="Marker2D" parent="MarkerPrincipal" unique_id=328367655]
-position = Vector2(317, -1164)
-
-[node name="Marker2D36" type="Marker2D" parent="MarkerPrincipal" unique_id=1117509322]
-position = Vector2(101, -1047)
-
-[node name="Marker2D37" type="Marker2D" parent="MarkerPrincipal" unique_id=1161357994]
-position = Vector2(44, -980)
-
-[node name="Marker2D38" type="Marker2D" parent="MarkerPrincipal" unique_id=1177315511]
-position = Vector2(358, -1309)
-
-[node name="Marker2D39" type="Marker2D" parent="MarkerPrincipal" unique_id=619378334]
-position = Vector2(242, -1394)
-
-[node name="Marker2D40" type="Marker2D" parent="MarkerPrincipal" unique_id=902548629]
-position = Vector2(-229, -1495)
-
-[node name="Marker2D41" type="Marker2D" parent="MarkerPrincipal" unique_id=1775303594]
-position = Vector2(-254, -1572)
-
-[node name="Marker2D42" type="Marker2D" parent="MarkerPrincipal" unique_id=1197101197]
-position = Vector2(-235, -1639)
-
-[node name="Marker2D43" type="Marker2D" parent="MarkerPrincipal" unique_id=557664154]
-position = Vector2(-226, -1696)
-
-[node name="Marker2D44" type="Marker2D" parent="MarkerPrincipal" unique_id=918186831]
-position = Vector2(-221, -1952)
-
-[node name="Marker2D45" type="Marker2D" parent="MarkerPrincipal" unique_id=411557146]
-position = Vector2(-71, -1963)
-
-[node name="Marker2D46" type="Marker2D" parent="MarkerPrincipal" unique_id=1156103546]
-position = Vector2(-54, -1922)
-
-[node name="Marker2D47" type="Marker2D" parent="MarkerPrincipal" unique_id=1422168523]
-position = Vector2(-183, -1967)
-
-[node name="Marker2D48" type="Marker2D" parent="MarkerPrincipal" unique_id=191748862]
-position = Vector2(-129, -1932)
-
-[node name="Marker2D49" type="Marker2D" parent="MarkerPrincipal" unique_id=1402672876]
-position = Vector2(368, -1810)
-
-[node name="Marker2D50" type="Marker2D" parent="MarkerPrincipal" unique_id=1891521993]
-position = Vector2(92, -1835)
-
-[node name="Marker2D51" type="Marker2D" parent="MarkerPrincipal" unique_id=862334427]
-position = Vector2(92, -1776)
-
-[node name="Marker2D52" type="Marker2D" parent="MarkerPrincipal" unique_id=1971559610]
-position = Vector2(95, -1694)
 
 [node name="Botiquin" parent="." unique_id=208800678 instance=ExtResource("25_52sbi")]
 position = Vector2(-227, -1399)
@@ -20753,3 +20677,89 @@ parameters/looping = true
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=98092114]
 stream = ExtResource("28_tk1gd")
 volume_db = -20.0
+
+[node name="MarkerPrincipal" type="Marker2D" parent="." unique_id=315663847]
+
+[node name="Marker2D" type="Marker2D" parent="MarkerPrincipal" unique_id=182015698]
+position = Vector2(114, -262)
+
+[node name="Marker2D2" type="Marker2D" parent="MarkerPrincipal" unique_id=622642938]
+position = Vector2(-126, -267)
+
+[node name="Marker2D3" type="Marker2D" parent="MarkerPrincipal" unique_id=2111470847]
+position = Vector2(-64, -463)
+
+[node name="Marker2D28" type="Marker2D" parent="MarkerPrincipal" unique_id=1550826311]
+position = Vector2(-216, -666)
+
+[node name="Marker2D29" type="Marker2D" parent="MarkerPrincipal" unique_id=1266010256]
+position = Vector2(-260, -673)
+
+[node name="Marker2D30" type="Marker2D" parent="MarkerPrincipal" unique_id=736697527]
+position = Vector2(-188, -1003)
+
+[node name="Marker2D31" type="Marker2D" parent="MarkerPrincipal" unique_id=1138461030]
+position = Vector2(-252, -1007)
+
+[node name="Marker2D32" type="Marker2D" parent="MarkerPrincipal" unique_id=191103336]
+position = Vector2(-252, -1325)
+
+[node name="Marker2D33" type="Marker2D" parent="MarkerPrincipal" unique_id=1165300410]
+position = Vector2(-193, -1328)
+
+[node name="Marker2D34" type="Marker2D" parent="MarkerPrincipal" unique_id=386102797]
+position = Vector2(-222, -1264)
+
+[node name="Marker2D35" type="Marker2D" parent="MarkerPrincipal" unique_id=1254574115]
+position = Vector2(317, -1164)
+
+[node name="Marker2D36" type="Marker2D" parent="MarkerPrincipal" unique_id=1130170346]
+position = Vector2(101, -1047)
+
+[node name="Marker2D37" type="Marker2D" parent="MarkerPrincipal" unique_id=164712805]
+position = Vector2(44, -980)
+
+[node name="Marker2D38" type="Marker2D" parent="MarkerPrincipal" unique_id=1898771500]
+position = Vector2(358, -1309)
+
+[node name="Marker2D39" type="Marker2D" parent="MarkerPrincipal" unique_id=344206331]
+position = Vector2(242, -1394)
+
+[node name="Marker2D40" type="Marker2D" parent="MarkerPrincipal" unique_id=1341415489]
+position = Vector2(-229, -1495)
+
+[node name="Marker2D41" type="Marker2D" parent="MarkerPrincipal" unique_id=443832494]
+position = Vector2(-254, -1572)
+
+[node name="Marker2D42" type="Marker2D" parent="MarkerPrincipal" unique_id=588126975]
+position = Vector2(-235, -1639)
+
+[node name="Marker2D43" type="Marker2D" parent="MarkerPrincipal" unique_id=1225401904]
+position = Vector2(-226, -1696)
+
+[node name="Marker2D44" type="Marker2D" parent="MarkerPrincipal" unique_id=1145066194]
+position = Vector2(-221, -1952)
+
+[node name="Marker2D45" type="Marker2D" parent="MarkerPrincipal" unique_id=1433178073]
+position = Vector2(-71, -1963)
+
+[node name="Marker2D46" type="Marker2D" parent="MarkerPrincipal" unique_id=73924626]
+position = Vector2(-54, -1922)
+
+[node name="Marker2D47" type="Marker2D" parent="MarkerPrincipal" unique_id=79982232]
+position = Vector2(-183, -1967)
+
+[node name="Marker2D48" type="Marker2D" parent="MarkerPrincipal" unique_id=753542688]
+position = Vector2(-129, -1932)
+
+[node name="Marker2D49" type="Marker2D" parent="MarkerPrincipal" unique_id=1732835085]
+position = Vector2(368, -1810)
+
+[node name="Marker2D50" type="Marker2D" parent="MarkerPrincipal" unique_id=456167538]
+position = Vector2(92, -1835)
+
+[node name="Marker2D51" type="Marker2D" parent="MarkerPrincipal" unique_id=1573465020]
+position = Vector2(92, -1776)
+
+[node name="Marker2D52" type="Marker2D" parent="MarkerPrincipal" unique_id=1353606120]
+position = Vector2(95, -1694)

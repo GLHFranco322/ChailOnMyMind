@@ -45,7 +45,6 @@ func toggle_puerta():
 
 func get_camera_position():
 	return collision.global_position
-
 	alarma.stop()
 
 func _on_area_2d_body_entered(body: Node2D):

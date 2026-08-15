@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var stamina_max: float = 50.0
 @export var invulnerable_time: float = 0.5
 @export var dano_ataque: float = 20
+@export var mira_cursor: Texture2D   # ← agregar esta línea
 
 @onready var bar = $ProgressBar
 @onready var anim = $AnimatedSprite2D
@@ -14,6 +15,8 @@ extends CharacterBody2D
 ## @onready var sonido_muerte = $AudioMuerte
 @onready var sonido_pasos = $AudioCaminar
 @onready var sonido_disparo = $AudioDisparo
+
+signal balas_cambiadas(actuales: int, maximas: int)
 
 var tiempo_paso: float = 0.0
 
@@ -37,6 +40,10 @@ func _ready() -> void:
 	anim.animation_finished.connect(_on_animation_finished)
 	hitbox.monitoring = false
 	hitbox.visible = false
+	
+	var hud = get_tree().get_first_node_in_group("hud_balas")
+	if hud:
+		balas_cambiadas.connect(hud.actualizar_balas)
 
 func _physics_process(delta):
 	
@@ -135,24 +142,27 @@ func shoot():
 	sonido_disparo.play()
 	
 	var newBullet = bullet.instantiate()
-	# La bala sale hacia donde apunta el mouse
 	var dir = (get_global_mouse_position() - global_position).angle()
 	newBullet.direction = dir
 	newBullet.global_position = global_position
 	get_tree().current_scene.add_child(newBullet)
 	
 	current_bullets -= 1
+	balas_cambiadas.emit(current_bullets, max_bullets)
 	print("Balas restantes: ", current_bullets)
 
 func pick_up_gun() -> void:
 	tiene_gun = true
 	current_bullets = max_bullets
+	balas_cambiadas.emit(current_bullets, max_bullets)
+	Input.set_custom_mouse_cursor(mira_cursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	print("Gun equipada! Balas: ", current_bullets)
 
 func add_bullets(amount: int) -> void:
 	if not tiene_gun:
 		return
 	current_bullets = min(current_bullets + amount, max_bullets)
+	balas_cambiadas.emit(current_bullets, max_bullets)
 	print("Balas: ", current_bullets)
 
 # ... el resto de tus funciones quedan igual

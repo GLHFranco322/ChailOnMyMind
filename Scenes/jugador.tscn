@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://5g6hdpemcvlq" path="res://Scenes/jugador.gd" id="1_hcpjn"]
 [ext_resource type="Texture2D" uid="uid://0vwmv3228u02" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/playerprisioner-Sheet-prueba.png" id="2_3cdix"]
 [ext_resource type="Texture2D" uid="uid://cqnbugpix5aaf" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_left_down.png" id="2_btb33"]
+[ext_resource type="Texture2D" uid="uid://8yu0hi1asb7d" path="res://Images/PNG/White/crosshair108.png" id="2_yy7ku"]
 [ext_resource type="Texture2D" uid="uid://cc8iwiqy43tew" path="res://Top-Down_Retro_Interior/mystic_woods_free_2.2/sprites/characters/playerprisioner.png" id="3_3cdix"]
 [ext_resource type="Texture2D" uid="uid://bn33l04biw6i4" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_left_up.png" id="3_qw2bf"]
 [ext_resource type="Texture2D" uid="uid://bo20h2y6142er" path="res://Top-Down_Retro_Interior/The Male adventurer - Free/Idle/idle_right_down.png" id="4_g5h5a"]
@@ -687,6 +688,7 @@ size = Vector2(48, 62)
 collision_mask = 2
 script = ExtResource("1_hcpjn")
 speed = 100
+mira_cursor = ExtResource("2_yy7ku")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1219376306 groups=["player"]]
 position = Vector2(0, -25.999998)
@@ -695,6 +697,7 @@ sprite_frames = SubResource("SpriteFrames_lbm5c")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87059315]
+visible = false
 position = Vector2(0, 4.5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_oua2g")
@@ -713,6 +716,7 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="." unique_id=1122721258]
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1956683806]
+visible = false
 collision_layer = 8
 collision_mask = 2
 

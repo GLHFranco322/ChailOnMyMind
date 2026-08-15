@@ -13,7 +13,7 @@ extends Node2D
 var musica_cambiada := false
 
 func _ready() -> void:
-	# Empieza sin colisión
+# Empieza sin colisión
 	line_black_collision.disabled = true
 	
 	for marker in marker_principal.get_children():
