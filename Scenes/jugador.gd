@@ -19,7 +19,7 @@ extends CharacterBody2D
 signal balas_cambiadas(actuales: int, maximas: int)
 
 var tiempo_paso: float = 0.0
-
+var stamina_hud = null
 var bullet = preload("res://Scenes/bullet.tscn")  # ← bala
 var tiene_gun: bool = false                        # ← antes true, ahora false
 var max_bullets: int = 10
@@ -44,6 +44,8 @@ func _ready() -> void:
 	var hud = get_tree().get_first_node_in_group("hud_balas")
 	if hud:
 		balas_cambiadas.connect(hud.actualizar_balas)
+
+	stamina_hud = get_tree().get_first_node_in_group("StaminaBar")
 
 func _physics_process(delta):
 	
@@ -124,7 +126,23 @@ func _physics_process(delta):
 		cansado = false
 	
 	stamina = clamp(stamina, 0.0, stamina_max)
-	bar.value = stamina
+
+# Actualizar StaminaBar
+	if stamina_hud:
+		stamina_hud.value = (stamina / stamina_max) * 100.0
+
+	# Mostrar mientras corres
+	if Input.is_action_pressed("Run"):
+		stamina_hud.visible = true
+	
+	# Mostrar mientras se está regenerando
+	elif stamina < stamina_max and not is_running:
+		stamina_hud.visible = true
+	
+	# Ocultar cuando está completa
+	else:
+		stamina_hud.visible = false
+
 	
 	if Input.is_action_just_pressed("Attack") and not is_attacking:
 		start_attack()
@@ -136,7 +154,7 @@ func _physics_process(delta):
 func shoot():
 	if current_bullets <= 0:
 		print("Sin balas!")
-		mostrar_mensaje("sin munición")
+		mostrar_mensaje("sin munición", false)
 		return
 	
 	sonido_disparo.play()
@@ -154,6 +172,11 @@ func shoot():
 func pick_up_gun() -> void:
 	tiene_gun = true
 	current_bullets = max_bullets
+	
+	var hud = get_tree().get_first_node_in_group("BalasLabel")
+	if hud:
+		hud.actualizar_balas(current_bullets, max_bullets)
+	
 	balas_cambiadas.emit(current_bullets, max_bullets)
 	Input.set_custom_mouse_cursor(mira_cursor, Input.CURSOR_ARROW, Vector2(16, 16))
 	print("Gun equipada! Balas: ", current_bullets)
@@ -287,7 +310,7 @@ func morir() -> void:
 
 	await anim.animation_finished
 
-	get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
+	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
 
 func _on_hitbox_body_entered(body):
 	if (body.is_in_group("enemy") or body.is_in_group("Enemigos")) and not already_hit:
@@ -317,10 +340,10 @@ func curar(cantidad: int) -> void:
 		vida_bar.value = vidaJugador
 
 
-func mostrar_mensaje(texto: String) -> void:
+func mostrar_mensaje(texto: String, mostrar_continuar: bool = true) -> void:
 	var ui = get_tree().get_first_node_in_group("ui_mensajes")
 	if ui:
-		ui.mostrar_texto(texto.to_upper())
+		ui.mostrar_texto(texto.to_upper(), mostrar_continuar)
 		
 		await get_tree().create_timer(1.5).timeout
 		

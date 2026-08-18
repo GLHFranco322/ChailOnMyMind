@@ -5,8 +5,12 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 
-func mostrar_texto(texto: String) -> void:
-	text = texto
+func mostrar_texto(texto: String, mostrar_continuar: bool = true) -> void:
+	if mostrar_continuar:
+		text = texto + "\n\nPRESIONA E PARA CONTINUAR"
+	else:
+		text = texto
+	
 	visible = true
 
 func esperar_cierre() -> void:
