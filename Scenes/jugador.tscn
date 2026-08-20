@@ -678,8 +678,9 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oua2g"]
-size = Vector2(78, 74)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yy7ku"]
+radius = 28.0
+height = 78.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vc6x"]
 size = Vector2(48, 62)
@@ -697,10 +698,9 @@ sprite_frames = SubResource("SpriteFrames_lbm5c")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87059315]
-visible = false
 position = Vector2(0, 4.5)
 scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_oua2g")
+shape = SubResource("CapsuleShape2D_yy7ku")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=576862911]
 visible = false

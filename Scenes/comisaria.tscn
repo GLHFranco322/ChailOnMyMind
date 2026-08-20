@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dnxhgf3swqogy" path="res://Assets/Guardia/NPCGuardia.tscn" id="9_gyqgi"]
 [ext_resource type="FontFile" uid="uid://cjgo341y84nk7" path="res://Fuentes de Texto/Inky Thin Pixels.ttf" id="11_aq3x4"]
 [ext_resource type="Script" uid="uid://clvrddxdv5y70" path="res://Scenes/label_mensaje.gd" id="11_u3bvy"]
-[ext_resource type="Script" uid="uid://c1m85h70rgs26" path="res://Scenes/stamina_bar.gd" id="13_s0n1p"]
+[ext_resource type="Script" path="res://Scenes/stamina_bar.gd" id="13_s0n1p"]
 [ext_resource type="PackedScene" uid="uid://bpcibjj1lxe74" path="res://Scenes/obscure.tscn" id="14_0r1u1"]
 [ext_resource type="PackedScene" uid="uid://bd7v6rrsvgxll" path="res://Scenes/puerta_final.tscn" id="14_y5c7o"]
 [ext_resource type="PackedScene" uid="uid://d0okiva75l8rl" path="res://Scenes/boton_final.tscn" id="15_0r1u1"]
@@ -20594,6 +20594,7 @@ position = Vector2(-66, -1519)
 position = Vector2(424.99997, -2507)
 scale = Vector2(0.7, 0.7)
 collision_mask = 1
+mira_cursor = null
 metadata/_edit_group_ = true
 
 [node name="Camera2D2" type="Camera2D" parent="Jugador" unique_id=1414688960]

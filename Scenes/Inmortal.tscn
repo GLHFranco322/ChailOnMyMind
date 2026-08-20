@@ -271,8 +271,9 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hagk"]
-size = Vector2(46, 43)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0lw4l"]
+radius = 22.0
+height = 63.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bcbr7"]
 size = Vector2(46, 29)
@@ -289,7 +290,7 @@ animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=584165859]
 position = Vector2(0, 9.5)
-shape = SubResource("RectangleShape2D_2hagk")
+shape = SubResource("CapsuleShape2D_0lw4l")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=475936457]
 
